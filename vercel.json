@@ -1,5 +1,5 @@
 {
-  "buildCommand": "hugo --gc --minify --baseURL \"https://bxl666.top\" && rm public/index.xml",
+  "buildCommand": "hugo --gc --minify --baseURL \"https://bxl666.top\" && rm -f public/index.xml",
   "outputDirectory": "public",
   "cleanUrls": true
 }

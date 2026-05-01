@@ -1,9 +1,5 @@
 {
-  "buildCommand": "hugo --gc --minify --baseURL \"https://bxl666.top\"",
+  "buildCommand": "hugo --gc --minify --baseURL \"https://bxl666.top\" && rm public/index.xml",
   "outputDirectory": "public",
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/:path*/", "destination": "/:path*/index.html" }
-  ]
+  "cleanUrls": true
 }

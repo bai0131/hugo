@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <div class="article-detail">
+    <a href="/" class="back-link">← 返回主页</a>
+    <h1 class="article-detail__title">{{ .Title }}</h1>
+    <div class="article-detail__meta">
+      <span>{{ .Date.Format "2006年1月2日 · Monday" }}</span>
+      {{ range .Params.categories }}
+      <span class="article-detail__tag">
+        {{- if eq . "software" }}软件{{ else if eq . "games" }}游戏{{ else if eq . "system" }}系统{{ else }}{{ . }}{{ end -}}
+      </span>
+      {{ end }}
+    </div>
+    <div class="article-detail__body">
+      {{ .Content }}
+    </div>
+    <div class="post-end-sign">--- END OF FILE ---</div>
+    {{ partial "comments.html" . }}
+  </div>
+{{ end }}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale | default `zh-cn` }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <div class="cyber-left">
+    <div class="cyber-line"></div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">FPS</span>
+      <span class="cyber-value" id="cyFps">60</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">MEM</span>
+      <span class="cyber-value" id="cyMem">0.0MB</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">BAT</span>
+      <span class="cyber-value" id="cyBat">--%</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">SCRL</span>
+      <span class="cyber-value" id="cyScrl">0%</span>
+    </div>
+  </div>
+  <div class="cyber-right">
+    <div class="cyber-line"></div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">PING</span>
+      <span class="cyber-value" id="cyPing">--ms</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">CLOCK</span>
+      <span class="cyber-value" id="cyClock">--:--:--</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">UP</span>
+      <span class="cyber-value" id="cyUptime">0d</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">BRW</span>
+      <span class="cyber-value" id="cyBrowser">--</span>
+    </div>
+  </div>
+  {{ partial "header.html" . }}
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer.html" . }}
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+  {{ partial "scripts.html" . }}
+</body>
+</html>

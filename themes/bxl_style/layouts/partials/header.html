@@ -1,0 +1,19 @@
+<header class="navbar">
+  <div class="navbar__left">
+    <a class="navbar__logo" href="{{ "" | relURL }}">{{ site.Title }}</a>
+  </div>
+  <nav class="navbar__links">
+    <a href="{{ "" | relURL }}" class="navbar__link{{ if .IsHome }} active{{ end }}">主页</a>
+    <a href="{{ "about" | relURL }}" class="navbar__link{{ if eq .RelPermalink "/about/" }} active{{ end }}">关于</a>
+  </nav>
+  <div class="navbar__actions">
+    <button class="theme-toggle" id="themeToggle" title="切换主题">
+      <span class="icon-sun">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </span>
+      <span class="icon-moon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+    </button>
+  </div>
+</header>

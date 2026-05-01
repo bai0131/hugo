@@ -1,0 +1,15 @@
+baseURL: "https://bxl666.top"
+locale: "zh-cn"
+title: "Bai's Blog"
+theme: "bxl_style"
+
+params:
+  description: "你说你会哭，不是因为在乎."
+  author: "Bai"
+
+taxonomies:
+  category: categories
+
+markup:
+  highlight:
+    style: atom-one-dark

@@ -1,6 +1,6 @@
 {
-  "installCommand": "curl -sSL https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_linux-amd64.tar.gz -o hugo.tar.gz && tar xzf hugo.tar.gz && mv hugo /usr/local/bin/hugo",
-  "buildCommand": "hugo --gc --minify --baseURL \"https://bxl666.top\" && rm -f public/index.xml",
+  "installCommand": "curl -sSL https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_linux-amd64.tar.gz -o hugo.tar.gz && tar xzf hugo.tar.gz",
+  "buildCommand": "./hugo --gc --minify --baseURL \"https://bxl666.top\" --cleanDestinationDir && rm -f public/index.xml",
   "outputDirectory": "public",
   "cleanUrls": true
 }

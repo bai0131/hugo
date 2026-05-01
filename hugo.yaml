@@ -3,6 +3,9 @@ locale: "zh-cn"
 title: "Bai's Blog"
 theme: "bxl_style"
 
+outputs:
+  home: ["HTML"]
+
 params:
   description: "你说你会哭，不是因为在乎."
   author: "Bai"

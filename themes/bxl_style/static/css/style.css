@@ -1,5 +1,7 @@
+@import url('https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+
 /* ===========================================================
-   style.css — 亚克力毛玻璃播客风格
+   style.css — 极简纯净衬线字体风格
    =========================================================== */
 
 /* ===========================================================
@@ -158,6 +160,8 @@ body.dark {
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
 }
 
 /* ===========================================================
@@ -166,12 +170,14 @@ html {
 body {
   position: relative;
   min-height: 100vh;
+  -webkit-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
   background-image: url('/bg.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  font-family: "Times New Roman", "Songti SC", "Noto Serif SC", STSong, "SimSun", serif;
+  font-family: 'Noto Serif SC', "Source Han Serif SC", "SongTi SC", "PT Serif", serif;
   color: var(--text-primary);
   line-height: 1.7;
   transition: color 0.3s ease;
@@ -179,7 +185,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 背景暗色叠加层 —— 确保浅色玻璃上的白字可读 */
+/* 背景暗色叠加层 —— 既然全透明了，如果想要一点点暗度可以在这调，不需要可改为0 */
 body::before {
   content: '';
   position: fixed;
@@ -203,6 +209,83 @@ body.dark::before {
   max-width: 1100px;
   margin: 0 auto;
   padding: 60px 20px 100px;
+  view-transition-name: main-content;
+}
+
+/* ===========================================================
+   全屏居中引导页容器
+   =========================================================== */
+.pure-center-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===========================================================
+   毛玻璃通用阅读容器 (现在按要求已改为100%纯透明)
+   =========================================================== */
+.glass-container {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 80px auto 60px;
+  padding: 40px 44px;
+  box-sizing: border-box;
+  position: relative;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 16px;
+  box-shadow: none !important;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  animation: paperSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.dark .glass-container {
+  background: transparent !important;
+  border: none !important;
+}
+
+@media (max-width: 860px) {
+  .glass-container {
+    padding: 24px 20px;
+    margin-top: 70px;
+  }
+}
+
+/* ===========================================================
+   View Transitions (原生 SPA 路由过渡)
+   =========================================================== */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-old(main-content) {
+  animation: fade-out 0.25s cubic-bezier(0.4, 0, 1, 1) both;
+}
+::view-transition-new(main-content) {
+  animation: fade-in 0.25s cubic-bezier(0, 0, 0.2, 1) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-15px); }
 }
 
 /* ===========================================================
@@ -647,9 +730,9 @@ body:not(.dark) .icon-moon {
    导航栏 —— 赛博极简
    =========================================================== */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -668,11 +751,12 @@ body:not(.dark) .icon-moon {
 }
 
 .navbar__logo {
-  font-size: 1.15rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
   letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .navbar__links {
@@ -681,11 +765,12 @@ body:not(.dark) .icon-moon {
 }
 
 .navbar__link {
-  font-size: 0.82rem;
+  font-size: 1rem;
   color: var(--text-tertiary);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .navbar__link:hover,
@@ -2185,4 +2270,784 @@ body.dark .profile-board__avatar {
   backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(15px) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ===========================================================
+   强制所有容器透明，去掉所有的玻璃罩和白底
+   =========================================================== */
+.main, .main-inner, .post-single, .post-list, .comments, article, .container, .card, .bg-white, .glass-container, .profile-board, .page, .content, .post-content, .article-card, .article-detail {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+/* 确保文字在复杂背景上能看清 — 极简纯净无特效 */
+body, a, h1, h2, h3, h4, h5, h6, p, span, li, div {
+    font-family: 'Noto Serif SC', "Source Han Serif SC", "SongTi SC", "PT Serif", serif !important;
+    color: #f5f5f5 !important;
+    text-shadow: none !important;
+    -webkit-text-stroke: 0 !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+}
+
+h1, h2, h3 {
+    font-weight: 700 !important;
+}
+
+/* 保证音乐播放器和评论区的输入框不受阴影影响，否则会很丑 */
+input, textarea, button, .aplayer * {
+    -webkit-text-stroke: 0 !important;
+    text-shadow: none !important;
+    color: inherit !important;
+}
+
+/* ===========================================================
+   暴力去除所有可能的容器背景和边框
+   =========================================================== */
+.main-inner, .post-single, .page, .content, article {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ===========================================================
+   欢迎页 — 全屏满铺 Flexbox 布局
+   =========================================================== */
+.container--home {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw !important;
+  height: 100vh !important;
+  font-size: 1.5rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.welcome-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 60px 40px;
+  animation: paperSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.main-index-container .welcome-card__avatar {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.welcome-card__avatar:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.2);
+}
+
+.main-index-container .welcome-card__name {
+  font-size: 3rem !important;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px !important;
+}
+
+.main-index-container .welcome-card__bio {
+  font-size: 1.8rem !important;
+  opacity: 0.82;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  max-width: 480px;
+  text-align: center;
+  margin-bottom: 30px !important;
+}
+
+.welcome-card__social {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 8px;
+}
+
+.social-icon {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.social-icon:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.welcome-card__enter {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 36px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: all 0.35s ease;
+}
+
+.welcome-card__enter:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ===========================================================
+   社交信息模块 (social_header)
+   =========================================================== */
+.social-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 18px;
+  padding: 32px 36px;
+  margin-bottom: 24px;
+}
+
+.social-header__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.social-header__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.social-header__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.social-header__bio {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.78);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.social-header__icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+/* ===========================================================
+   文章流列表 (posts_list_stream)
+   =========================================================== */
+.posts-stream {
+  padding: 28px 36px;
+  margin-bottom: 24px;
+}
+
+.posts-stream__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.posts-stream__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.posts-stream__link {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.posts-stream__link:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.posts-stream__date {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  margin-left: 16px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.posts-stream__empty {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 20px 0;
+}
+
+/* ===========================================================
+   主页播放器容器
+   =========================================================== */
+.home-player {
+  padding: 32px 36px;
+  margin-bottom: 24px;
+}
+
+/* ===========================================================
+   移动端响应式适配 (屏幕宽度 < 768px)
+   =========================================================== */
+@media screen and (max-width: 768px) {
+  .main-index-container .welcome-card__name {
+    font-size: 2rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .main-index-container .welcome-card__bio {
+    font-size: 1.2rem !important;
+    padding: 0 20px !important;
+  }
+
+  .main-index-container .welcome-card__avatar {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .main-index-container .welcome-card__enter {
+    font-size: 0.85rem !important;
+    padding: 8px 28px !important;
+  }
+
+  .v4-home-container,
+  .custom-transparent-home {
+    width: 90% !important;
+    padding-top: 20px !important;
+  }
+}
+
+/* =========================================
+   恢复单篇文章详情页的白底卡片阅读模式
+   ========================================= */
+.article-detail,
+.post-single {
+  background-color: #ffffff !important;
+  border-radius: 12px !important;
+  padding: 40px !important;
+  margin-top: 40px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.article-detail .post-content p,
+.article-detail .post-content li,
+.article-detail .post-content blockquote,
+.article-detail .post-content table,
+.article-detail p,
+.article-detail li,
+.post-single .post-content p,
+.post-single .post-content li,
+.post-single .post-content blockquote,
+.post-single .post-content table,
+.post-single p,
+.post-single li {
+  color: #333333 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.article-detail h1,
+.article-detail h2,
+.article-detail h3,
+.article-detail h4,
+.article-detail h5,
+.article-detail h6,
+.post-single h1,
+.post-single h2,
+.post-single h3,
+.post-single h4,
+.post-single h5,
+.post-single h6 {
+  color: #111111 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.article-detail a,
+.post-single a {
+  color: #2a6df4 !important;
+  text-shadow: none !important;
+}
+
+.article-detail .back-link,
+.post-single .back-link {
+  color: #555 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .article-detail,
+  .post-single {
+    padding: 20px !important;
+    margin-top: 20px !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* =========================================
+   代码块高亮保护与美化 (VIP 区域)
+   ========================================= */
+.post-single .highlight {
+  background-color: #282c34 !important;
+  border-radius: 8px !important;
+  padding: 15px !important;
+  margin: 20px 0 !important;
+  overflow-x: auto !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.post-single .highlight *,
+.post-single pre,
+.post-single pre span,
+.post-single code {
+  color: unset !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.post-single p code,
+.post-single li code {
+  background-color: #f0f0f0 !important;
+  color: #e83e8c !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 0.9em !important;
+}
+
+/* =========================================
+   抢救文章标题下方元数据（日期、分类标签）
+   ========================================= */
+.article-detail__meta,
+.article-detail__meta span,
+.article-detail__meta a,
+.article-detail__tag {
+  color: #666666 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+/* =========================================
+   抢救文章底部结束标志
+   ========================================= */
+.post-end-sign {
+  color: #aaaaaa !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+/* =========================================
+   V4 评论区全透明与玻璃质感重构
+   ========================================= */
+.comments, #twikoo, #tcomment, .tk-comments {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+#tcomment *, #twikoo *, .comments * {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.tk-input .el-input__inner,
+.tk-input .el-textarea__inner {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  border-radius: 6px !important;
+}
+
+.tk-input .el-input__inner::placeholder,
+.tk-input .el-textarea__inner::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.tk-submit-action .el-button,
+.tk-submit-action .el-button--primary {
+  background-color: rgba(64, 158, 255, 0.8) !important;
+  border: none !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.tk-content {
+  background: transparent !important;
+}
+
+input, textarea, button, .aplayer * {
+  text-shadow: none !important;
+  color: inherit !important;
+}
+
+/* =========================================
+   V4 暗黑模式 (Dark Mode) 完美适配
+   ========================================= */
+.dark .article-detail,
+.dark .post-single {
+  background-color: rgba(30, 30, 30, 0.92) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .article-detail .post-content p,
+.dark .article-detail .post-content li,
+.dark .article-detail .post-content blockquote,
+.dark .article-detail .post-content table,
+.dark .article-detail p,
+.dark .article-detail li,
+.dark .article-detail div,
+.dark .post-single .post-content p,
+.dark .post-single .post-content li,
+.dark .post-single .post-content blockquote,
+.dark .post-single .post-content table,
+.dark .post-single p,
+.dark .post-single li,
+.dark .post-single div {
+  color: #e0e0e0 !important;
+}
+
+.dark .article-detail h1,
+.dark .article-detail h2,
+.dark .article-detail h3,
+.dark .article-detail h4,
+.dark .article-detail h5,
+.dark .article-detail h6,
+.dark .post-single h1,
+.dark .post-single h2,
+.dark .post-single h3,
+.dark .post-single h4,
+.dark .post-single h5,
+.dark .post-single h6 {
+  color: #ffffff !important;
+}
+
+.dark .article-detail__meta,
+.dark .article-detail__meta span,
+.dark .article-detail__meta a,
+.dark .article-detail__tag,
+.dark .post-single .post-header span,
+.dark .post-single .post-meta,
+.dark .post-single .post-meta span,
+.dark .post-single .post-meta a {
+  color: #999999 !important;
+}
+
+.dark .article-detail a,
+.dark .post-single a {
+  color: #6db3f8 !important;
+}
+
+.dark .article-detail .back-link,
+.dark .post-single .back-link {
+  color: #888 !important;
+}
+
+.dark .post-end-sign {
+  color: #555 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .dark .article-detail,
+  .dark .post-single {
+    border-radius: 8px !important;
+  }
+}
+
+/* =========================================
+   文章专属评论区：恢复标准卡片样式 (隔离主页透明特效)
+   ========================================= */
+.article-detail #tcomment *,
+.article-detail #twikoo *,
+.article-detail .comments *,
+.post-single #tcomment *,
+.post-single #twikoo *,
+.post-single .comments * {
+  color: #333333 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.article-detail .tk-input .el-input__inner,
+.article-detail .tk-input .el-textarea__inner,
+.post-single .tk-input .el-input__inner,
+.post-single .tk-input .el-textarea__inner {
+  background-color: #ffffff !important;
+  border: 1px solid #dcdfe6 !important;
+  color: #333333 !important;
+  border-radius: 4px !important;
+  text-shadow: none !important;
+}
+
+.article-detail .tk-input .el-input__inner::placeholder,
+.article-detail .tk-input .el-textarea__inner::placeholder,
+.post-single .tk-input .el-input__inner::placeholder,
+.post-single .tk-input .el-textarea__inner::placeholder {
+  color: #99a9bf !important;
+}
+
+.article-detail .tk-submit-action .el-button--primary,
+.post-single .tk-submit-action .el-button--primary {
+  background-color: #8bb9fb !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.dark .article-detail #tcomment *,
+.dark .article-detail #twikoo *,
+.dark .article-detail .comments *,
+.dark .post-single #tcomment *,
+.dark .post-single #twikoo *,
+.dark .post-single .comments * {
+  color: #e0e0e0 !important;
+}
+
+.dark .article-detail .tk-input .el-input__inner,
+.dark .article-detail .tk-input .el-textarea__inner,
+.dark .post-single .tk-input .el-input__inner,
+.dark .post-single .tk-input .el-textarea__inner {
+  background-color: #1a1a1a !important;
+  border: 1px solid #444444 !important;
+  color: #ffffff !important;
+}
+
+/* =========================================
+   V4 音乐页：最终秩序重建（防重叠垂直流）
+   ========================================= */
+.v4-music-container .aplayer {
+  background: rgba(20, 20, 20, 0.7) !important;
+  backdrop-filter: blur(15px) !important;
+  border-radius: 20px !important;
+  padding: 30px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+  min-height: 600px !important;
+}
+
+.v4-music-container .aplayer-body,
+.v4-music-container .aplayer-info,
+.v4-music-container .aplayer-lrc,
+.v4-music-container .aplayer-lrc-contents {
+  position: static !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.v4-music-container .aplayer-pic {
+  width: 200px !important;
+  height: 200px !important;
+  margin: 0 auto 20px !important;
+  border-radius: 12px !important;
+  flex-shrink: 0 !important;
+  float: none !important;
+}
+
+.v4-music-container .aplayer-music {
+  text-align: center !important;
+  margin-bottom: 15px !important;
+}
+
+.v4-music-container .aplayer-title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+.v4-music-container .aplayer-author {
+  font-size: 13px !important;
+  color: #bbb !important;
+}
+
+.v4-music-container .aplayer-controller {
+  margin-bottom: 20px !important;
+}
+
+.v4-music-container .aplayer-lrc {
+  height: 150px !important;
+  margin: 10px 0 20px !important;
+  text-align: center !important;
+  overflow: hidden !important;
+}
+
+.v4-music-container .aplayer-lrc p {
+  font-size: 14px !important;
+  line-height: 30px !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  transition: all 0.3s ease;
+}
+
+.v4-music-container .aplayer-lrc p.aplayer-lrc-current {
+  font-size: 18px !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.v4-music-container .aplayer-list {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  max-height: 200px !important;
+  overflow-y: auto !important;
+}
+
+.v4-music-container .aplayer-list ol li {
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 12px !important;
+  color: #cccccc !important;
+}
+
+.v4-music-container .aplayer-list ol li:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.v4-music-container .aplayer-list ol li.aplayer-list-light {
+  background: rgba(64, 158, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+/* ========================================= 
+   V4 主页音乐：单行歌词绝对封印（终极防挤压） 
+========================================= */ 
+
+/* 1. 强制主页播放器外壳：垂直拉开呼吸感 */ 
+#aplayer-home, .home-music-container .aplayer { 
+    height: auto !important; 
+    min-height: 150px !important; /* 给够垂直空间，不准零件打架 */ 
+    display: flex !important; 
+    flex-direction: column !important; 
+    padding: 20px !important; 
+    background: rgba(255, 255, 255, 0.1) !important; 
+    backdrop-filter: blur(10px) !important; 
+} 
+
+/* 2. 歌名信息：占领最上层 */ 
+.home-music-container .aplayer .aplayer-info { 
+    order: 1 !important; 
+    margin-bottom: 10px !important; 
+    display: block !important; 
+} 
+
+/* 3. 核心：针孔式单行歌词窗口（中间层） */ 
+.home-music-container .aplayer .aplayer-lrc { 
+    order: 2 !important; 
+    position: relative !important; 
+    top: 0 !important; 
+    /* 【封印核心：高度必须严格等于行高，且绝对隐藏溢出】 */ 
+    height: 30px !important;      
+    line-height: 30px !important; 
+    margin: 10px 0 !important; 
+    overflow: hidden !important;   
+    display: block !important; 
+} 
+
+/* 强制内部所有 P 标签（歌词）高度一致，防止下一句露出头 */ 
+.home-music-container .aplayer .aplayer-lrc p { 
+    height: 30px !important; 
+    line-height: 30px !important; 
+    font-size: 14px !important; 
+    margin: 0 !important; 
+    padding: 0 !important; 
+    color: #ffffff !important; 
+    opacity: 1 !important; /* 强制全亮 */ 
+    /* 移除 APlayer 可能存在的位移干扰 */ 
+    transform: none !important; 
+} 
+
+/* 隐藏 APlayer 默认的上下遮罩阴影，防止画面脏乱 */ 
+.home-music-container .aplayer .aplayer-lrc::before, 
+.home-music-container .aplayer .aplayer-lrc::after { 
+    display: none !important; 
+} 
+
+/* 4. 控制条与进度条：占领底层 */ 
+.home-music-container .aplayer-controller { 
+    order: 3 !important; 
+    margin-top: 10px !important; 
+} 
+
+/* 自动适配：主页实际使用的 hero-player 流线型优化 */
+.home-player {
+  max-width: 650px !important;
+  width: 95% !important;
+  margin: 20px auto 24px !important;
+  padding: 24px 28px !important;
+}
+
+.home-player .hp-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.home-player .hp-artist {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.home-player .hp-lyrics {
+  height: 20px !important;
+  line-height: 20px !important;
+  margin: 4px 0 !important;
+  overflow: hidden !important;
+}
+
+.home-player .lyric-line {
+  height: 20px !important;
+  line-height: 20px !important;
+  font-size: 13px !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.home-player .hp-btn,
+.home-player .hp-btn-play {
+  color: #ffffff !important;
 }

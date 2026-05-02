@@ -1,63 +1,63 @@
-@import url('https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+﻿@import url('https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
 
 /* ===========================================================
-   style.css — 极简纯净衬线字体风格
+   style.css 鈥?鏋佺畝绾噣琛嚎瀛椾綋椋庢牸
    =========================================================== */
 
 /* ===========================================================
-   CSS 变量 —— 统一管理玻璃材质与主题色
+   CSS 鍙橀噺 鈥斺€?缁熶竴绠＄悊鐜荤拑鏉愯川涓庝富棰樿壊
    =========================================================== */
 :root {
-  /* 玻璃面板 */
+  /* 鐜荤拑闈㈡澘 */
   --glass-bg: rgba(255, 255, 255, 0.15);
   --glass-bg-hover: rgba(255, 255, 255, 0.22);
   --glass-border: rgba(255, 255, 255, 0.25);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   --glass-blur: blur(12px);
 
-  /* 文字 */
+  /* 鏂囧瓧 */
   --text-primary: #fff;
   --text-secondary: rgba(255, 255, 255, 0.82);
   --text-tertiary: rgba(255, 255, 255, 0.58);
   --text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   --text-shadow-strong: 0 1px 4px rgba(0, 0, 0, 0.5);
 
-  /* 强调色 */
+  /* 寮鸿皟鑹?*/
   --accent: #f4a261;
   --accent-hover: #e09150;
 
-  /* 标签 */
+  /* 鏍囩 */
   --tag-bg: rgba(255, 255, 255, 0.15);
   --tag-text: rgba(255, 255, 255, 0.85);
   --tag-active-bg: var(--accent);
   --tag-active-text: #1a1a1a;
 
-  /* 按钮 & 输入 */
+  /* 鎸夐挳 & 杈撳叆 */
   --btn-glass-bg: rgba(255, 255, 255, 0.12);
   --btn-glass-border: rgba(255, 255, 255, 0.18);
   --btn-glass-hover: rgba(255, 255, 255, 0.2);
 
-  /* 分割线 */
+  /* 鍒嗗壊绾?*/
   --divider: rgba(255, 255, 255, 0.15);
 
-  /* 展开面板 */
+  /* 灞曞紑闈㈡澘 */
   --expand-bg: rgba(255, 255, 255, 0.08);
 
-  /* 灯箱 */
+  /* 鐏 */
   --overlay-bg: rgba(0, 0, 0, 0.88);
 
-  /* 缩略图底 */
+  /* 缂╃暐鍥惧簳 */
   --thumbnail-bg: rgba(255, 255, 255, 0.1);
 
-  /* 主题切换按钮 */
+  /* 涓婚鍒囨崲鎸夐挳 */
   --toggle-bg: rgba(255, 255, 255, 0.18);
   --toggle-border: rgba(255, 255, 255, 0.25);
   --toggle-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 
-  /* 加载器 */
+  /* 鍔犺浇鍣?*/
   --spinner-track: rgba(255, 255, 255, 0.2);
 
-  /* 文章卡片 */
+  /* 鏂囩珷鍗＄墖 */
   --card-bg: rgba(255, 255, 255, 0.75);
   --card-border: rgba(0, 0, 0, 0.1);
   --card-hover-bg: rgba(255, 255, 255, 0.88);
@@ -70,7 +70,7 @@
   --card-tag-bg: rgba(0, 0, 0, 0.06);
   --card-tag-text: rgba(0, 0, 0, 0.6);
 
-  /* 纸张面板 */
+  /* 绾稿紶闈㈡澘 */
   --paper-bg: #ffffff;
   --paper-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   --paper-text: #333333;
@@ -150,7 +150,7 @@ body.dark {
 }
 
 /* ===========================================================
-   全局重置
+   鍏ㄥ眬閲嶇疆
    =========================================================== */
 *, *::before, *::after {
   margin: 0;
@@ -165,7 +165,7 @@ html {
 }
 
 /* ===========================================================
-   全屏固定背景
+   鍏ㄥ睆鍥哄畾鑳屾櫙
    =========================================================== */
 body {
   position: relative;
@@ -185,7 +185,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 背景暗色叠加层 —— 既然全透明了，如果想要一点点暗度可以在这调，不需要可改为0 */
+/* 鑳屾櫙鏆楄壊鍙犲姞灞?鈥斺€?鏃㈢劧鍏ㄩ€忔槑浜嗭紝濡傛灉鎯宠涓€鐐圭偣鏆楀害鍙互鍦ㄨ繖璋冿紝涓嶉渶瑕佸彲鏀逛负0 */
 body::before {
   content: '';
   position: fixed;
@@ -200,7 +200,7 @@ body.dark::before {
 }
 
 /* ===========================================================
-   主容器 —— 最大宽度 1100px 居中
+   涓诲鍣?鈥斺€?鏈€澶у搴?1100px 灞呬腑
    =========================================================== */
 .container {
   position: relative;
@@ -213,7 +213,7 @@ body.dark::before {
 }
 
 /* ===========================================================
-   全屏居中引导页容器
+   鍏ㄥ睆灞呬腑寮曞椤靛鍣?
    =========================================================== */
 .pure-center-wrapper {
   min-height: 100vh;
@@ -224,7 +224,7 @@ body.dark::before {
 }
 
 /* ===========================================================
-   毛玻璃通用阅读容器 (现在按要求已改为100%纯透明)
+   姣涚幓鐠冮€氱敤闃呰瀹瑰櫒 (鐜板湪鎸夎姹傚凡鏀逛负100%绾€忔槑)
    =========================================================== */
 .glass-container {
   display: block;
@@ -258,7 +258,7 @@ body.dark .glass-container {
 }
 
 /* ===========================================================
-   View Transitions (原生 SPA 路由过渡)
+   View Transitions (鍘熺敓 SPA 璺敱杩囨浮)
    =========================================================== */
 @view-transition {
   navigation: auto;
@@ -289,7 +289,7 @@ body.dark .glass-container {
 }
 
 /* ===========================================================
-   赛博监控侧边栏 —— 全能实时监控面板
+   璧涘崥鐩戞帶渚ц竟鏍?鈥斺€?鍏ㄨ兘瀹炴椂鐩戞帶闈㈡澘
    =========================================================== */
 @keyframes cyber-blink {
   0%, 100% { opacity: 0.18; }
@@ -359,7 +359,7 @@ body.dark .glass-container {
 }
 
 /* ===========================================================
-   主题切换按钮 —— 线条艺术 · 亚克力环
+   涓婚鍒囨崲鎸夐挳 鈥斺€?绾挎潯鑹烘湳 路 浜氬厠鍔涚幆
    =========================================================== */
 .theme-toggle {
   width: 40px;
@@ -409,7 +409,7 @@ body:not(.dark) .icon-moon {
 }
 
 /* ===========================================================
-   文章容器 —— 亚克力毛玻璃（Markdown 动态渲染）
+   鏂囩珷瀹瑰櫒 鈥斺€?浜氬厠鍔涙瘺鐜荤拑锛圡arkdown 鍔ㄦ€佹覆鏌擄級
    =========================================================== */
 .article-glass {
   display: block;
@@ -432,7 +432,7 @@ body:not(.dark) .icon-moon {
   animation: paperSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ---- 文章内返回链接 ---- */
+/* ---- 鏂囩珷鍐呰繑鍥為摼鎺?---- */
 .article-back-link {
   display: inline-block;
   margin-bottom: 28px;
@@ -448,7 +448,7 @@ body:not(.dark) .icon-moon {
   color: var(--accent);
 }
 
-/* ---- 标题 ---- */
+/* ---- 鏍囬 ---- */
 .article-glass h1 {
   font-size: 1.75rem;
   font-weight: 800;
@@ -494,13 +494,13 @@ body:not(.dark) .icon-moon {
   margin-top: 0;
 }
 
-/* ---- 段落 ---- */
+/* ---- 娈佃惤 ---- */
 .article-glass p {
   margin-bottom: 14px;
   text-align: justify;
 }
 
-/* ---- 链接 ---- */
+/* ---- 閾炬帴 ---- */
 .article-glass a {
   color: var(--accent);
   text-decoration: underline;
@@ -512,7 +512,7 @@ body:not(.dark) .icon-moon {
   text-decoration-color: var(--accent);
 }
 
-/* ---- 加粗 & 斜体 ---- */
+/* ---- 鍔犵矖 & 鏂滀綋 ---- */
 .article-glass strong {
   color: #fff;
   font-weight: 700;
@@ -521,7 +521,7 @@ body:not(.dark) .icon-moon {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ---- 列表 ---- */
+/* ---- 鍒楄〃 ---- */
 .article-glass ul,
 .article-glass ol {
   margin: 10px 0 16px;
@@ -541,7 +541,7 @@ body:not(.dark) .icon-moon {
   margin: 4px 0 6px;
 }
 
-/* ---- 引用块 ---- */
+/* ---- 寮曠敤鍧?---- */
 .article-glass blockquote {
   margin: 18px 0;
   padding: 14px 22px;
@@ -555,7 +555,7 @@ body:not(.dark) .icon-moon {
   margin-bottom: 6px;
 }
 
-/* ---- 行内代码 ---- */
+/* ---- 琛屽唴浠ｇ爜 ---- */
 .article-glass code {
   padding: 2px 8px;
   font-size: 0.9em;
@@ -566,7 +566,7 @@ body:not(.dark) .icon-moon {
   word-break: break-word;
 }
 
-/* ---- 代码块（highlight.js 渲染后） ---- */
+/* ---- 浠ｇ爜鍧楋紙highlight.js 娓叉煋鍚庯級 ---- */
 .article-glass pre {
   margin: 18px 0 22px;
   padding: 0;
@@ -587,14 +587,14 @@ body:not(.dark) .icon-moon {
   white-space: pre;
 }
 
-/* ---- 分割线 ---- */
+/* ---- 鍒嗗壊绾?---- */
 .article-glass hr {
   margin: 30px 0;
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* ---- 图片 ---- */
+/* ---- 鍥剧墖 ---- */
 .article-glass img {
   max-width: 100%;
   height: auto;
@@ -602,7 +602,7 @@ body:not(.dark) .icon-moon {
   border-radius: 6px;
 }
 
-/* ---- 表格 ---- */
+/* ---- 琛ㄦ牸 ---- */
 .article-glass table {
   width: 100%;
   margin: 18px 0;
@@ -621,7 +621,7 @@ body:not(.dark) .icon-moon {
   color: #fff;
 }
 
-/* ---- 响应式 ---- */
+/* ---- 鍝嶅簲寮?---- */
 @media (max-width: 860px) {
   .article-glass {
     margin: 0 0 32px;
@@ -636,7 +636,7 @@ body:not(.dark) .icon-moon {
 }
 
 /* ===========================================================
-   首页文章列表 —— 亚克力毛玻璃
+   棣栭〉鏂囩珷鍒楄〃 鈥斺€?浜氬厠鍔涙瘺鐜荤拑
    =========================================================== */
 .article-list-glass {
   width: 100%;
@@ -727,7 +727,7 @@ body:not(.dark) .icon-moon {
 }
 
 /* ===========================================================
-   导航栏 —— 赛博极简
+   瀵艰埅鏍?鈥斺€?璧涘崥鏋佺畝
    =========================================================== */
 .navbar {
   position: fixed;
@@ -805,7 +805,7 @@ body:not(.dark) .icon-moon {
 }
 
 /* ===========================================================
-   个人信息 —— PaperMod 居中名片
+   涓汉淇℃伅 鈥斺€?PaperMod 灞呬腑鍚嶇墖
    =========================================================== */
 .profile-board {
   display: flex;
@@ -863,7 +863,7 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   Hero Player — 首页 C 位播放器 (v2)
+   Hero Player 鈥?棣栭〉 C 浣嶆挱鏀惧櫒 (v2)
    =========================================================== */
 @keyframes hp-spin {
   from { transform: rotate(0deg); }
@@ -886,14 +886,14 @@ body.dark .profile-board__avatar {
   overflow: hidden;
 }
 
-/* ---- 内层 flex ---- */
+/* ---- 鍐呭眰 flex ---- */
 .hp-inner {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-/* ---- 封面 + 旋转 ---- */
+/* ---- 灏侀潰 + 鏃嬭浆 ---- */
 .hp-cover-wrap {
   flex-shrink: 0;
   width: 72px;
@@ -919,7 +919,7 @@ body.dark .profile-board__avatar {
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* ---- 中间信息 + 歌词 ---- */
+/* ---- 涓棿淇℃伅 + 姝岃瘝 ---- */
 .hp-center {
   flex: 1;
   min-width: 0;
@@ -958,7 +958,7 @@ body.dark .profile-board__avatar {
   align-items: flex-start;
 }
 
-/* ---- 控制按钮 ---- */
+/* ---- 鎺у埗鎸夐挳 ---- */
 .hp-controls {
   display: flex;
   align-items: center;
@@ -1010,7 +1010,7 @@ body.dark .profile-board__avatar {
   box-shadow: 0 0 18px rgba(244, 162, 97, 0.25);
 }
 
-/* ---- 音量滑块 ---- */
+/* ---- 闊抽噺婊戝潡 ---- */
 .hp-volume {
   -webkit-appearance: none;
   appearance: none;
@@ -1042,7 +1042,7 @@ body.dark .profile-board__avatar {
   border: none;
 }
 
-/* ---- 进度条 ---- */
+/* ---- 杩涘害鏉?---- */
 .hp-progress {
   position: relative;
   width: 100%;
@@ -1116,7 +1116,7 @@ body.dark .profile-board__avatar {
   text-shadow: 0 0 14px rgba(244, 162, 97, 0.45), 0 0 2px rgba(244, 162, 97, 0.3);
 }
 
-/* ---- 歌单抽屉 ---- */
+/* ---- 姝屽崟鎶藉眽 ---- */
 .playlist-drawer {
   position: absolute;
   top: 0;
@@ -1196,7 +1196,7 @@ body.dark .profile-board__avatar {
   flex-shrink: 0;
 }
 
-/* ---- 响应式 ---- */
+/* ---- 鍝嶅簲寮?---- */
 @media (max-width: 640px) {
   #hero-player {
     padding: 14px 14px 12px;
@@ -1245,7 +1245,7 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   剧集计数器 & 类型筛选
+   鍓ч泦璁℃暟鍣?& 绫诲瀷绛涢€?
    =========================================================== */
 .episodes-header {
   display: flex;
@@ -1302,7 +1302,7 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   文章卡片 —— 暗黑亚克力
+   鏂囩珷鍗＄墖 鈥斺€?鏆楅粦浜氬厠鍔?
    =========================================================== */
 #article-list-content {
   display: flex;
@@ -1414,7 +1414,7 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   文章详情 —— 实体纸张
+   鏂囩珷璇︽儏 鈥斺€?瀹炰綋绾稿紶
    =========================================================== */
 .article-detail-back {
   display: inline-block;
@@ -1434,7 +1434,7 @@ body.dark .profile-board__avatar {
   background: var(--card-hover-bg);
 }
 
-/* ---- 文章内返回链接 ---- */
+/* ---- 鏂囩珷鍐呰繑鍥為摼鎺?---- */
 .back-link {
   display: inline-block;
   margin-bottom: 18px;
@@ -1503,14 +1503,14 @@ body.dark .profile-board__avatar {
 .article-detail__body a { color: var(--accent); }
 .article-detail__body ul, .article-detail__body ol { margin: 8px 0 14px; padding-left: 22px; }
 .article-detail__body li { margin-bottom: 4px; }
-.article-detail__body blockquote { margin: 16px 0; padding: 10px 20px; border-left: 4px solid #2980b9; background: rgba(150,150,150,0.05); color: var(--paper-muted); font-family: "KaiTi", "楷体", STKaiti, serif !important; font-size: 1.1em; font-style: normal; border-radius: 0 8px 8px 0; }
+.article-detail__body blockquote { margin: 16px 0; padding: 10px 20px; border-left: 4px solid #2980b9; background: rgba(150,150,150,0.05); color: var(--paper-muted); font-family: "KaiTi", "妤蜂綋", STKaiti, serif !important; font-size: 1.1em; font-style: normal; border-radius: 0 8px 8px 0; }
 .article-detail__body code { padding: 2px 6px; background-color: rgba(150,150,150,0.1); color: #c7254e; border-radius: 4px; font-family: Consolas, "Fira Code", monospace; font-size: 0.9em; }
 .article-detail__body pre { margin: 16px 0; padding: 0; border: 1px solid var(--paper-divider); border-radius: 8px; overflow-x: auto; background: #1e1e1e; }
 .article-detail__body pre code { display: block; padding: 16px 20px; background: transparent; color: inherit; font-size: 0.88rem; white-space: pre; }
 .article-detail__body hr { margin: 28px 0; border: none; border-top: 1px solid var(--paper-divider); }
 .article-detail__body img { max-width: 100%; border-radius: 6px; margin: 12px 0; }
 
-/* ---- 文章结束标志 ---- */
+/* ---- 鏂囩珷缁撴潫鏍囧織 ---- */
 .post-end-sign {
   text-align: center;
   font-family: "SF Mono", "Cascadia Code", "Consolas", "Fira Code", monospace;
@@ -1521,7 +1521,7 @@ body.dark .profile-board__avatar {
   user-select: none;
 }
 
-/* ---- 评论区引导标记 ---- */
+/* ---- 璇勮鍖哄紩瀵兼爣璁?---- */
 .guestbook-sign {
   text-align: center;
   font-family: "SF Mono", "Cascadia Code", "Consolas", "Fira Code", monospace;
@@ -1532,7 +1532,7 @@ body.dark .profile-board__avatar {
   user-select: none;
 }
 
-/* ---- Twikoo 评论区 ---- */
+/* ---- Twikoo 璇勮鍖?---- */
 #tcomment {
   margin-top: 10rem !important;
   width: 100%;
@@ -1605,7 +1605,7 @@ body.dark .profile-board__avatar {
   .article-detail__title { font-size: 1.4rem; }
 }
 
-/* ---- type: file —— 下载按钮 ---- */
+/* ---- type: file 鈥斺€?涓嬭浇鎸夐挳 ---- */
 .file-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -1644,7 +1644,7 @@ body.dark .profile-board__avatar {
   font-size: 0.9rem;
 }
 
-/* ---- type: gallery —— 缩略图列表 ---- */
+/* ---- type: gallery 鈥斺€?缂╃暐鍥惧垪琛?---- */
 .gallery-strip {
   display: flex;
   gap: 8px;
@@ -1686,7 +1686,7 @@ body.dark .profile-board__avatar {
   border-color: rgba(255, 255, 255, 0.45);
 }
 
-/* ---- 图片灯箱遮罩 ---- */
+/* ---- 鍥剧墖鐏閬僵 ---- */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -1744,7 +1744,7 @@ body.dark .profile-board__avatar {
   transform: scale(1.08);
 }
 
-/* ---- type: text —— 阅读全文 ---- */
+/* ---- type: text 鈥斺€?闃呰鍏ㄦ枃 ---- */
 .text-expand-btn {
   display: inline-flex;
   align-items: center;
@@ -1769,7 +1769,7 @@ body.dark .profile-board__avatar {
   box-shadow: 0 6px 20px rgba(244, 162, 97, 0.3);
 }
 
-/* 展开后的全文面板 */
+/* 灞曞紑鍚庣殑鍏ㄦ枃闈㈡澘 */
 .text-full-content {
   margin-top: 14px;
   padding: 20px;
@@ -1830,7 +1830,7 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   空状态 & 加载
+   绌虹姸鎬?& 鍔犺浇
    =========================================================== */
 .empty-state {
   text-align: center;
@@ -1869,7 +1869,7 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   页脚 —— 终端风格
+   椤佃剼 鈥斺€?缁堢椋庢牸
    =========================================================== */
 .footer {
   text-align: center;
@@ -1896,7 +1896,7 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   响应式 —— 小屏幕
+   鍝嶅簲寮?鈥斺€?灏忓睆骞?
    =========================================================== */
 @media (max-width: 640px) {
   body {
@@ -1922,15 +1922,15 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   Waline 留言板 —— 强制瘦身 · 极简亚克力
+   Waline 鐣欒█鏉?鈥斺€?寮哄埗鐦﹁韩 路 鏋佺畝浜氬厠鍔?
    =========================================================== */
 
-/* --- 全局盒子模型修复（根治溢出） --- */
+/* --- 鍏ㄥ眬鐩掑瓙妯″瀷淇锛堟牴娌绘孩鍑猴級 --- */
 #waline * {
   box-sizing: border-box !important;
 }
 
-/* ---- 容器 ---- */
+/* ---- 瀹瑰櫒 ---- */
 #waline {
   width: 100%;
   margin: 30px 0 0;
@@ -1944,11 +1944,11 @@ body.dark .profile-board__avatar {
   font-family: "SimSun", "STSong", "Songti SC", "Noto Serif SC", serif;
 }
 
-/* ---- 隐藏多余元素 ---- */
+/* ---- 闅愯棌澶氫綑鍏冪礌 ---- */
 #waline .wl-reaction { display: none !important; }
 #waline .wl-power { display: none !important; }
 
-/* ---- 面板（溢出斩断） ---- */
+/* ---- 闈㈡澘锛堟孩鍑烘柀鏂級 ---- */
 #waline .wl-panel {
   width: 100% !important;
   margin: 0 !important;
@@ -1961,7 +1961,7 @@ body.dark .profile-board__avatar {
   backdrop-filter: blur(10px);
 }
 
-/* ---- 头部 —— 单行紧凑排列 ---- */
+/* ---- 澶撮儴 鈥斺€?鍗曡绱у噾鎺掑垪 ---- */
 #waline .wl-header {
   display: flex !important;
   padding: 0 !important;
@@ -1984,13 +1984,13 @@ body.dark .profile-board__avatar {
   font-family: "SimSun", "STSong", "Songti SC", "Noto Serif SC", serif;
 }
 
-/* ---- 只保留昵称 ---- */
+/* ---- 鍙繚鐣欐樀绉?---- */
 #waline .wl-header-item:nth-child(2),
 #waline .wl-header-item:nth-child(3) {
   display: none !important;
 }
 
-/* ---- 输入框 ---- */
+/* ---- 杈撳叆妗?---- */
 #waline .wl-header input,
 #waline textarea,
 #waline .wl-editor,
@@ -2008,7 +2008,7 @@ body.dark .profile-board__avatar {
   font-size: 0.82rem !important;
 }
 
-/* ---- 极限压扁文本区 ---- */
+/* ---- 鏋侀檺鍘嬫墎鏂囨湰鍖?---- */
 #waline .wl-editor {
   min-height: 45px !important;
   height: 45px !important;
@@ -2028,7 +2028,7 @@ body.dark .profile-board__avatar {
   background: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* ---- 所有文字 ---- */
+/* ---- 鎵€鏈夋枃瀛?---- */
 #waline,
 #waline *,
 #waline .wl-comment,
@@ -2045,7 +2045,7 @@ body.dark .profile-board__avatar {
   font-family: "SimSun", "STSong", "Songti SC", "Noto Serif SC", serif !important;
 }
 
-/* ---- 评论列表（极限压缩间距） ---- */
+/* ---- 璇勮鍒楄〃锛堟瀬闄愬帇缂╅棿璺濓級 ---- */
 #waline .wl-cards .wl-item {
   padding: 10px 0 !important;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.05) !important;
@@ -2063,18 +2063,18 @@ body.dark .profile-board__avatar {
   margin-bottom: 2px !important;
 }
 
-/* ---- 评论时间 ---- */
+/* ---- 璇勮鏃堕棿 ---- */
 #waline .wl-meta span {
   color: #666 !important;
   font-family: "SimSun", "STSong", "Songti SC", "Noto Serif SC", serif !important;
 }
 
-/* ---- 操作栏 ---- */
+/* ---- 鎿嶄綔鏍?---- */
 #waline .wl-footer {
   padding: 5px 10px !important;
 }
 
-/* ---- 提交按钮 ---- */
+/* ---- 鎻愪氦鎸夐挳 ---- */
 #waline .wl-btn {
   border-radius: 4px !important;
   border: none !important;
@@ -2092,7 +2092,7 @@ body.dark .profile-board__avatar {
   background: #3498db !important;
 }
 
-/* ---- 小按钮 ---- */
+/* ---- 灏忔寜閽?---- */
 #waline .wl-btn:not(.primary) {
   background: rgba(255, 255, 255, 0.08) !important;
   color: #999 !important;
@@ -2108,7 +2108,7 @@ body.dark .profile-board__avatar {
   color: #ccc !important;
 }
 
-/* ---- 头像 ---- */
+/* ---- 澶村儚 ---- */
 #waline .wl-avatar img {
   border-radius: 4px !important;
   width: 2rem !important;
@@ -2122,7 +2122,7 @@ body.dark .profile-board__avatar {
   height: 2rem !important;
 }
 
-/* ---- 移动端 ---- */
+/* ---- 绉诲姩绔?---- */
 @media (max-width: 640px) {
   #waline {
     margin: 24px 0 0;
@@ -2131,10 +2131,10 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   APlayer 暗黑亚克力 —— 深度定制
+   APlayer 鏆楅粦浜氬厠鍔?鈥斺€?娣卞害瀹氬埗
    =========================================================== */
 
-/* 容器背景 */
+/* 瀹瑰櫒鑳屾櫙 */
 .aplayer.aplayer-fixed .aplayer-body {
   background: rgba(20, 20, 20, 0.7) !important;
   backdrop-filter: blur(15px) !important;
@@ -2144,7 +2144,7 @@ body.dark .profile-board__avatar {
   color: #ccc !important;
 }
 
-/* 按钮 */
+/* 鎸夐挳 */
 .aplayer .aplayer-icon {
   color: rgba(255, 255, 255, 0.65) !important;
   transition: color 0.2s ease;
@@ -2153,7 +2153,7 @@ body.dark .profile-board__avatar {
   color: #fff !important;
 }
 
-/* 歌名 & 歌手 */
+/* 姝屽悕 & 姝屾墜 */
 .aplayer .aplayer-info .aplayer-music .aplayer-title,
 .aplayer .aplayer-info .aplayer-music .aplayer-author {
   color: #ccc !important;
@@ -2168,7 +2168,7 @@ body.dark .profile-board__avatar {
   font-size: 0.75em;
 }
 
-/* 进度条 */
+/* 杩涘害鏉?*/
 .aplayer .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
   background: rgba(255, 255, 255, 0.2) !important;
 }
@@ -2181,12 +2181,12 @@ body.dark .profile-board__avatar {
   box-shadow: 0 0 8px rgba(41, 128, 185, 0.4);
 }
 
-/* 音量条 */
+/* 闊抽噺鏉?*/
 .aplayer .aplayer-volume-wrap .aplayer-volume-bar-wrap .aplayer-volume-bar .aplayer-volume {
   background: #2980b9 !important;
 }
 
-/* 歌词 —— 亚克力高亮区 */
+/* 姝岃瘝 鈥斺€?浜氬厠鍔涢珮浜尯 */
 .aplayer .aplayer-lrc {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
@@ -2207,7 +2207,7 @@ body.dark .profile-board__avatar {
   display: none !important;
 }
 
-/* 时间 */
+/* 鏃堕棿 */
 .aplayer .aplayer-info .aplayer-controller .aplayer-time {
   color: rgba(255, 255, 255, 0.5) !important;
 }
@@ -2218,7 +2218,7 @@ body.dark .profile-board__avatar {
   color: rgba(255, 255, 255, 0.65) !important;
 }
 
-/* 菜单列表 */
+/* 鑿滃崟鍒楄〃 */
 .aplayer .aplayer-list {
   background: rgba(20, 20, 20, 0.85) !important;
   backdrop-filter: blur(15px) !important;
@@ -2238,7 +2238,7 @@ body.dark .profile-board__avatar {
   color: #fff !important;
 }
 
-/* 封面 —— 圆形 + 旋转动画 */
+/* 灏侀潰 鈥斺€?鍦嗗舰 + 鏃嬭浆鍔ㄧ敾 */
 .aplayer.aplayer-fixed .aplayer-pic {
   border-radius: 50% !important;
   overflow: hidden;
@@ -2248,7 +2248,7 @@ body.dark .profile-board__avatar {
   border-radius: 50% !important;
 }
 
-/* 播放时旋转动画 */
+/* 鎾斁鏃舵棆杞姩鐢?*/
 @keyframes aplayerRoll {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -2264,7 +2264,7 @@ body.dark .profile-board__avatar {
   animation-play-state: running;
 }
 
-/* 迷你模式适配 */
+/* 杩蜂綘妯″紡閫傞厤 */
 .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
   background: rgba(20, 20, 20, 0.7) !important;
   backdrop-filter: blur(15px) !important;
@@ -2273,7 +2273,7 @@ body.dark .profile-board__avatar {
 }
 
 /* ===========================================================
-   强制所有容器透明，去掉所有的玻璃罩和白底
+   寮哄埗鎵€鏈夊鍣ㄩ€忔槑锛屽幓鎺夋墍鏈夌殑鐜荤拑缃╁拰鐧藉簳
    =========================================================== */
 .main, .main-inner, .post-single, .post-list, .comments, article, .container, .card, .bg-white, .glass-container, .profile-board, .page, .content, .post-content, .article-card, .article-detail {
     background: transparent !important;
@@ -2283,7 +2283,7 @@ body.dark .profile-board__avatar {
     backdrop-filter: none !important;
 }
 
-/* 确保文字在复杂背景上能看清 — 极简纯净无特效 */
+/* 纭繚鏂囧瓧鍦ㄥ鏉傝儗鏅笂鑳界湅娓?鈥?鏋佺畝绾噣鏃犵壒鏁?*/
 body, a, h1, h2, h3, h4, h5, h6, p, span, li, div {
     font-family: 'Noto Serif SC', "Source Han Serif SC", "SongTi SC", "PT Serif", serif !important;
     color: #f5f5f5 !important;
@@ -2297,7 +2297,7 @@ h1, h2, h3 {
     font-weight: 700 !important;
 }
 
-/* 保证音乐播放器和评论区的输入框不受阴影影响，否则会很丑 */
+/* 淇濊瘉闊充箰鎾斁鍣ㄥ拰璇勮鍖虹殑杈撳叆妗嗕笉鍙楅槾褰卞奖鍝嶏紝鍚﹀垯浼氬緢涓?*/
 input, textarea, button, .aplayer * {
     -webkit-text-stroke: 0 !important;
     text-shadow: none !important;
@@ -2305,7 +2305,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* ===========================================================
-   暴力去除所有可能的容器背景和边框
+   鏆村姏鍘婚櫎鎵€鏈夊彲鑳界殑瀹瑰櫒鑳屾櫙鍜岃竟妗?
    =========================================================== */
 .main-inner, .post-single, .page, .content, article {
     background: transparent !important;
@@ -2315,7 +2315,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* ===========================================================
-   欢迎页 — 全屏满铺 Flexbox 布局
+   娆㈣繋椤?鈥?鍏ㄥ睆婊￠摵 Flexbox 甯冨眬
    =========================================================== */
 .container--home {
   width: 100vw !important;
@@ -2421,7 +2421,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* ===========================================================
-   社交信息模块 (social_header)
+   绀句氦淇℃伅妯″潡 (social_header)
    =========================================================== */
 .social-header {
   display: flex;
@@ -2470,7 +2470,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* ===========================================================
-   文章流列表 (posts_list_stream)
+   鏂囩珷娴佸垪琛?(posts_list_stream)
    =========================================================== */
 .posts-stream {
   padding: 28px 36px;
@@ -2523,7 +2523,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* ===========================================================
-   主页播放器容器
+   涓婚〉鎾斁鍣ㄥ鍣?
    =========================================================== */
 .home-player {
   padding: 32px 36px;
@@ -2531,7 +2531,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* ===========================================================
-   移动端响应式适配 (屏幕宽度 < 768px)
+   绉诲姩绔搷搴斿紡閫傞厤 (灞忓箷瀹藉害 < 768px)
    =========================================================== */
 @media screen and (max-width: 768px) {
   .main-index-container .welcome-card__name {
@@ -2562,7 +2562,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* =========================================
-   恢复单篇文章详情页的白底卡片阅读模式
+   鎭㈠鍗曠瘒鏂囩珷璇︽儏椤电殑鐧藉簳鍗＄墖闃呰妯″紡
    ========================================= */
 .article-detail,
 .post-single {
@@ -2628,7 +2628,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* =========================================
-   代码块高亮保护与美化 (VIP 区域)
+   浠ｇ爜鍧楅珮浜繚鎶や笌缇庡寲 (VIP 鍖哄煙)
    ========================================= */
 .post-single .highlight {
   background-color: #282c34 !important;
@@ -2658,7 +2658,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* =========================================
-   抢救文章标题下方元数据（日期、分类标签）
+   鎶㈡晳鏂囩珷鏍囬涓嬫柟鍏冩暟鎹紙鏃ユ湡銆佸垎绫绘爣绛撅級
    ========================================= */
 .article-detail__meta,
 .article-detail__meta span,
@@ -2670,7 +2670,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* =========================================
-   抢救文章底部结束标志
+   鎶㈡晳鏂囩珷搴曢儴缁撴潫鏍囧織
    ========================================= */
 .post-end-sign {
   color: #aaaaaa !important;
@@ -2679,7 +2679,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* =========================================
-   V4 评论区全透明与玻璃质感重构
+   V4 璇勮鍖哄叏閫忔槑涓庣幓鐠冭川鎰熼噸鏋?
    ========================================= */
 .comments, #twikoo, #tcomment, .tk-comments {
   background: transparent !important;
@@ -2727,7 +2727,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* =========================================
-   V4 暗黑模式 (Dark Mode) 完美适配
+   V4 鏆楅粦妯″紡 (Dark Mode) 瀹岀編閫傞厤
    ========================================= */
 .dark .article-detail,
 .dark .post-single {
@@ -2801,7 +2801,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* =========================================
-   文章专属评论区：恢复标准卡片样式 (隔离主页透明特效)
+   鏂囩珷涓撳睘璇勮鍖猴細鎭㈠鏍囧噯鍗＄墖鏍峰紡 (闅旂涓婚〉閫忔槑鐗规晥)
    ========================================= */
 .article-detail #tcomment *,
 .article-detail #twikoo *,
@@ -2858,7 +2858,7 @@ input, textarea, button, .aplayer * {
 }
 
 /* =========================================
-   V4 音乐页：最终秩序重建（防重叠垂直流）
+   V4 闊充箰椤碉細鏈€缁堢З搴忛噸寤猴紙闃查噸鍙犲瀭鐩存祦锛?
    ========================================= */
 .v4-music-container .aplayer {
   background: rgba(20, 20, 20, 0.7) !important;
@@ -2955,67 +2955,7 @@ input, textarea, button, .aplayer * {
   color: #ffffff !important;
 }
 
-/* ========================================= 
-   V4 主页音乐：单行歌词绝对封印（终极防挤压） 
-========================================= */ 
-
-/* 1. 强制主页播放器外壳：垂直拉开呼吸感 */ 
-#aplayer-home, .home-music-container .aplayer { 
-    height: auto !important; 
-    min-height: 150px !important; /* 给够垂直空间，不准零件打架 */ 
-    display: flex !important; 
-    flex-direction: column !important; 
-    padding: 20px !important; 
-    background: rgba(255, 255, 255, 0.1) !important; 
-    backdrop-filter: blur(10px) !important; 
-} 
-
-/* 2. 歌名信息：占领最上层 */ 
-.home-music-container .aplayer .aplayer-info { 
-    order: 1 !important; 
-    margin-bottom: 10px !important; 
-    display: block !important; 
-} 
-
-/* 3. 核心：针孔式单行歌词窗口（中间层） */ 
-.home-music-container .aplayer .aplayer-lrc { 
-    order: 2 !important; 
-    position: relative !important; 
-    top: 0 !important; 
-    /* 【封印核心：高度必须严格等于行高，且绝对隐藏溢出】 */ 
-    height: 30px !important;      
-    line-height: 30px !important; 
-    margin: 10px 0 !important; 
-    overflow: hidden !important;   
-    display: block !important; 
-} 
-
-/* 强制内部所有 P 标签（歌词）高度一致，防止下一句露出头 */ 
-.home-music-container .aplayer .aplayer-lrc p { 
-    height: 30px !important; 
-    line-height: 30px !important; 
-    font-size: 14px !important; 
-    margin: 0 !important; 
-    padding: 0 !important; 
-    color: #ffffff !important; 
-    opacity: 1 !important; /* 强制全亮 */ 
-    /* 移除 APlayer 可能存在的位移干扰 */ 
-    transform: none !important; 
-} 
-
-/* 隐藏 APlayer 默认的上下遮罩阴影，防止画面脏乱 */ 
-.home-music-container .aplayer .aplayer-lrc::before, 
-.home-music-container .aplayer .aplayer-lrc::after { 
-    display: none !important; 
-} 
-
-/* 4. 控制条与进度条：占领底层 */ 
-.home-music-container .aplayer-controller { 
-    order: 3 !important; 
-    margin-top: 10px !important; 
-} 
-
-/* 自动适配：主页实际使用的 hero-player 流线型优化 */
+/* hero-player 流线型优化 */
 .home-player {
   max-width: 650px !important;
   width: 95% !important;
@@ -3034,17 +2974,24 @@ input, textarea, button, .aplayer * {
 }
 
 .home-player .hp-lyrics {
-  height: 20px !important;
+  height: auto !important;
+  min-height: 20px !important;
   line-height: 20px !important;
   margin: 4px 0 !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .home-player .lyric-line {
-  height: 20px !important;
+  display: block !important;
+  height: auto !important;
   line-height: 20px !important;
   font-size: 13px !important;
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  max-width: 100% !important;
+  word-break: break-all !important;
 }
 
 .home-player .hp-btn,

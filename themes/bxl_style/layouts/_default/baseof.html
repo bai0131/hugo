@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode | default `zh-cn` }}">
+<html lang="{{ site.Language.Locale | default `zh-cn` }}">
 <head>
   {{ partial "head.html" . }}
 </head>
@@ -43,11 +43,16 @@
     </div>
   </div>
   {{ partial "header.html" . }}
+  {{ if .IsHome }}
+  <main class="container container--home">
+  {{ else }}
   <main class="container">
+  {{ end }}
     {{ block "main" . }}{{ end }}
+    {{ if not .IsHome }}
     {{ partial "footer.html" . }}
+    {{ end }}
   </main>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
   {{ partial "scripts.html" . }}
 </body>
 </html>

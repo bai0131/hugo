@@ -1,0 +1,63 @@
+{{ define "main" }}
+
+  {{ partial "social_header.html" . }}
+
+  <div class="home-player glass-container">
+    <div id="hero-player">
+      <div class="hp-inner">
+        <div class="hp-cover-wrap">
+          <div class="hp-cover" id="heroCover"></div>
+        </div>
+
+        <div class="hp-center">
+          <div class="hp-info">
+            <span class="hp-title" id="heroTitle">--</span>
+            <span class="hp-artist" id="heroArtist">--</span>
+          </div>
+          <div class="hp-lyrics" id="heroLyrics">
+            <span class="lyric-line">♪ 随机播放中 ♪</span>
+          </div>
+        </div>
+
+        <div class="hp-controls">
+          <button class="hp-btn" id="heroPrev" title="上一首">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+          </button>
+          <button class="hp-btn-play" id="heroPlay" title="播放">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          </button>
+          <button class="hp-btn" id="heroNext" title="下一首">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+          </button>
+        </div>
+
+        <div class="hp-extra">
+          <button class="hp-btn" id="heroPlaylistBtn" title="歌单">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </button>
+          <input type="range" class="hp-volume" id="heroVolume" min="0" max="1" step="0.05" value="0.75" title="音量">
+        </div>
+      </div>
+
+      <div class="hp-progress" id="heroProgressBar">
+        <div class="hp-progress-fill" id="heroProgressFill"></div>
+        <div class="hp-progress-thumb" id="heroProgressThumb"></div>
+      </div>
+
+      <div class="playlist-drawer" id="playlistDrawer">
+        <div class="playlist-drawer__head">
+          <span>播放列表</span>
+          <button id="playlistClose" class="hp-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="playlist-drawer__list" id="playlistList"></div>
+      </div>
+    </div>
+  </div>
+
+  {{ partial "posts_list_stream.html" . }}
+
+  {{ partial "twikoo_comments.html" . }}
+
+{{ end }}

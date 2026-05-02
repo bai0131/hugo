@@ -132,28 +132,10 @@
         if (lyricsLines[i].time <= ct) activeIdx = i;
       }
 
-      var linesHtml = '';
-      var viewLines = 3;
-      var start = Math.max(0, activeIdx - Math.floor(viewLines / 2));
-      var end = Math.min(lyricsLines.length, start + viewLines);
-      if (end - start < viewLines) { start = Math.max(0, end - viewLines); }
+      if (activeIdx < 0) { lyricsTimer = requestAnimationFrame(updateLyrics); return; }
 
-      for (var j = start; j < end; j++) {
-        var cls = j === activeIdx ? 'lyric-line lyric-active' : 'lyric-line';
-        var op = (activeIdx >= 0) ? (1 - Math.abs(j - activeIdx) * 0.3) : 0.25;
-        if (op < 0.12) op = 0.12;
-        linesHtml += '<span class="' + cls + '" style="opacity:' + op.toFixed(2) + '">' + escHtml(lyricsLines[j].text) + '</span>';
-      }
-      lyricsEl.innerHTML = linesHtml;
-
-      var activeEl = lyricsEl.querySelector('.lyric-active');
-      if (activeEl) {
-        var containerHeight = lyricsEl.clientHeight;
-        var activeTop = activeEl.offsetTop;
-        var activeHeight = activeEl.offsetHeight;
-        var scrollTo = activeTop - containerHeight / 2 + activeHeight / 2;
-        lyricsEl.scrollTop = scrollTo;
-      }
+      var text = escHtml(lyricsLines[activeIdx].text);
+      lyricsEl.innerHTML = '<span class="lyric-line lyric-active">' + text + '</span>';
 
       lyricsTimer = requestAnimationFrame(updateLyrics);
     }

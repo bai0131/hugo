@@ -1,0 +1,54 @@
+{{ define "main" }}
+<div class="glass-container fade-in">
+  <div class="guestbook-sign" style="margin-top: 0;">--- Music ---</div>
+
+  <div class="v4-music-container" style="width: 90%; max-width: 800px; margin: 50px auto;">
+    <div id="aplayer"></div>
+  </div>
+
+  <div id="hero-player" style="display:none;"></div>
+</div>
+
+<script>
+(function () {
+  var musicList = [
+    { name: '那天下雨了',   artist: '周杰伦', url: '/music/bgm1.mp3',  cover: '/music/bgm1.jpg',  lrc: '/music/bgm1.lrc'  },
+    { name: '晴天',         artist: '周杰伦', url: '/music/bgm2.mp3',  cover: '/music/bgm2.jpg',  lrc: '/music/bgm2.lrc'  },
+    { name: '一路向北',     artist: '周杰伦', url: '/music/bgm3.mp3',  cover: '/music/bgm3.jpg',  lrc: '/music/bgm3.lrc'  },
+    { name: '夜曲',         artist: '周杰伦', url: '/music/bgm4.mp3',  cover: '/music/bgm4.jpg',  lrc: '/music/bgm4.lrc'  },
+    { name: '发如雪',       artist: '周杰伦', url: '/music/bgm5.mp3',  cover: '/music/bgm5.jpg',  lrc: '/music/bgm5.lrc'  },
+    { name: '蒲公英的约定', artist: '周杰伦', url: '/music/bgm6.mp3',  cover: '/music/bgm6.jpg',  lrc: '/music/bgm6.lrc'  },
+    { name: '枫',           artist: '周杰伦', url: '/music/bgm7.mp3',  cover: '/music/bgm7.jpg',  lrc: '/music/bgm7.lrc'  },
+    { name: '爱你没差',     artist: '周杰伦', url: '/music/bgm8.mp3',  cover: '/music/bgm8.jpg',  lrc: '/music/bgm8.lrc'  },
+    { name: '我不配',       artist: '周杰伦', url: '/music/bgm9.mp3',  cover: '/music/bgm9.jpg',  lrc: '/music/bgm9.lrc'  },
+    { name: '最长的电影',   artist: '周杰伦', url: '/music/bgm10.mp3', cover: '/music/bgm10.jpg', lrc: '/music/bgm10.lrc' },
+    { name: '告白气球',     artist: '周杰伦', url: '/music/bgm11.mp3', cover: '/music/bgm11.jpg', lrc: '/music/bgm11.lrc' },
+    { name: '反方向的钟',   artist: '周杰伦', url: '/music/bgm12.mp3', cover: '/music/bgm12.jpg', lrc: '/music/bgm12.lrc' }
+  ];
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  var ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    fixed: false,
+    autoplay: false,
+    lrcType: 3,
+    audio: shuffle(musicList),
+    volume: 0.7,
+    listFolded: false,
+    listMaxHeight: '320px',
+    theme: '#409eff',
+    loop: 'all',
+    order: 'random',
+    preload: 'none'
+  });
+})();
+</script>
+{{ end }}

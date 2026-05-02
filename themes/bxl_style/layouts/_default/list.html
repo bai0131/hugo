@@ -1,10 +1,16 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+<div class="glass-container fade-in">
+  <h1 style="margin-bottom: 24px; font-size: 1.5rem; color: var(--text-primary);">{{ .Title }}</h1>
   {{ .Content }}
+  <div class="list-pages">
   {{ range .Pages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
+    <section style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px dashed rgba(255,255,255,0.15);">
+      <h2 style="font-size: 1.1rem; margin: 0;">
+        <a href="{{ .RelPermalink }}" style="color: var(--text-primary); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-primary)'">{{ .Title }}</a>
+      </h2>
+      <time style="font-size: 0.9rem; color: var(--text-tertiary);">{{ .Date.Format "2006-01-02" }}</time>
     </section>
   {{ end }}
+  </div>
+</div>
 {{ end }}

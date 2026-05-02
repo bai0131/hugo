@@ -1,6 +1,7 @@
 {{ define "main" }}
+<div class="glass-container fade-in">
   <div class="article-detail">
-    <a href="/" class="back-link">← 返回主页</a>
+    <a href="/posts/" class="back-link">← 返回文章列表</a>
     <h1 class="article-detail__title">{{ .Title }}</h1>
     <div class="article-detail__meta">
       <span>{{ .Date.Format "2006年1月2日 · Monday" }}</span>
@@ -16,4 +17,5 @@
     <div class="post-end-sign">--- END OF FILE ---</div>
     {{ partial "comments.html" . }}
   </div>
+</div>
 {{ end }}

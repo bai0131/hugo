@@ -1,0 +1,11 @@
+<div class="posts-stream glass-container">
+  <h2 class="posts-stream__title">Articles</h2>
+  {{ range where site.RegularPages "Section" "posts" }}
+  <div class="posts-stream__item">
+    <a class="posts-stream__link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    <span class="posts-stream__date">{{ .Date.Format "2006-01-02" }}</span>
+  </div>
+  {{ else }}
+  <p class="posts-stream__empty">暂无文章</p>
+  {{ end }}
+</div>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bai&#39;s Blog</title>
+    <link>https://bxl666.top/</link>
+    <description>Recent content on Bai&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 01 May 2026 14:30:00 +0800</lastBuildDate>
+    <atom:link href="https://bxl666.top/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>V3 博客渲染能力全方位测试</title>
+      <link>https://bxl666.top/posts/test/</link>
+      <pubDate>Fri, 01 May 2026 14:30:00 +0800</pubDate>
+      <guid>https://bxl666.top/posts/test/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;经历了无数次 404 和 Vercel 权限报错，这台服务器终于被我拿下！这篇文章用于测试 Markdown 的各项基本语法在当前主题下的渲染效果。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;## 1. 文本排版测试&lt;/p&gt;&#xA;&lt;p&gt;这是一段普通的正文测试。平时写技术博客经常会用到**重点加粗**，或者是标记一些*专用名词的斜体*，当然还有表示废弃方案的&lt;del&gt;删除线文本&lt;/del&gt;。&lt;/p&gt;&#xA;&lt;p&gt;## 2. 代码高亮测试&lt;/p&gt;&#xA;&lt;p&gt;作为核心功能，必须测试一下代码块的语法高亮是否正常：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#007f7f&#34;&gt;// 随便写段 Java &lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;class&lt;/span&gt; BlogTest {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;amp;nbsp;   &lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;void&lt;/span&gt; main(String&lt;span style=&#34;color:#f00&#34;&gt;\&lt;/span&gt;[] args) {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;amp;nbsp;       String status = &lt;span style=&#34;color:#0ff;font-weight:bold&#34;&gt;&amp;#34;Success&amp;#34;&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;amp;nbsp;       System.&lt;span style=&#34;color:#007f7f&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#007f7f&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#0ff;font-weight:bold&#34;&gt;&amp;#34;Hello,  Blog! 网站：&amp;#34;&lt;/span&gt; + status);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;amp;nbsp;   }&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Markdown 渲染能力测试</title>
+      <link>https://bxl666.top/posts/markdown-test/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://bxl666.top/posts/markdown-test/</guid>
+      <description>这篇日志用来验证博客的 Markdown 引擎（marked.js）是否正常工作，包含标题、列表、代码块、引用等常用语法。</description>
+    </item>
+    <item>
+      <title>关于本站</title>
+      <link>https://bxl666.top/about/</link>
+      <pubDate>Fri, 01 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://bxl666.top/about/</guid>
+      <description>&lt;h1 id=&#34;关于本站筑基迭代与进化&#34;&gt;关于本站：筑基、迭代与进化&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;A blog is not just a collection of posts; it&amp;rsquo;s a digital reflection of the developer&amp;rsquo;s soul.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;在 2026 年 5 月 1 日，当本站 V3 版本正式切换到 Hugo 引擎时，回头看了看这短短三天的进化。对于一名开发者来说，折腾博客的本质，是重新夺回对数字空间的主权。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;起因数字花园的拓荒&#34;&gt;起因：数字花园的拓荒&lt;/h2&gt;&#xA;&lt;p&gt;在建立这个博客之前，我的技术笔记散落在各种碎片化的文档中。我需要一个集中的、完全可控的“数字花园”。我不想要臃肿的 CMS 系统，我追求的是极致的响应速度、硬核的排版逻辑以及绝对的自由度。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;进化历程&#34;&gt;进化历程&lt;/h2&gt;&#xA;&lt;h3 id=&#34;v1手搓亚克力时代-20260429&#34;&gt;V1：手搓亚克力时代 (2026.04.29)&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;生存，而非生活。&lt;/strong&gt;&#xA;最初的版本没有使用任何框架，而是采用最原始的方式：纯手写 HTML 和 CSS。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;视觉风格&lt;/strong&gt;：追求极度的“亚克力（Acrylic）”质感，利用 &lt;code&gt;backdrop-filter: blur()&lt;/code&gt; 大面积构建磨砂玻璃容器。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;标志性组件&lt;/strong&gt;：在页面左下角独立编写了一个手搓的亚克力风格音乐播放器，每个像素的边距都经过手动调优。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;v2部署与线上调试-20260430&#34;&gt;V2：部署与线上调试 (2026.04.30)&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;代码正式在赛博空间航行。&lt;/strong&gt;&#xA;在这一天，我将项目托管至 GitHub 并接入 Vercel 自动化部署。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;布局博弈&lt;/strong&gt;：为了配合背景，重新设计了内容容器的透明度层级，解决了背景色块干扰阅读的问题。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;交互雏形&lt;/strong&gt;：初步引入了评论模块，并开始针对生产环境进行多端布局的兼容性调优。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;v3工业革命-20260501&#34;&gt;V3：工业革命 (2026.05.01)&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;彻底抛弃原始手工，迈向工程化架构。&lt;/strong&gt;&#xA;今天是劳动节，我选择了彻底重构站点底层。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo 架构迁移&lt;/strong&gt;：引入 Hugo (Extended Version) 引擎。利用其毫秒级的构建能力，将内容（Markdown）与样式（Template）完全解耦。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;HUD 监控面板&lt;/strong&gt;：在屏幕边缘开发了实时性能监控条，通过原生 JS 获取并反馈 FPS、内存占用及 RTT 延迟。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;头像逻辑劫持&lt;/strong&gt;：正式启用 Twikoo 评论系统。通过 Weavatar 镜像源实现了全局视觉的绝对统一。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;服务组成-service-stack&#34;&gt;服务组成 (Service Stack)&lt;/h2&gt;&#xA;&lt;p&gt;本站基于性能与极简原则，由以下服务驱动：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://bxl666.top/home/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://bxl666.top/home/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>留言板</title>
+      <link>https://bxl666.top/comments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://bxl666.top/comments/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>音乐</title>
+      <link>https://bxl666.top/music/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://bxl666.top/music/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

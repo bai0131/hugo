@@ -13,3 +13,18 @@ taxonomies:
 markup:
   highlight:
     style: atom-one-dark
+
+menus:
+  main:
+    - name: 主页
+      url: /home/
+      weight: 10
+    - name: 文章
+      url: /posts/
+      weight: 20
+    - name: 音乐
+      url: /music/
+      weight: 30
+    - name: 评论区
+      url: /comments/
+      weight: 40

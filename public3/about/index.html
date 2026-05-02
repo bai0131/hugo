@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="view-transition" content="same-origin" />
+<title>关于本站 | Bai&#39;s Blog</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css?v=1777732674">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+</head>
+<body>
+  <div class="cyber-left">
+    <div class="cyber-line"></div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">FPS</span>
+      <span class="cyber-value" id="cyFps">60</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">MEM</span>
+      <span class="cyber-value" id="cyMem">0.0MB</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">BAT</span>
+      <span class="cyber-value" id="cyBat">--%</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">SCRL</span>
+      <span class="cyber-value" id="cyScrl">0%</span>
+    </div>
+  </div>
+  <div class="cyber-right">
+    <div class="cyber-line"></div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">PING</span>
+      <span class="cyber-value" id="cyPing">--ms</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">CLOCK</span>
+      <span class="cyber-value" id="cyClock">--:--:--</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">UP</span>
+      <span class="cyber-value" id="cyUptime">0d</span>
+    </div>
+    <div class="cyber-monitor">
+      <span class="cyber-label">BRW</span>
+      <span class="cyber-value" id="cyBrowser">--</span>
+    </div>
+  </div>
+  <header class="navbar">
+  <div class="navbar__left">
+    <a class="navbar__logo" href="/">Bai&#39;s Blog</a>
+  </div>
+  <nav class="navbar__links">
+    
+    <a href="/home/" class="navbar__link">主页</a>
+    
+    <a href="/posts/" class="navbar__link">文章</a>
+    
+    <a href="/music/" class="navbar__link">音乐</a>
+    
+    <a href="/comments/" class="navbar__link">评论区</a>
+    
+  </nav>
+  <div class="navbar__actions">
+    <button class="theme-toggle" id="themeToggle" title="切换主题">
+      <span class="icon-sun">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </span>
+      <span class="icon-moon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+    </button>
+  </div>
+</header>
+
+  <main class="container">
+    
+<div class="glass-container fade-in">
+  <div class="article-detail">
+    <a href="/posts/" class="back-link">← 返回文章列表</a>
+    <h1 class="article-detail__title">关于本站</h1>
+    <div class="article-detail__meta">
+      <span>2026年5月1日 · Friday</span>
+      
+    </div>
+    <div class="article-detail__body">
+      <h1 id="关于本站筑基迭代与进化">关于本站：筑基、迭代与进化</h1>
+<blockquote>
+<p><strong>&ldquo;A blog is not just a collection of posts; it&rsquo;s a digital reflection of the developer&rsquo;s soul.&rdquo;</strong></p>
+</blockquote>
+<p>在 2026 年 5 月 1 日，当本站 V3 版本正式切换到 Hugo 引擎时，回头看了看这短短三天的进化。对于一名开发者来说，折腾博客的本质，是重新夺回对数字空间的主权。</p>
+<hr>
+<h2 id="起因数字花园的拓荒">起因：数字花园的拓荒</h2>
+<p>在建立这个博客之前，我的技术笔记散落在各种碎片化的文档中。我需要一个集中的、完全可控的“数字花园”。我不想要臃肿的 CMS 系统，我追求的是极致的响应速度、硬核的排版逻辑以及绝对的自由度。</p>
+<hr>
+<h2 id="进化历程">进化历程</h2>
+<h3 id="v1手搓亚克力时代-20260429">V1：手搓亚克力时代 (2026.04.29)</h3>
+<p><strong>生存，而非生活。</strong>
+最初的版本没有使用任何框架，而是采用最原始的方式：纯手写 HTML 和 CSS。</p>
+<ul>
+<li><strong>视觉风格</strong>：追求极度的“亚克力（Acrylic）”质感，利用 <code>backdrop-filter: blur()</code> 大面积构建磨砂玻璃容器。</li>
+<li><strong>标志性组件</strong>：在页面左下角独立编写了一个手搓的亚克力风格音乐播放器，每个像素的边距都经过手动调优。</li>
+</ul>
+<h3 id="v2部署与线上调试-20260430">V2：部署与线上调试 (2026.04.30)</h3>
+<p><strong>代码正式在赛博空间航行。</strong>
+在这一天，我将项目托管至 GitHub 并接入 Vercel 自动化部署。</p>
+<ul>
+<li><strong>布局博弈</strong>：为了配合背景，重新设计了内容容器的透明度层级，解决了背景色块干扰阅读的问题。</li>
+<li><strong>交互雏形</strong>：初步引入了评论模块，并开始针对生产环境进行多端布局的兼容性调优。</li>
+</ul>
+<h3 id="v3工业革命-20260501">V3：工业革命 (2026.05.01)</h3>
+<p><strong>彻底抛弃原始手工，迈向工程化架构。</strong>
+今天是劳动节，我选择了彻底重构站点底层。</p>
+<ul>
+<li><strong>Hugo 架构迁移</strong>：引入 Hugo (Extended Version) 引擎。利用其毫秒级的构建能力，将内容（Markdown）与样式（Template）完全解耦。</li>
+<li><strong>HUD 监控面板</strong>：在屏幕边缘开发了实时性能监控条，通过原生 JS 获取并反馈 FPS、内存占用及 RTT 延迟。</li>
+<li><strong>头像逻辑劫持</strong>：正式启用 Twikoo 评论系统。通过 Weavatar 镜像源实现了全局视觉的绝对统一。</li>
+</ul>
+<hr>
+<h2 id="服务组成-service-stack">服务组成 (Service Stack)</h2>
+<p>本站基于性能与极简原则，由以下服务驱动：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">维度</th>
+          <th style="text-align: left">选型与方案</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>生成引擎</strong></td>
+          <td style="text-align: left">Hugo (Extended Version)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>主题底座</strong></td>
+          <td style="text-align: left">PaperMod (Deeply Customized)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>托管平台</strong></td>
+          <td style="text-align: left">GitHub + Vercel</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>评论系统</strong></td>
+          <td style="text-align: left">Twikoo (Vercel + MongoDB)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>头像源</strong></td>
+          <td style="text-align: left">Weavatar (JS Hijacking)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>性能监测</strong></td>
+          <td style="text-align: left">自研前端监控模块 (FPS / MS / MEM)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>协作工具</strong></td>
+          <td style="text-align: left">Trae + DeepSeek-V4 +Gemini 3.1PRO</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>加速网络</strong></td>
+          <td style="text-align: left">Vercel Global Edge Network</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="技术实现细节">技术实现细节</h2>
+<h3 id="1-实时监控系统-hud">1. 实时监控系统 (HUD)</h3>
+<p>为了增强站点的“终端感”，我调用了浏览器原生 API 进行数据抓取：</p>
+<ul>
+<li><strong>FPS</strong>：通过 <code>requestAnimationFrame</code> 记录两帧之间的时间差计算得出。</li>
+<li><strong>Memory</strong>：利用 <code>performance.memory</code> 接口实时反馈当前页面的 JS 堆栈占用（单位：MB）。</li>
+<li><strong>Ping</strong>：后台每 3 秒发起一次 HEAD 请求，计算 RTT 时间，反馈用户与服务器间的网络延迟。</li>
+</ul>
+<h3 id="2-twikoo-头像拦截逻辑">2. Twikoo 头像拦截逻辑</h3>
+<p>针对静态评论区头像风格不一的问题，我的解决思路是：</p>
+<ul>
+<li>监听评论区 DOM 的渲染事件。</li>
+<li>正则匹配所有 src 包含 <code>qlogo.cn</code>（腾讯源）或其他不符合风格的头像链接。</li>
+<li>通过脚本强制劫持并重定向至 Weavatar 的高级灰镜像源，确保 UI 审美闭环。</li>
+</ul>
+<hr>
+<h2 id="结语keep-coding">结语：Keep Coding</h2>
+<p>从 4 月 29 日那个在本地打磨亚克力方块的手工阶段，到 5 月 1 日这个基于 Hugo 构建的实时终端，这个博客见证了我的技术进阶。</p>
+<p>手搓代表着对底层原理的偏执，而 Hugo 代表着向效率与系统的进化。现在的 V3 架构已经趋于稳定，后续我将把精力更多地放在高质量技术内容的产出上。</p>
+<p><strong>期待与你的数据交换。</strong></p>
+
+    </div>
+    <div class="post-end-sign">--- END OF FILE ---</div>
+    <div id="tcomment"></div>
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.39/dist/twikoo.all.min.js"></script>
+<script>
+  twikoo.init({
+    envId: 'https://twikoo.bxl666.top',
+    el: '#tcomment',
+  })
+</script>
+
+  </div>
+</div>
+
+    <footer class="footer">
+  <p>Copyright &copy; 2026 Bai. All Rights Reserved.</p>
+  <p>Built with Hugo &amp; Github Pages. Deployed on Vercel.</p>
+  <p>Site Status: Running for <span id="runtime-timer">00d 00h 00m 00s</span>.</p>
+</footer>
+
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+  
+<script src="/js/main.bb142d83d8e45c81f3b33bb1e309c1a98b29921ffd9171d2ff7cc2af6b314120.js" integrity="sha256-uxQtg9jkXIHzszux4wnBqYspkh/9kXHS/3zCr2sxQSA="></script>
+
+</body>
+</html>

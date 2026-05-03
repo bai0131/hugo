@@ -1,10 +1,10 @@
+---
 title: "Antigravity Windows 完全部署与网络避坑指南"
 date: 2026-05-02T03:00:00+08:00
 draft: false
 tags: ["Antigravity", "网络配置", "极客指南", "AI"]
 categories: ["技术"]
 author: "Bai"
-
 ---
 
 ## 一、前置要求

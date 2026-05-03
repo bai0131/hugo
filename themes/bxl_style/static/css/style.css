@@ -3054,3 +3054,59 @@ input, textarea, button, .aplayer * {
 .article-detail__body a:hover {
     border-bottom-color: #1a73e8 !important;
 }
+
+/* =========================================
+   V4 溢出修复：长路径/长字符串全局强制换行
+========================================= */
+
+/* 覆盖所有文章内容容器及其子元素 */
+.post-content,
+.post-content *,
+.article-detail__body,
+.article-detail__body *,
+.article-glass,
+.article-glass * {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+}
+
+/* 代码块保留不换行 + 横向滚动（代码块不应折断） */
+.post-content pre,
+.article-detail__body pre,
+.article-glass pre {
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    word-break: normal !important;
+    overflow-x: auto !important;
+}
+
+.post-content pre code,
+.article-detail__body pre code,
+.article-glass pre code {
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    word-break: normal !important;
+    white-space: pre !important;
+}
+
+/* 行内代码风格微调 */
+.post-content code:not(pre code),
+.article-detail__body code:not(pre code),
+.article-glass code:not(pre code) {
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    background-color: rgba(255, 0, 0, 0.05) !important;
+}
+
+/* 表格单元格也强制换行，避免长路径撑破表格 */
+.post-content td,
+.post-content th,
+.article-detail__body td,
+.article-detail__body th,
+.article-glass td,
+.article-glass th {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+}

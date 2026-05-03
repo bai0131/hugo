@@ -28,3 +28,6 @@ menus:
     - name: 评论区
       url: /comments/
       weight: 40
+    - name: 关于
+      url: /about/
+      weight: 50

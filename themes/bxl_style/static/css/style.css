@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+@import url('https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
 
 /* ===========================================================
    style.css 鈥?鏋佺畝绾噣琛嚎瀛椾綋椋庢牸
@@ -2997,4 +2997,60 @@ input, textarea, button, .aplayer * {
 .home-player .hp-btn,
 .home-player .hp-btn-play {
   color: #ffffff !important;
+}
+
+/* =========================================
+   V4 阅读区修复：白底卡片"文字显形"方案
+========================================= */
+
+.post-content,
+.post-content p,
+.post-content li,
+.post-content table,
+.post-content th,
+.post-content td,
+.post-content span,
+.post-content strong,
+.post-content em,
+.article-detail__body,
+.article-detail__body p,
+.article-detail__body li,
+.article-detail__body table,
+.article-detail__body th,
+.article-detail__body td,
+.article-detail__body span,
+.article-detail__body strong,
+.article-detail__body em {
+    color: #333333 !important;
+}
+
+.post-content table,
+.article-detail__body table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
+}
+.post-content th,
+.post-content td,
+.article-detail__body th,
+.article-detail__body td {
+    border: 1px solid #e0e0e0 !important;
+    padding: 10px 15px !important;
+}
+
+.post-content th,
+.article-detail__body th {
+    background-color: #f8f9fa !important;
+    font-weight: 700 !important;
+}
+
+.post-content a,
+.article-detail__body a {
+    color: #1a73e8 !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(26, 115, 232, 0.3) !important;
+}
+.post-content a:hover,
+.article-detail__body a:hover {
+    border-bottom-color: #1a73e8 !important;
 }

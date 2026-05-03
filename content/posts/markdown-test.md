@@ -1,6 +1,6 @@
 ---
 title: "Markdown 渲染能力测试"
-date: 2026-05-01
+date: 2026-04-029
 categories: [software]
 summary: "这篇日志用来验证博客的 Markdown 引擎（marked.js）是否正常工作，包含标题、列表、代码块、引用等常用语法。"
 layout: "single"

@@ -143,11 +143,10 @@ KeyboardDelay（重复延迟）改成0，Speed（重复速度）改成40
 
 这样修改游戏里的画面设置之后好像会自动改回去，可以在这个路径下新建一个autoexec.cfg文件，记事本打开，写入：
 
-```
 mat_video_mem_level "0"
 mat_video_cpu_level "0"
 mat_video_gpu_level "0"
-```
+
 
 这三句，然后保存，这个优先级更高，就算后面cs2_video里面的改回去了，autoexec.cfg也会强制性把CPU，GPU，显存这些设回0
 

@@ -1,6 +1,6 @@
 ---
 title: "系统优化"
-date: 2026-05-22T17:44:24+08:00
+date: 2026-05-28T20:00:00+08:00
 draft: false
 tags: ["系统优化", "CS2", "教程"]
 categories: ["技术"]
@@ -9,7 +9,7 @@ author: "Xinle Bai"
 
 我将用最简单最直接的语言告诉你如何优化自己的系统，以及CS2（Counter-Strike 2）的简单优化。优化包括FPS帧数，延迟响应，提升帧率，提高手感。
 
-软件链接放在文章末尾，以下设置仅供参考，具体以个人为主。
+软件链接放在文章末尾，以下设置仅供参考，具体以个人为主
 
 ## 系统基础设置
 
@@ -53,13 +53,15 @@ author: "Xinle Bai"
 
 ![image7](/posts/system-optimize/image7.png)
 
+![image8](/posts/system-optimize/image8.png)
+
 这里选显卡
 
-![image8](/posts/system-optimize/image8.png)
+![image9](/posts/system-optimize/image9.png)
 
 调整桌面尺寸和大小如果显示器很便宜就选gpu，如果显示器在2000块钱以上可以选显示
 
-![image9](/posts/system-optimize/image9.png)
+![image10](/posts/system-optimize/image10.png)
 
 上面这些操作都是最基础最简单的
 
@@ -67,7 +69,7 @@ author: "Xinle Bai"
 
 ### 电源计划
 
-电源计划对电脑影响非常非常非常大，直接用我的电源计划就可以，自己从网上找教程怎么导入。
+电源计划对电脑影响非常非常非常大，直接用我的电源计划就可以（末尾链接），自己从网上找教程怎么导入。
 
 ### Boosterx调试
 
@@ -77,17 +79,17 @@ author: "Xinle Bai"
 
 #### 系统清理
 
-![image10](/posts/system-optimize/image10.png)
+![image11](/posts/system-optimize/image11.png)
 
 #### 系统优化
 
-![image11](/posts/system-optimize/image11.png)
+![image12](/posts/system-optimize/image12.png)
 
 ### dism++
 
 #### 系统优化
 
-![image12](/posts/system-optimize/image12.png)
+![image13](/posts/system-optimize/image13.png)
 
 还有一个软件叫Process Lasso，调游戏线程cpu核心的，教程操作可以从网上找一下
 
@@ -99,13 +101,15 @@ author: "Xinle Bai"
 
 Win+r打开运行，输入regedit打开注册表，按地址步骤打开，修改为0
 
-![image13](/posts/system-optimize/image13.png)
+![image14](/posts/system-optimize/image14.png)
 
 #### 鼠标响应速度
 
 计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl
 
-![image14](/posts/system-optimize/image14.png)
+修改为38、40、41、42，自己试
+
+![image15](/posts/system-optimize/image15.png)
 
 #### 键盘响应速度
 
@@ -113,60 +117,85 @@ Win+r打开运行，输入regedit打开注册表，按地址步骤打开，修�
 
 KeyboardDelay（重复延迟）改成0，Speed（重复速度）改成40
 
-![image15](/posts/system-optimize/image15.png)
+![image16](/posts/system-optimize/image16.png)
 
 键盘敏感度QueueSize，最高值16，觉得快的每次+2往上调，16+2=18,18+2=20...
 
-![image16](/posts/system-optimize/image16.png)
+![image17](/posts/system-optimize/image17.png)
+
+### 完善 MMCSS（多媒体类调度）的游戏优先级
+
+刚才改的 SystemResponsiveness 属于总开关，它下面还有一个专门针对"Games"任务的子项。修改这里能让 Windows 调度器把 CS2 的 CPU 线程和 GPU 渲染队列推到最高优先级。
+
+路径：计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games
+
+需要确认或修改的值：
+
+- GPU Priority 改为 8（十进制）
+- Priority 改为 6（十进制）
+- Scheduling Category 字符串值改为 High
+- SFIO Priority 字符串值改为 High
+
+### 彻底干掉 Windows 游戏录制（Game DVR）
+
+Windows 自带的 Xbox Game Bar 录制功能即便在系统设置里关了，底层依然可能在游戏全屏化时进行钩子（Hook）注入，这在笔记本环境下极易引发 1% Low 帧的突发性卡顿（Micro-stutter）和额外的画面延迟。
+
+路径：计算机\HKEY_CURRENT_USER\System\GameConfigStore
+
+需要修改的值：
+
+- GameDVR_Enabled 改为 0（十进制）
+- GameDVR_FSEBehaviorMode 改为 2（十进制，作用是禁用全屏优化干扰）
 
 ### 鼠标加速度
 
 打开控制面板，切换小图标，找到鼠标，指针选项，把提高指针精准度去掉（不打对勾）
 
-![image17](/posts/system-optimize/image17.png)
+![image18](/posts/system-optimize/image18.png)
 
 ## 游戏设置
 
 ### 游戏内设置
 
-游戏最高fps，追求平均帧的，在控制台输入fps_max 0，不锁帧，追求low帧高的，可以锁300或400
-
-![image18](/posts/system-optimize/image18.png)
+游戏最高fps，追求平均帧的，在控制台输入fps_max 0，不锁帧，追求low帧高的，可以锁300或400，比显示器fps多25％左右。
 
 ![image19](/posts/system-optimize/image19.png)
+
+![image20](/posts/system-optimize/image20.png)
 
 修改cs2_video文件，提高游戏优先级
 
 打开5e或完美，找到cfg设置，打开本地cfg目录，找到cs2_video文本文档，把这三个改成0，默认是3，然后ctrl+s保存，退出
 
-![image20](/posts/system-optimize/image20.png)
+![image21](/posts/system-optimize/image21.png)
 
 这样修改游戏里的画面设置之后好像会自动改回去，可以在这个路径下新建一个autoexec.cfg文件，记事本打开，写入：
 
+```
 mat_video_mem_level "0"
 mat_video_cpu_level "0"
 mat_video_gpu_level "0"
-
+```
 
 这三句，然后保存，这个优先级更高，就算后面cs2_video里面的改回去了，autoexec.cfg也会强制性把CPU，GPU，显存这些设回0
 
-![image21](/posts/system-optimize/image21.png)
+![image22](/posts/system-optimize/image22.png)
 
 ### 清理着色器缓存
 
 1. 搜索磁盘清理，选择c盘，勾选DirectX着色器缓存，点清理系统文件，点确定
 
-![image22](/posts/system-optimize/image22.png)
-
 ![image23](/posts/system-optimize/image23.png)
-
-2. 在steam里右键CS2，然后点击管理浏览本地文件，点击game然后点击core，随后删掉shaders开头的四个文件，接着回到CS2属性点击已安装文件，点击验证游戏文件的完整性，等待四个着色器文件被重新下载。
 
 ![image24](/posts/system-optimize/image24.png)
 
-3. 使用WIN+R打开运行框，输入steam://open/console打开steam控制台，接着在steam控制台输入shader_build 730来重建着色器。
+2. 在steam里右键CS2，然后点击管理浏览本地文件，点击game然后点击core，随后删掉shaders开头的四个文件，接着回到CS2属性点击已安装文件，点击验证游戏文件的完整性，等待四个着色器文件被重新下载。
 
 ![image25](/posts/system-optimize/image25.png)
+
+3. 使用WIN+R打开运行框，输入steam://open/console打开steam控制台，接着在steam控制台输入shader_build 730来重建着色器。
+
+![image26](/posts/system-optimize/image26.png)
 
 ---
 

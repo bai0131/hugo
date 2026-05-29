@@ -172,7 +172,7 @@ body {
   min-height: 100vh;
   -webkit-text-size-adjust: 100% !important;
   text-size-adjust: 100% !important;
-  background-image: url('/bg.png');
+  background-image: url('/bg.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

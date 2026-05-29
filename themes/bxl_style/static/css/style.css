@@ -3110,3 +3110,29 @@ input, textarea, button, .aplayer * {
     word-wrap: break-word !important;
     word-break: break-all !important;
 }
+
+/* =========================================
+   V4 领域扩容：放大文章页阅读卡片
+========================================= */
+
+/* 1. 强行拉宽主容器（覆盖原有 800px 限制） */
+.glass-container {
+    max-width: 1100px !important; /* 核心：从默认的 800px 扩展到 1100px，你可以自行修改这个数值 */
+    width: 90% !important;        /* 确保在窄屏设备上两边依然有 5% 的留白，不会顶格 */
+}
+
+/* 2. 优化文章卡片的内部边距（让卡片变大后，里面的字不至于太贴边） */
+.article-detail {
+    padding: 50px 60px !important; /* 增加上下左右的内边距，提升文字的"呼吸感" */
+    border-radius: 12px !important; /* 顺手让卡片的圆角更平滑一点 */
+}
+
+/* 3. 针对移动端的小屏适配（防止手机上看边距太大） */
+@media (max-width: 768px) {
+    .glass-container {
+        width: 95% !important;
+    }
+    .article-detail {
+        padding: 25px 20px !important;
+    }
+}

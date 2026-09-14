@@ -1,0 +1,156 @@
+{
+  "data": [
+    {
+      "id": "page-welcome-original-fit",
+      "title": "欢迎页 · 原样回归版",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1789384200000,
+      "canvasData": {
+        "x": 0,
+        "y": 518,
+        "group": 2,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 900,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-b88f0623",
+          "measuredAt": 1789384412384
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/welcome-original-fit.html",
+        "interactions": []
+      }
+    },
+    {
+      "id": "page-home-original-fit",
+      "title": "内容主页 · 去磨砂版",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1789384200000,
+      "canvasData": {
+        "x": 480,
+        "y": 518,
+        "group": 2,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1400,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-3db60cfa",
+          "measuredAt": 1789384412384
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/home-original-fit.html",
+        "interactions": []
+      }
+    },
+    {
+      "id": "page-welcome-continuity",
+      "title": "欢迎页 · 原站延续版",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1789383000000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 1,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 900,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-0d563a0d",
+          "measuredAt": 1789383640402
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/welcome-continuity.html",
+        "interactions": []
+      }
+    },
+    {
+      "id": "page-home-continuity",
+      "title": "内容主页 · 原站延续版",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1789383000000,
+      "canvasData": {
+        "x": 480,
+        "y": 0,
+        "group": 1,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1400,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-b68993b4",
+          "measuredAt": 1789383640402
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/home-continuity.html",
+        "interactions": []
+      }
+    },
+    {
+      "id": "image-001",
+      "title": "原站背景图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1789380825000,
+      "canvasData": {
+        "x": 0,
+        "y": 891,
+        "naturalSize": {
+          "width": 3830,
+          "height": 1900
+        }
+      },
+      "devMetadata": {
+        "imageSrc": "assets/bg.webp"
+      }
+    },
+    {
+      "id": "image-002",
+      "title": "个人头像",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1789380825000,
+      "canvasData": {
+        "x": 480,
+        "y": 891,
+        "naturalSize": {
+          "width": 682,
+          "height": 682
+        }
+      },
+      "devMetadata": {
+        "imageSrc": "assets/tx.jpg"
+      }
+    },
+    {
+      "id": "image-003",
+      "title": "音乐封面",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1789380825000,
+      "canvasData": {
+        "x": 960,
+        "y": 891,
+        "naturalSize": {
+          "width": 540,
+          "height": 540
+        }
+      },
+      "devMetadata": {
+        "imageSrc": "assets/bgm1.jpg"
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "desktop",
+    "projectName": "Bai's Blog 局部改版设计稿",
+    "visualEditorEnabled": false
+  }
+}

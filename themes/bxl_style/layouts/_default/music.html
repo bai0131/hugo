@@ -10,7 +10,7 @@
 </div>
 
 <script>
-(function () {
+window.addEventListener('DOMContentLoaded', function () {
   var musicList = [
     { name: '那天下雨了',   artist: '周杰伦', url: '/music/bgm1.mp3',  cover: '/music/bgm1.jpg',  lrc: '/music/bgm1.lrc'  },
     { name: '晴天',         artist: '周杰伦', url: '/music/bgm2.mp3',  cover: '/music/bgm2.jpg',  lrc: '/music/bgm2.lrc'  },
@@ -49,6 +49,6 @@
     order: 'random',
     preload: 'none'
   });
-})();
+});
 </script>
 {{ end }}

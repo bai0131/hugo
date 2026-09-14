@@ -2,9 +2,14 @@
 /public/
 public*/
 /resources/_gen/
+.hugo_build.lock
 # OS
 .DS_Store
 Thumbs.db
+
+# Debug / scratch
+debug.log
+index_curl.html
 
 # IDE
 .vscode/

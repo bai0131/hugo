@@ -1,0 +1,20 @@
+:root {
+  --bai-background: #0d0f12;
+  --bai-foreground: #f2eee8;
+  --bai-card: #16191e;
+  --bai-card-foreground: #f2eee8;
+  --bai-popover: #1b1f25;
+  --bai-popover-foreground: #f2eee8;
+  --bai-primary: #e98b4a;
+  --bai-primary-foreground: #160d08;
+  --bai-muted: #20242a;
+  --bai-muted-foreground: #a9a39b;
+  --bai-border: rgba(242, 238, 232, 0.12);
+  --bai-input: #20242a;
+  --bai-ring: #e98b4a;
+  --bai-radius-sm: 4px;
+  --bai-radius-md: 8px;
+  --bai-radius-lg: 16px;
+  --bai-surface-2: #20242a;
+  --bai-ink-3: #746f69;
+}

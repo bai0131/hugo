@@ -1,14 +1,15 @@
-title:Windows 音频服务假死与扬声器断流排查实录（Senary Audio 与 Nahimic 冲突） date: 2026-03-30 tags:
-
-* Windows
-
-* 硬件排障
-
-* 驱动修复
-
-* 音频系统 categories:
-
-* 系统运维与折腾
+---
+title: "Windows 音频服务假死与扬声器断流排查实录（Senary Audio 与 Nahimic 冲突）"
+date: 2026-09-14T00:00:00+08:00
+draft: false
+tags:
+  - Windows
+  - 硬件排障
+  - 驱动修复
+  - 音频系统
+categories:
+  - 系统运维与折腾
+---
 
 # 记一次 Windows 音频服务假死与扬声器断流排查实录（Senary Audio 与 Nahimic 冲突）
 

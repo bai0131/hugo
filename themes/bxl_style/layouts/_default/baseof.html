@@ -3,7 +3,7 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body>
+<body class="{{ if .IsHome }}page-landing{{ else }}page-internal{{ end }}">
   <div class="cyber-left">
     <div class="cyber-line"></div>
     <div class="cyber-monitor">

@@ -3127,7 +3127,7 @@ input, textarea, button, .aplayer * {
     border-radius: 12px !important; /* 顺手让卡片的圆角更平滑一点 */
 }
 
-/* 3. 针对移动端的小屏适配（防止手机上看边距太大） */
+/* 3. Mobile small screen adaptation */
 @media (max-width: 768px) {
     .glass-container {
         width: 95% !important;
@@ -3136,3 +3136,631 @@ input, textarea, button, .aplayer * {
         padding: 25px 20px !important;
     }
 }
+
+/* ============================================================
+   CLAUDE THEME OVERRIDES - Internal Pages
+   Warm parchment #FAF8F5, Source Han Serif SC, pure black text
+   Landing page (/) is intentionally left untouched.
+   ============================================================ */
+
+/* Global font only */
+body {
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif;
+}
+
+/* ---- 0. Ensure landing page keeps the wallpaper (explicit override) ---- */
+body.page-landing {
+  background-image: url('/bg.webp') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-color: #1a1a2e !important;
+  color: var(--text-primary) !important;
+}
+
+body.page-landing::before {
+  content: '' !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  pointer-events: none !important;
+}
+
+/* ---- 1. Internal page base — reset wallpaper, apply warm canvas ---- */
+body.page-internal:not(.dark-mode) {
+  background-image: none !important;
+  background: #FAF8F5 !important;
+  color: #111111 !important;
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif !important;
+}
+
+body.page-internal::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+}
+
+/* ---- 2. Remove glass cards on internal pages ---- */
+body.page-internal .glass-container {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ---- 3. Header padding so content isn't hidden behind fixed nav ---- */
+body.page-internal .container {
+  padding-top: 75px !important;
+  max-width: 1050px !important;
+}
+
+/* ---- 4. Force all text on internal pages to be dark in light mode ---- */
+body.page-internal:not(.dark-mode),
+body.page-internal:not(.dark-mode) h1,
+body.page-internal:not(.dark-mode) h2,
+body.page-internal:not(.dark-mode) h3,
+body.page-internal:not(.dark-mode) h4,
+body.page-internal:not(.dark-mode) h5,
+body.page-internal:not(.dark-mode) h6,
+body.page-internal:not(.dark-mode) p,
+body.page-internal:not(.dark-mode) span,
+body.page-internal:not(.dark-mode) a,
+body.page-internal:not(.dark-mode) li,
+body.page-internal:not(.dark-mode) td,
+body.page-internal:not(.dark-mode) th,
+body.page-internal:not(.dark-mode) label,
+body.page-internal:not(.dark-mode) div {
+  color: #111111 !important;
+}
+
+/* Specific elements that need extra force in light mode */
+body.page-internal:not(.dark-mode) .social-header__name,
+body.page-internal:not(.dark-mode) .social-header__bio,
+body.page-internal:not(.dark-mode) .social-header__info *,
+body.page-internal:not(.dark-mode) .hp-title,
+body.page-internal:not(.dark-mode) .hp-artist,
+body.page-internal:not(.dark-mode) .hp-lyrics,
+body.page-internal:not(.dark-mode) .posts-stream__link,
+body.page-internal:not(.dark-mode) .posts-stream__date,
+body.page-internal:not(.dark-mode) .nav-link,
+body.page-internal:not(.dark-mode) .footer * {
+  color: #111111 !important;
+}
+
+body.page-internal:not(.dark-mode) a:hover {
+  color: #C8654B !important;
+}
+
+/* ---- 5. Posts list stream ---- */
+body.page-internal .posts-stream__title {
+  color: #000000 !important;
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif !important;
+  font-weight: 700 !important;
+}
+
+body.page-internal .posts-stream__item-title,
+body.page-internal .posts-stream__item-title a {
+  color: #111111 !important;
+}
+
+body.page-internal .posts-stream__item-title a:hover {
+  color: #C8654B !important;
+}
+
+body.page-internal .posts-stream__item-date,
+body.page-internal .posts-stream__item-meta {
+  color: #666666 !important;
+}
+
+/* ---- 6. Article detail page ---- */
+body.page-internal .article-detail {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+body.page-internal .article-content {
+  color: #111111 !important;
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.9 !important;
+}
+
+body.page-internal .article-content h1,
+body.page-internal .article-content h2,
+body.page-internal .article-content h3,
+body.page-internal .article-content h4 {
+  color: #000000 !important;
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif !important;
+}
+
+body.page-internal .article-title,
+body.page-internal .post-title {
+  color: #000000 !important;
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif !important;
+}
+
+body.page-internal .article-meta,
+body.page-internal .post-meta,
+body.page-internal .post-date {
+  color: #666666 !important;
+}
+
+/* ---- 7. Sidebar top spacing ---- */
+body.page-internal .social-header,
+body.page-internal .sidebar-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ---- 8. Scrollbar ---- */
+body.page-internal::-webkit-scrollbar { width: 8px; }
+body.page-internal::-webkit-scrollbar-track { background: #F4F1EA; }
+body.page-internal::-webkit-scrollbar-thumb { background: #D0C9BD; border-radius: 4px; }
+
+/* ---- 9. Active/hover accent color ---- */
+body.page-internal .active,
+body.page-internal .current,
+body.page-internal .nav-link.active {
+  color: #C8654B !important;
+}
+
+/* ============================================================
+   CUSTOM MUSIC PLAYER - no APlayer dependency
+   ============================================================ */
+
+#music-player * {
+  box-sizing: border-box;
+}
+
+/* ---- 10. Home page hero music player widget ---- */
+body.page-internal .home-player {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 12px 0 !important;
+}
+
+body.page-internal #hero-player {
+  background: #EDE9E1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid #D9D2C5 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06) !important;
+  border-radius: 16px !important;
+}
+
+body.page-internal .hp-inner,
+body.page-internal .hp-title,
+body.page-internal .hp-artist,
+body.page-internal .hp-lyrics,
+body.page-internal .hp-lyrics * {
+  color: #333 !important;
+}
+
+body.page-internal .hp-btn,
+body.page-internal .hp-btn-play {
+  color: #444 !important;
+}
+
+body.page-internal .hp-btn:hover {
+  color: #C8654B !important;
+}
+
+body.page-internal .hp-progress {
+  background: #D8D1C3 !important;
+}
+
+body.page-internal .hp-progress-fill {
+  background: #C8654B !important;
+}
+
+/* ---- 11. Cyber side panels — darken text so visible on light bg ---- */
+body.page-internal .cyber-left,
+body.page-internal .cyber-right {
+  opacity: 0.35 !important;
+}
+
+body.page-internal .cyber-label,
+body.page-internal .cyber-value,
+body.page-internal .cyber-line {
+  color: #555 !important;
+  border-color: #bbb !important;
+  background: transparent !important;
+}
+
+/* ---- 12. Article List Separators (blog.dejavu.moe style) ---- */
+body.page-internal .posts-stream {
+  padding: 24px 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+body.page-internal .posts-stream__title {
+  font-size: 1.3rem !important;
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif !important;
+  font-weight: 700 !important;
+  color: #111111 !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 2px solid #DCD5C9 !important;
+  text-shadow: none !important;
+}
+
+body.page-internal .posts-stream__item {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  padding: 14px 0 !important;
+  border-bottom: 1px solid #E5E0D8 !important;
+  background: transparent !important;
+}
+
+body.page-internal .posts-stream__item:last-child {
+  border-bottom: none !important;
+}
+
+body.page-internal .posts-stream__link {
+  font-size: 1.05rem !important;
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif !important;
+  color: #222222 !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+body.page-internal .posts-stream__link:hover {
+  color: #C8654B !important;
+  transform: translateX(4px) !important;
+}
+
+body.page-internal .posts-stream__date {
+  font-size: 0.85rem !important;
+  color: #888888 !important;
+  text-shadow: none !important;
+}
+
+/* ---- 13. Twikoo Comment Section for internal pages ---- */
+body.page-internal #tcomment,
+body.page-internal #twikoo,
+body.page-internal .comments {
+  background: transparent !important;
+  padding: 24px 0 !important;
+  margin-top: 32px !important;
+  border-top: 1px dashed #DCD5C9 !important;
+}
+
+body.page-internal #tcomment *,
+body.page-internal #twikoo *,
+body.page-internal .comments * {
+  color: #333333 !important;
+  text-shadow: none !important;
+}
+
+/* Twikoo count header & meta info */
+body.page-internal .tk-comments-container,
+body.page-internal .tk-comments-title,
+body.page-internal .tk-comments-count,
+body.page-internal .tk-meta,
+body.page-internal .tk-time,
+body.page-internal .tk-nick,
+body.page-internal .tk-extra,
+body.page-internal .tk-extras * {
+  color: #555555 !important;
+  text-shadow: none !important;
+}
+
+body.page-internal .tk-comments-count span,
+body.page-internal .tk-comments-title span {
+  color: #111111 !important;
+  font-weight: 600 !important;
+}
+
+/* Twikoo comment cards & items */
+body.page-internal .tk-comment {
+  border-bottom: 1px solid #E5E0D8 !important;
+  padding: 16px 0 !important;
+  background: transparent !important;
+}
+
+body.page-internal .tk-content {
+  color: #222222 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  margin-top: 8px !important;
+}
+
+/* Twikoo inputs & textarea */
+body.page-internal .tk-input .el-input__inner,
+body.page-internal .tk-input .el-textarea__inner {
+  background-color: #FFFFFF !important;
+  border: 1px solid #D8D1C3 !important;
+  color: #222222 !important;
+  text-shadow: none !important;
+  border-radius: 8px !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.page-internal .tk-input .el-input__inner:focus,
+body.page-internal .tk-input .el-textarea__inner:focus {
+  border-color: #C8654B !important;
+  outline: none !important;
+}
+
+body.page-internal .tk-input .el-input__inner::placeholder,
+body.page-internal .tk-input .el-textarea__inner::placeholder {
+  color: #999999 !important;
+}
+
+/* Twikoo input prepends (昵称 / 邮箱 / 网址) */
+body.page-internal .tk-input .el-input-group__prepend {
+  background-color: #EDE8DE !important;
+  border: 1px solid #D8D1C3 !important;
+  border-right: none !important;
+  color: #555555 !important;
+  text-shadow: none !important;
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+}
+
+/* Twikoo action icons */
+body.page-internal .tk-action-icon,
+body.page-internal .tk-action-icon svg,
+body.page-internal .tk-icon,
+body.page-internal .tk-icon svg {
+  fill: #666666 !important;
+  color: #666666 !important;
+}
+
+body.page-internal .tk-action-icon:hover,
+body.page-internal .tk-action-icon:hover svg {
+  fill: #C8654B !important;
+  color: #C8654B !important;
+}
+
+/* Twikoo submit button */
+body.page-internal .tk-send,
+body.page-internal .tk-submit-action .el-button,
+body.page-internal .tk-submit-action .el-button--primary {
+  background-color: #C8654B !important;
+  border: none !important;
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  transition: background-color 0.2s ease !important;
+}
+
+body.page-internal .tk-send:hover,
+body.page-internal .tk-submit-action .el-button:hover {
+  background-color: #B0543B !important;
+}
+
+/* Twikoo badges */
+body.page-internal .tk-tag {
+  background-color: #C8654B !important;
+  color: #FFFFFF !important;
+  border-radius: 4px !important;
+  padding: 1px 6px !important;
+  font-size: 0.75rem !important;
+}
+
+body.page-internal .tk-tag-green {
+  background-color: #5A9E6F !important;
+}
+
+/* ============================================================
+   VOLUME SLIDER STYLING & FONT CLARITY
+   ============================================================ */
+.hp-volume {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 75px !important;
+  height: 6px !important;
+  background: #C5BCAC !important;
+  border-radius: 3px !important;
+  outline: none !important;
+  cursor: pointer !important;
+  vertical-align: middle !important;
+}
+
+.hp-volume::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  background: #C8654B !important;
+  cursor: pointer !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  border: none !important;
+}
+
+.hp-volume::-moz-range-thumb {
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  background: #C8654B !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+/* High contrast text clarity */
+body {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+body.page-internal .hp-title {
+  color: #111111 !important;
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+}
+
+body.page-internal .hp-artist {
+  color: #444444 !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+}
+
+body.page-internal .hp-lyrics,
+body.page-internal .hp-lyrics * {
+  color: #555555 !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   LIGHT / DARK MODE TOGGLE
+   ============================================================ */
+.theme-toggle .icon-sun { display: inline-block; }
+.theme-toggle .icon-moon { display: none; }
+
+body.dark-mode .theme-toggle .icon-sun { display: none; }
+body.dark-mode .theme-toggle .icon-moon { display: inline-block; }
+
+/* ---- Dark Mode Colors for Internal Pages ---- */
+body.page-internal.dark-mode {
+  background-image: none !important;
+  background-color: #18191C !important;
+  color: #E2E0D8 !important;
+}
+
+body.page-internal.dark-mode,
+body.page-internal.dark-mode h1,
+body.page-internal.dark-mode h2,
+body.page-internal.dark-mode h3,
+body.page-internal.dark-mode h4,
+body.page-internal.dark-mode h5,
+body.page-internal.dark-mode h6,
+body.page-internal.dark-mode p,
+body.page-internal.dark-mode span,
+body.page-internal.dark-mode a,
+body.page-internal.dark-mode li,
+body.page-internal.dark-mode td,
+body.page-internal.dark-mode th,
+body.page-internal.dark-mode label,
+body.page-internal.dark-mode div {
+  color: #E2E0D8 !important;
+}
+
+/* Navbar in dark mode */
+body.page-internal.dark-mode .navbar {
+  background: rgba(24, 25, 28, 0.92) !important;
+  border-bottom: 1px solid #2D2F36 !important;
+}
+
+body.page-internal.dark-mode .navbar__link,
+body.page-internal.dark-mode .navbar__logo {
+  color: #CCCCCC !important;
+}
+
+body.page-internal.dark-mode .navbar__link.active,
+body.page-internal.dark-mode .navbar__link:hover {
+  color: #E5866C !important;
+}
+
+/* Music Player in dark mode */
+body.page-internal.dark-mode #hero-player {
+  background: #24262B !important;
+  border: 1px solid #33363D !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.page-internal.dark-mode .hp-title {
+  color: #FFFFFF !important;
+}
+
+body.page-internal.dark-mode .hp-artist,
+body.page-internal.dark-mode .hp-lyrics,
+body.page-internal.dark-mode .hp-lyrics * {
+  color: #AAAAAA !important;
+}
+
+body.page-internal.dark-mode .hp-btn,
+body.page-internal.dark-mode .hp-btn-play {
+  color: #DDDDDD !important;
+}
+
+body.page-internal.dark-mode .hp-btn:hover {
+  color: #E5866C !important;
+}
+
+body.page-internal.dark-mode .hp-progress {
+  background: #3A3D45 !important;
+}
+
+body.page-internal.dark-mode .hp-progress-fill {
+  background: #E5866C !important;
+}
+
+body.page-internal.dark-mode .hp-volume {
+  background: #4A4D56 !important;
+}
+
+body.page-internal.dark-mode .playlist-drawer {
+  background: #24262B !important;
+  border-color: #33363D !important;
+}
+
+/* Posts stream in dark mode */
+body.page-internal.dark-mode .posts-stream__title {
+  color: #FFFFFF !important;
+  border-bottom-color: #33363D !important;
+}
+
+body.page-internal.dark-mode .posts-stream__item {
+  border-bottom-color: #2D2F36 !important;
+}
+
+body.page-internal.dark-mode .posts-stream__link {
+  color: #E2E0D8 !important;
+}
+
+body.page-internal.dark-mode .posts-stream__link:hover {
+  color: #E5866C !important;
+}
+
+body.page-internal.dark-mode .posts-stream__date {
+  color: #888888 !important;
+}
+
+/* Twikoo comment section in dark mode */
+body.page-internal.dark-mode #tcomment *,
+body.page-internal.dark-mode #twikoo *,
+body.page-internal.dark-mode .comments * {
+  color: #E2E0D8 !important;
+}
+
+body.page-internal.dark-mode .tk-input .el-input__inner,
+body.page-internal.dark-mode .tk-input .el-textarea__inner {
+  background-color: #24262B !important;
+  border: 1px solid #33363D !important;
+  color: #FFFFFF !important;
+}
+
+body.page-internal.dark-mode .tk-input .el-input-group__prepend {
+  background-color: #2D3036 !important;
+  border: 1px solid #33363D !important;
+  border-right: none !important;
+  color: #AAAAAA !important;
+}
+
+body.page-internal.dark-mode .tk-comment {
+  border-bottom-color: #2D2F36 !important;
+}
+
+body.page-internal.dark-mode .tk-send,
+body.page-internal.dark-mode .tk-submit-action .el-button {
+  background-color: #E5866C !important;
+  color: #FFFFFF !important;
+}
+

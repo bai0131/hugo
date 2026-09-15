@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章页 · 极简方案A</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    <style id="theme-vars">
+:root {
+  --bai-background: #0d0f12;
+  --bai-foreground: #f2eee8;
+  --bai-card: #16191e;
+  --bai-card-foreground: #f2eee8;
+  --bai-popover: #1b1f25;
+  --bai-popover-foreground: #f2eee8;
+  --bai-primary: #e98b4a;
+  --bai-primary-foreground: #160d08;
+  --bai-muted: #20242a;
+  --bai-muted-foreground: #a9a39b;
+  --bai-border: rgba(242, 238, 232, 0.12);
+  --bai-input: #20242a;
+  --bai-ring: #e98b4a;
+  --bai-radius-sm: 4px;
+  --bai-radius-md: 8px;
+  --bai-radius-lg: 16px;
+  --bai-surface-2: #20242a;
+  --bai-ink-3: #746f69;
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--bai-background);
+    --color-foreground: var(--bai-foreground);
+    --color-card: var(--bai-card);
+    --color-card-foreground: var(--bai-card-foreground);
+    --color-popover: var(--bai-popover);
+    --color-popover-foreground: var(--bai-popover-foreground);
+    --color-primary: var(--bai-primary);
+    --color-primary-foreground: var(--bai-primary-foreground);
+    --color-muted: var(--bai-muted);
+    --color-muted-foreground: var(--bai-muted-foreground);
+    --color-border: var(--bai-border);
+    --color-input: var(--bai-input);
+    --color-ring: var(--bai-ring);
+    --radius-sm: var(--bai-radius-sm);
+    --radius-md: var(--bai-radius-md);
+    --radius-lg: var(--bai-radius-lg);
+  }
+  @layer base {
+    body { background: var(--bai-background); color: var(--bai-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--bai-background); }
+      .text-background { color: var(--bai-background); }
+      .border-background { border-color: var(--bai-background); }
+      .ring-background { --tw-ring-color: var(--bai-background); }
+      .bg-foreground { background-color: var(--bai-foreground); }
+      .text-foreground { color: var(--bai-foreground); }
+      .border-foreground { border-color: var(--bai-foreground); }
+      .ring-foreground { --tw-ring-color: var(--bai-foreground); }
+      .bg-card { background-color: var(--bai-card); }
+      .text-card { color: var(--bai-card); }
+      .border-card { border-color: var(--bai-card); }
+      .ring-card { --tw-ring-color: var(--bai-card); }
+      .bg-card-foreground { background-color: var(--bai-card-foreground); }
+      .text-card-foreground { color: var(--bai-card-foreground); }
+      .border-card-foreground { border-color: var(--bai-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--bai-card-foreground); }
+      .bg-popover { background-color: var(--bai-popover); }
+      .text-popover { color: var(--bai-popover); }
+      .border-popover { border-color: var(--bai-popover); }
+      .ring-popover { --tw-ring-color: var(--bai-popover); }
+      .bg-popover-foreground { background-color: var(--bai-popover-foreground); }
+      .text-popover-foreground { color: var(--bai-popover-foreground); }
+      .border-popover-foreground { border-color: var(--bai-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--bai-popover-foreground); }
+      .bg-primary { background-color: var(--bai-primary); }
+      .text-primary { color: var(--bai-primary); }
+      .border-primary { border-color: var(--bai-primary); }
+      .ring-primary { --tw-ring-color: var(--bai-primary); }
+      .bg-primary-foreground { background-color: var(--bai-primary-foreground); }
+      .text-primary-foreground { color: var(--bai-primary-foreground); }
+      .border-primary-foreground { border-color: var(--bai-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--bai-primary-foreground); }
+      .bg-muted { background-color: var(--bai-muted); }
+      .text-muted { color: var(--bai-muted); }
+      .border-muted { border-color: var(--bai-muted); }
+      .ring-muted { --tw-ring-color: var(--bai-muted); }
+      .bg-muted-foreground { background-color: var(--bai-muted-foreground); }
+      .text-muted-foreground { color: var(--bai-muted-foreground); }
+      .border-muted-foreground { border-color: var(--bai-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--bai-muted-foreground); }
+      .bg-border { background-color: var(--bai-border); }
+      .text-border { color: var(--bai-border); }
+      .border-border { border-color: var(--bai-border); }
+      .ring-border { --tw-ring-color: var(--bai-border); }
+      .bg-input { background-color: var(--bai-input); }
+      .text-input { color: var(--bai-input); }
+      .border-input { border-color: var(--bai-input); }
+      .ring-input { --tw-ring-color: var(--bai-input); }
+      .bg-ring { background-color: var(--bai-ring); }
+      .text-ring { color: var(--bai-ring); }
+      .border-ring { border-color: var(--bai-ring); }
+      .ring-ring { --tw-ring-color: var(--bai-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+  <aside class="telemetry telemetry-left" aria-hidden="true">
+    <div class="tele-item"><span class="tele-label">FPS</span><span class="tele-value">144</span></div>
+    <div class="tele-item"><span class="tele-label">MEM</span><span class="tele-value">312MB</span></div>
+    <div class="tele-item"><span class="tele-label">BAT</span><span class="tele-value">87%</span></div>
+    <div class="tele-item"><span class="tele-label">SCRL</span><span class="tele-value">0%</span></div>
+  </aside>
+  <aside class="telemetry telemetry-right" aria-hidden="true">
+    <div class="tele-item"><span class="tele-label">PING</span><span class="tele-value">24ms</span></div>
+    <div class="tele-item"><span class="tele-label">CLOCK</span><span class="tele-value">21:04:37</span></div>
+    <div class="tele-item"><span class="tele-label">UP</span><span class="tele-value">12d</span></div>
+    <div class="tele-item"><span class="tele-label">BRW</span><span class="tele-value">Chrome</span></div>
+  </aside>
+
+  <header class="site-header" id="top">
+    <nav class="site-nav" aria-label="主导航">
+      <a class="brand" href="/home/">Bai's Blog</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="/home/">主页</a>
+          <a class="active" href="/posts/" aria-current="page">文章</a>
+          <a href="/music/">音乐</a>
+          <a href="/comments/">评论区</a>
+          <a href="/about/">关于</a>
+        </div>
+        <button class="menu-button" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button class="theme-toggle" type="button" aria-label="切换到夜间模式">
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-shell" id="main-content">
+    <article class="paper-card" aria-labelledby="post-title">
+      <div class="post-column">
+        <a class="back-link" href="/posts/">← 返回文章列表</a>
+        <header class="post-header">
+          <h1 class="post-title" id="post-title">系统优化</h1>
+          <div class="post-meta">
+            <time datetime="2026-05-28">2026年5月28日</time>
+            <span class="category-tag">技术</span>
+          </div>
+        </header>
+        <div class="post-body">
+          <p>我将用最简单最直接的语言告诉你如何优化自己的系统，以及CS2（Counter-Strike 2）的简单优化。优化包括FPS帧数，延迟响应，提升帧率，提高手感。</p>
+          <p>软件链接放在文章末尾，以下设置仅供参考，具体以个人为主</p>
+          <h2>系统基础设置</h2>
+          <h3>系统安装</h3>
+          <p>不管是win10还是win11系统，最好选择专业版</p>
+          <figure class="post-figure">
+            <img src="../assets/post-image-1.png" alt="Windows 设置中的窗口化游戏优化选项" loading="lazy">
+          </figure>
+          <h3>系统设置</h3>
+          <p>首先是电脑最基本最简单的设置，win+i键打开设置</p>
+          <ul>
+            <li>窗口化游戏优化打开</li>
+            <li>硬件加速GPU计划打开</li>
+            <li>关闭游戏模式</li>
+          </ul>
+          <figure class="post-figure">
+            <img src="../assets/post-image-2.png" alt="GPU 首选项设置为高性能" loading="lazy">
+          </figure>
+          <h3>英伟达显卡设置</h3>
+          <h4>显卡驱动</h4>
+          <p>不要下载最新的驱动，去抖音上搜显卡型号，找到用的人最多的版本，从浏览器上下载</p>
+          <h2>进阶优化</h2>
+          <h3>电源计划</h3>
+          <p>电源计划对电脑影响非常非常非常大，直接用我的电源计划就可以（末尾链接），自己从网上找教程怎么导入。</p>
+        </div>
+        <p class="post-end">--- END OF FILE ---</p>
+        <section class="post-comments" aria-labelledby="comments-title">
+          <h2 id="comments-title">评论区</h2>
+          <p class="comment-empty">还没有评论，来说点什么吧</p>
+          <form class="comment-form" action="/comments/" method="post">
+            <div class="comment-field">
+              <label class="field-label" for="comment-body">评论内容</label>
+              <textarea id="comment-body" name="comment" rows="4" placeholder="欢迎交流…"></textarea>
+            </div>
+            <div class="comment-fields">
+              <div class="comment-field">
+                <label class="field-label" for="comment-nickname">昵称</label>
+                <input id="comment-nickname" name="nickname" type="text" autocomplete="nickname" placeholder="你的昵称">
+              </div>
+              <div class="comment-field">
+                <label class="field-label" for="comment-email">邮箱</label>
+                <input id="comment-email" name="email" type="email" autocomplete="email" placeholder="你的邮箱">
+              </div>
+            </div>
+            <div class="comment-actions"><button type="submit">发送</button></div>
+          </form>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>Copyright © 2026 Bai. All Rights Reserved.</p>
+    <p>Built with Hugo &amp; Github Pages. Deployed on Vercel.</p>
+    <p>Site Status: Running for 12d 04h 37m 12s</p>
+  </footer>
+  <script>lucide.createIcons();</script>
+  <style id="critical-layout">
+    :root {
+      --bg: #f7f5f2;
+      --surface: #ffffff;
+      --surface-2: #f0ece6;
+      --ink: #1a1a1a;
+      --ink-2: #666666;
+      --ink-3: #999999;
+      --line: rgba(0, 0, 0, 0.08);
+      --brand: var(--bai-primary);
+      --radius: var(--bai-radius-lg);
+      --radius-ctl: var(--bai-radius-md);
+      --nav-bg: rgba(247, 245, 242, 0.94);
+      --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
+      --footer-ink: #bbbbbb;
+      --tele-label: rgba(0, 0, 0, 0.09);
+      --tele-value: rgba(0, 0, 0, 0.13);
+      --tele-line: rgba(0, 0, 0, 0.06);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: 'LXGW WenKai Screen', 'LXGW WenKai', 'Noto Serif SC', serif;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    img { display: block; max-width: 100%; height: auto; }
+    :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .skip-link { position: fixed; left: 16px; top: -64px; z-index: 60; padding: 8px 14px; border-radius: var(--radius-ctl); background: var(--brand); color: var(--surface); font-size: 13px; transition: top 150ms ease; }
+    .skip-link:focus { top: 12px; }
+    .telemetry { position: fixed; top: 92px; z-index: 5; display: grid; gap: 8px; pointer-events: none; font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em; text-align: center; }
+    .telemetry-left { left: 14px; }
+    .telemetry-right { right: 14px; }
+    .tele-item { padding: 7px 0; }
+    .tele-item + .tele-item { border-top: 1px solid var(--tele-line); }
+    .tele-label { display: block; color: var(--tele-label); text-transform: uppercase; }
+    .tele-value { display: block; color: var(--tele-value); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .site-header { position: sticky; top: 0; z-index: 20; background: var(--nav-bg); border-bottom: 1px solid var(--line); }
+    .site-nav { width: 90%; max-width: 1100px; min-height: 64px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { color: var(--ink); font-size: 18px; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; }
+    .nav-right { display: flex; align-items: center; gap: 16px; margin-left: auto; }
+    .nav-links { display: flex; align-items: center; gap: clamp(14px, 2.2vw, 28px); }
+    .nav-links a { color: var(--ink-2); font-size: 14px; transition: color 150ms ease; }
+    .nav-links a:hover, .nav-links a:focus-visible, .nav-links a.active { color: var(--brand); }
+    .theme-toggle { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid var(--line); border-radius: var(--radius-ctl); background: transparent; color: var(--ink-2); transition: color 150ms ease, border-color 150ms ease; }
+    .theme-toggle:hover, .theme-toggle:focus-visible { color: var(--brand); border-color: var(--brand); }
+    .theme-toggle .icon-sun { display: none; }
+    html.dark .theme-toggle .icon-sun { display: block; }
+    html.dark .theme-toggle .icon-moon { display: none; }
+    .menu-button { display: none; width: 38px; height: 38px; padding: 9px; border: 1px solid var(--line); border-radius: var(--radius-ctl); background: transparent; color: var(--ink-2); transition: color 150ms ease, border-color 150ms ease; }
+    .menu-button:hover, .menu-button:focus-visible { color: var(--brand); border-color: var(--brand); }
+    .menu-button span { display: block; width: 100%; height: 1px; margin: 3px 0; background: currentColor; }
+    .page-shell { width: 90%; max-width: 1100px; margin: 0 auto; padding: 60px 20px 100px; }
+    .paper-card { max-width: 760px; margin: 0 auto; padding: 52px 56px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+    .post-column { max-width: 34em; margin-inline: auto; }
+    .back-link { display: flex; align-items: center; gap: 6px; width: fit-content; margin: 0 0 18px; color: var(--ink-2); font-size: 13.5px; transition: color 150ms ease, transform 150ms ease; }
+    .back-link:hover, .back-link:focus-visible { color: var(--brand); transform: translateX(-2px); }
+    .post-title { margin: 0; font-size: clamp(26px, 3vw, 34px); font-weight: 600; line-height: 1.25; overflow-wrap: break-word; }
+    .post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 14px; color: var(--ink-2); font-size: 13px; }
+    .post-meta time { font-variant-numeric: tabular-nums; }
+    .category-tag { padding: 3px 10px; border-radius: var(--radius-ctl); background: var(--surface-2); color: var(--ink-2); font-size: 12px; line-height: 1.6; }
+    .post-body { margin-top: 28px; }
+    .post-body p { margin: 0 0 16px; }
+    .post-body h2, .post-body h3, .post-body h4 { margin: 32px 0 12px; line-height: 1.4; }
+    .post-body h2 { font-size: 22px; font-weight: 600; }
+    .post-body h3 { font-size: 18px; font-weight: 500; }
+    .post-body h4 { font-size: 16px; font-weight: 500; }
+    .post-body > :first-child { margin-top: 0; }
+    .post-body ul { margin: 0 0 16px; padding-left: 22px; display: grid; gap: 8px; }
+    .post-body li { padding-left: 2px; }
+    .post-figure { margin: 24px 0; }
+    .post-figure img { width: 100%; border: 1px solid var(--line); border-radius: var(--radius-ctl); }
+    .post-end { margin: 40px 0 0; padding-top: 24px; border-top: 1px solid var(--line); color: var(--ink-3); font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em; text-align: center; }
+    .post-comments { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); }
+    .post-comments h2 { margin: 0 0 10px; font-size: 22px; font-weight: 600; line-height: 1.4; }
+    .comment-empty { margin: 0 0 22px; color: var(--ink-3); font-size: 14px; }
+    .comment-form { display: grid; gap: 16px; }
+    .comment-field { display: grid; gap: 8px; }
+    .field-label { color: var(--ink-2); font-size: 13px; line-height: 1.6; }
+    .comment-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    textarea, input { width: 100%; padding: 11px 13px; border: 1px solid var(--line); border-radius: var(--radius-ctl); background: var(--surface); color: var(--ink); font-size: 14.5px; line-height: 1.7; transition: border-color 150ms ease; }
+    textarea { min-height: 118px; resize: vertical; }
+    textarea::placeholder, input::placeholder { color: var(--ink-3); }
+    textarea:hover, input:hover { border-color: var(--ink-3); }
+    textarea:focus-visible, input:focus-visible { border-color: var(--brand); }
+    .comment-actions { display: flex; justify-content: flex-end; }
+    .comment-actions button { min-width: 92px; padding: 10px 22px; border: 1px solid var(--brand); border-radius: var(--radius-ctl); background: transparent; color: var(--brand); font-size: 14px; transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease; }
+    .comment-actions button:hover, .comment-actions button:focus-visible, .comment-actions button:active { background: var(--brand); color: var(--surface); border-color: var(--brand); }
+    .site-footer { width: 90%; max-width: 1100px; margin: 0 auto; padding: 36px 20px 64px; border-top: 1px solid var(--line); color: var(--footer-ink); font-size: 12.5px; text-align: center; }
+    .site-footer p { margin: 4px 0; }
+    @media (max-width: 1100px) {
+      .telemetry { display: none; }
+      .nav-links { gap: 14px; }
+      .page-shell { padding: 48px 18px 80px; }
+    }
+    @media (max-width: 680px) {
+      .site-nav { min-height: 58px; }
+      .nav-links { display: none; }
+      .menu-button { display: block; }
+      .paper-card { padding: 28px 22px; }
+      .post-comments { margin-top: 32px; padding-top: 26px; }
+      .comment-fields { grid-template-columns: 1fr; }
+      .site-footer { padding: 28px 18px 48px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</body>
+</html>

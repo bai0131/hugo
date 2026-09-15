@@ -8,7 +8,7 @@
       "createdAt": 1789384200000,
       "canvasData": {
         "x": 0,
-        "y": 518,
+        "y": 0,
         "group": 2,
         "layoutSnapshot": {
           "version": 1,
@@ -31,7 +31,7 @@
       "createdAt": 1789384200000,
       "canvasData": {
         "x": 480,
-        "y": 518,
+        "y": 0,
         "group": 2,
         "layoutSnapshot": {
           "version": 1,
@@ -47,48 +47,71 @@
       }
     },
     {
-      "id": "page-welcome-continuity",
-      "title": "欢迎页 · 原站延续版",
+      "id": "page-home-minimal",
+      "title": "内页主页 · 极简方案A",
       "type": "page",
       "version": 1,
-      "createdAt": 1789383000000,
+      "createdAt": 1789387200000,
       "canvasData": {
         "x": 0,
-        "y": 0,
-        "group": 1,
+        "y": 518,
+        "group": 3,
         "layoutSnapshot": {
           "version": 1,
-          "contentHeight": 900,
+          "contentHeight": 1748,
           "viewportWidth": 1440,
-          "sourceHash": "fnv1a-0d563a0d",
-          "measuredAt": 1789383640402
+          "sourceHash": "fnv1a-54b4fc0d",
+          "measuredAt": 1789389468480
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/welcome-continuity.html",
+        "htmlSrc": "pages/home-minimal.html",
         "interactions": []
       }
     },
     {
-      "id": "page-home-continuity",
-      "title": "内容主页 · 原站延续版",
+      "id": "page-home-minimal-dark",
+      "title": "内页主页 · 极简方案A · 夜间",
       "type": "page",
       "version": 1,
-      "createdAt": 1789383000000,
+      "createdAt": 1789387200000,
       "canvasData": {
         "x": 480,
-        "y": 0,
-        "group": 1,
+        "y": 518,
+        "group": 3,
         "layoutSnapshot": {
           "version": 1,
-          "contentHeight": 1400,
+          "contentHeight": 1748,
           "viewportWidth": 1440,
-          "sourceHash": "fnv1a-b68993b4",
-          "measuredAt": 1789383640402
+          "sourceHash": "fnv1a-1c9478fa",
+          "measuredAt": 1789389468480
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/home-continuity.html",
+        "htmlSrc": "pages/home-minimal-dark.html",
+        "interactions": []
+      }
+    },
+    {
+      "id": "page-post-minimal",
+      "title": "文章页 · 极简方案A",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1789387200000,
+      "canvasData": {
+        "x": 960,
+        "y": 518,
+        "group": 3,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 2631,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-a28abcf9",
+          "measuredAt": 1789389468480
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/post-minimal.html",
         "interactions": []
       }
     },
@@ -144,6 +167,42 @@
       },
       "devMetadata": {
         "imageSrc": "assets/bgm1.jpg"
+      }
+    },
+    {
+      "id": "image-004",
+      "title": "文章配图：系统设置窗口化游戏优化",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1789387200000,
+      "canvasData": {
+        "x": 1440,
+        "y": 891,
+        "naturalSize": {
+          "width": 710,
+          "height": 358
+        }
+      },
+      "devMetadata": {
+        "imageSrc": "assets/post-image-1.png"
+      }
+    },
+    {
+      "id": "image-005",
+      "title": "文章配图：GPU 首选项高性能设置",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1789387200000,
+      "canvasData": {
+        "x": 1920,
+        "y": 891,
+        "naturalSize": {
+          "width": 1341,
+          "height": 505
+        }
+      },
+      "devMetadata": {
+        "imageSrc": "assets/post-image-2.png"
       }
     }
   ],

@@ -1,17 +1,339 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-14T11:05:42.221Z",
+  "generated_at": "2026-09-14T12:08:01.158Z",
   "source": "build-page-dispatch-manifest.mjs",
   "mode": "existing-edit",
   "summary_path": "runtime-orchestration-summary.json",
   "skillProvenance": {
     "name": "solo-design",
     "version": "2026.08.06.19.15.08",
-    "version_source": "runtime"
+    "version_source": "skill-release-manifest.json",
+    "read_status": "ok"
   },
   "dispatchPreflightManifest": [
     {
-      "recorded_at": "2026-09-14T11:05:40.523Z",
+      "recorded_at": "2026-09-14T12:08:01.147Z",
+      "generatedBy": "build-page-dispatch-manifest.mjs",
+      "packetType": "ExistingEditPagePacket",
+      "laneContract": {
+        "resolvedLane": "existing_edit_add_comparison",
+        "packetType": "ExistingEditPagePacket",
+        "pageRuntimeGuide": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
+        "dispatchContract": "intent-workflows/intent-project-mutation/existing-edit-dispatch-contract.md"
+      },
+      "taskLinePresent": true,
+      "outputPathPresent": true,
+      "sharedTemplate": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
+      "nodeId": "page-home-minimal",
+      "htmlSrc": "pages/home-minimal.html",
+      "supplementaryReads": [],
+      "allowedWritePaths": [
+        "pages/home-minimal.html",
+        "assets/"
+      ],
+      "forbiddenWriteRoots": [
+        "*.design",
+        "runtime-orchestration-summary.json",
+        "validation-report.json",
+        "finish-readiness-report.json",
+        "restore-contract-report.json",
+        "page-generation-summary.json"
+      ],
+      "toolPolicy": {
+        "todoWriteAllowed": false,
+        "validationScriptsAllowed": false,
+        "previewAllowed": false,
+        "helperScriptsAllowed": false,
+        "designFileWriteAllowed": false,
+        "allowedWritePaths": [
+          "pages/home-minimal.html",
+          "assets/"
+        ]
+      },
+      "skillRuntime": {
+        "skillDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design",
+        "deterministicToolDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling",
+        "toolPaths": {
+          "applyHtmlHeadContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs",
+          "recordDispatchCompletion": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs",
+          "buildPageDispatchManifest": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\build-page-dispatch-manifest.mjs",
+          "validateDesignWorkspace": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-design-workspace.mjs",
+          "validateFinishReadiness": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs",
+          "validateRestoreContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-restore-contract.mjs"
+        },
+        "requiredForPageSubAgent": [
+          "applyHtmlHeadContract",
+          "recordDispatchCompletion"
+        ],
+        "pathInjection": "absolute",
+        "pathContract": "Do not use {SKILL_DIR} placeholders inside Page Sub-Agent packets; use toolPaths.* absolute paths.",
+        "commandTemplates": {
+          "recordDispatchCompletion": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\" --node-id=\"page-home-minimal\" --html-src=\"pages/home-minimal.html\" --status=completed --changed-files=<comma-separated-project-relative-files> --trace-digest=<main-agent-runtime-trace-digest> --tool-ledger-json=<tool-ledger-json-or-file>"
+        }
+      },
+      "cssFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css",
+      "htmlFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\home-minimal.html",
+      "brandPrefix": "bai",
+      "aestheticsMode": "free-explore",
+      "toolDisciplineBlockPresent": true,
+      "fillHtmlHeadCommand": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\home-minimal.html\" --title=\"内页主页 · 极简方案A\" --lang=\"zh-CN\" --prefix=\"bai\" --replace-head",
+      "headFillMode": "replace-head-after-body",
+      "viewportMode": "document-scroll",
+      "completionSchemaExpected": "full",
+      "restoreFields": null,
+      "restoreContractStatus": null,
+      "restoreCompactPacket": null,
+      "deterministicCommands": null,
+      "sourceAuthorityLock": null,
+      "preDispatchFileHashes": {
+        "bai-blog-concept.design": "2b25d79b1210aec2b893e4d28195a56fe8c44a70721b1e83108b9f5a267b4d30"
+      },
+      "contextPreflight": {
+        "workflowPath": "intent-workflows/intent-project-mutation/INTENT_WORKFLOW.md",
+        "requiredContextFiles": [
+          "shared-runtime/runtime-boundaries/lane-runtime-contracts.md",
+          "shared-runtime/agent-dispatch-runtime/lane-dispatch-index.md",
+          "shared-runtime/agent-dispatch-runtime/shared-page-rendering-kernel.md",
+          "delivery-quality/page-rendering-quality-gate.md",
+          "delivery-quality/design-artifact-validation.md",
+          "delivery-quality/delivery-evidence-contract.md"
+        ],
+        "optionalContextFiles": [
+          "visual-experience/visual-experience-guidelines.md"
+        ],
+        "passed": true
+      },
+      "pageSliceOnly": true,
+      "requiredFieldsPresent": true,
+      "missingFields": [],
+      "fillHtmlHeadCommandValid": true,
+      "mobileNavigation": {
+        "required": false,
+        "appliesToThisPage": false,
+        "canonicalHtmlIncluded": false,
+        "missingFields": []
+      },
+      "persistedToSummary": true,
+      "taskQueryAudited": false,
+      "proofSource": "summary-only",
+      "largeWorkflowFilesInTaskQuery": null
+    },
+    {
+      "recorded_at": "2026-09-14T12:08:01.147Z",
+      "generatedBy": "build-page-dispatch-manifest.mjs",
+      "packetType": "ExistingEditPagePacket",
+      "laneContract": {
+        "resolvedLane": "existing_edit_add_comparison",
+        "packetType": "ExistingEditPagePacket",
+        "pageRuntimeGuide": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
+        "dispatchContract": "intent-workflows/intent-project-mutation/existing-edit-dispatch-contract.md"
+      },
+      "taskLinePresent": true,
+      "outputPathPresent": true,
+      "sharedTemplate": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
+      "nodeId": "page-home-minimal-dark",
+      "htmlSrc": "pages/home-minimal-dark.html",
+      "supplementaryReads": [],
+      "allowedWritePaths": [
+        "pages/home-minimal-dark.html",
+        "assets/"
+      ],
+      "forbiddenWriteRoots": [
+        "*.design",
+        "runtime-orchestration-summary.json",
+        "validation-report.json",
+        "finish-readiness-report.json",
+        "restore-contract-report.json",
+        "page-generation-summary.json"
+      ],
+      "toolPolicy": {
+        "todoWriteAllowed": false,
+        "validationScriptsAllowed": false,
+        "previewAllowed": false,
+        "helperScriptsAllowed": false,
+        "designFileWriteAllowed": false,
+        "allowedWritePaths": [
+          "pages/home-minimal-dark.html",
+          "assets/"
+        ]
+      },
+      "skillRuntime": {
+        "skillDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design",
+        "deterministicToolDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling",
+        "toolPaths": {
+          "applyHtmlHeadContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs",
+          "recordDispatchCompletion": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs",
+          "buildPageDispatchManifest": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\build-page-dispatch-manifest.mjs",
+          "validateDesignWorkspace": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-design-workspace.mjs",
+          "validateFinishReadiness": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs",
+          "validateRestoreContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-restore-contract.mjs"
+        },
+        "requiredForPageSubAgent": [
+          "applyHtmlHeadContract",
+          "recordDispatchCompletion"
+        ],
+        "pathInjection": "absolute",
+        "pathContract": "Do not use {SKILL_DIR} placeholders inside Page Sub-Agent packets; use toolPaths.* absolute paths.",
+        "commandTemplates": {
+          "recordDispatchCompletion": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\" --node-id=\"page-home-minimal-dark\" --html-src=\"pages/home-minimal-dark.html\" --status=completed --changed-files=<comma-separated-project-relative-files> --trace-digest=<main-agent-runtime-trace-digest> --tool-ledger-json=<tool-ledger-json-or-file>"
+        }
+      },
+      "cssFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css",
+      "htmlFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\home-minimal-dark.html",
+      "brandPrefix": "bai",
+      "aestheticsMode": "free-explore",
+      "toolDisciplineBlockPresent": true,
+      "fillHtmlHeadCommand": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\home-minimal-dark.html\" --title=\"内页主页 · 极简方案A · 夜间\" --lang=\"zh-CN\" --prefix=\"bai\" --replace-head",
+      "headFillMode": "replace-head-after-body",
+      "viewportMode": "document-scroll",
+      "completionSchemaExpected": "full",
+      "restoreFields": null,
+      "restoreContractStatus": null,
+      "restoreCompactPacket": null,
+      "deterministicCommands": null,
+      "sourceAuthorityLock": null,
+      "preDispatchFileHashes": {
+        "bai-blog-concept.design": "2b25d79b1210aec2b893e4d28195a56fe8c44a70721b1e83108b9f5a267b4d30"
+      },
+      "contextPreflight": {
+        "workflowPath": "intent-workflows/intent-project-mutation/INTENT_WORKFLOW.md",
+        "requiredContextFiles": [
+          "shared-runtime/runtime-boundaries/lane-runtime-contracts.md",
+          "shared-runtime/agent-dispatch-runtime/lane-dispatch-index.md",
+          "shared-runtime/agent-dispatch-runtime/shared-page-rendering-kernel.md",
+          "delivery-quality/page-rendering-quality-gate.md",
+          "delivery-quality/design-artifact-validation.md",
+          "delivery-quality/delivery-evidence-contract.md"
+        ],
+        "optionalContextFiles": [
+          "visual-experience/visual-experience-guidelines.md"
+        ],
+        "passed": true
+      },
+      "pageSliceOnly": true,
+      "requiredFieldsPresent": true,
+      "missingFields": [],
+      "fillHtmlHeadCommandValid": true,
+      "mobileNavigation": {
+        "required": false,
+        "appliesToThisPage": false,
+        "canonicalHtmlIncluded": false,
+        "missingFields": []
+      },
+      "persistedToSummary": true,
+      "taskQueryAudited": false,
+      "proofSource": "summary-only",
+      "largeWorkflowFilesInTaskQuery": null
+    },
+    {
+      "recorded_at": "2026-09-14T12:08:01.147Z",
+      "generatedBy": "build-page-dispatch-manifest.mjs",
+      "packetType": "ExistingEditPagePacket",
+      "laneContract": {
+        "resolvedLane": "existing_edit_add_comparison",
+        "packetType": "ExistingEditPagePacket",
+        "pageRuntimeGuide": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
+        "dispatchContract": "intent-workflows/intent-project-mutation/existing-edit-dispatch-contract.md"
+      },
+      "taskLinePresent": true,
+      "outputPathPresent": true,
+      "sharedTemplate": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
+      "nodeId": "page-post-minimal",
+      "htmlSrc": "pages/post-minimal.html",
+      "supplementaryReads": [],
+      "allowedWritePaths": [
+        "pages/post-minimal.html",
+        "assets/"
+      ],
+      "forbiddenWriteRoots": [
+        "*.design",
+        "runtime-orchestration-summary.json",
+        "validation-report.json",
+        "finish-readiness-report.json",
+        "restore-contract-report.json",
+        "page-generation-summary.json"
+      ],
+      "toolPolicy": {
+        "todoWriteAllowed": false,
+        "validationScriptsAllowed": false,
+        "previewAllowed": false,
+        "helperScriptsAllowed": false,
+        "designFileWriteAllowed": false,
+        "allowedWritePaths": [
+          "pages/post-minimal.html",
+          "assets/"
+        ]
+      },
+      "skillRuntime": {
+        "skillDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design",
+        "deterministicToolDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling",
+        "toolPaths": {
+          "applyHtmlHeadContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs",
+          "recordDispatchCompletion": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs",
+          "buildPageDispatchManifest": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\build-page-dispatch-manifest.mjs",
+          "validateDesignWorkspace": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-design-workspace.mjs",
+          "validateFinishReadiness": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs",
+          "validateRestoreContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-restore-contract.mjs"
+        },
+        "requiredForPageSubAgent": [
+          "applyHtmlHeadContract",
+          "recordDispatchCompletion"
+        ],
+        "pathInjection": "absolute",
+        "pathContract": "Do not use {SKILL_DIR} placeholders inside Page Sub-Agent packets; use toolPaths.* absolute paths.",
+        "commandTemplates": {
+          "recordDispatchCompletion": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\" --node-id=\"page-post-minimal\" --html-src=\"pages/post-minimal.html\" --status=completed --changed-files=<comma-separated-project-relative-files> --trace-digest=<main-agent-runtime-trace-digest> --tool-ledger-json=<tool-ledger-json-or-file>"
+        }
+      },
+      "cssFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css",
+      "htmlFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\post-minimal.html",
+      "brandPrefix": "bai",
+      "aestheticsMode": "free-explore",
+      "toolDisciplineBlockPresent": true,
+      "fillHtmlHeadCommand": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\post-minimal.html\" --title=\"文章页 · 极简方案A\" --lang=\"zh-CN\" --prefix=\"bai\" --replace-head",
+      "headFillMode": "replace-head-after-body",
+      "viewportMode": "document-scroll",
+      "completionSchemaExpected": "full",
+      "restoreFields": null,
+      "restoreContractStatus": null,
+      "restoreCompactPacket": null,
+      "deterministicCommands": null,
+      "sourceAuthorityLock": null,
+      "preDispatchFileHashes": {
+        "bai-blog-concept.design": "2b25d79b1210aec2b893e4d28195a56fe8c44a70721b1e83108b9f5a267b4d30"
+      },
+      "contextPreflight": {
+        "workflowPath": "intent-workflows/intent-project-mutation/INTENT_WORKFLOW.md",
+        "requiredContextFiles": [
+          "shared-runtime/runtime-boundaries/lane-runtime-contracts.md",
+          "shared-runtime/agent-dispatch-runtime/lane-dispatch-index.md",
+          "shared-runtime/agent-dispatch-runtime/shared-page-rendering-kernel.md",
+          "delivery-quality/page-rendering-quality-gate.md",
+          "delivery-quality/design-artifact-validation.md",
+          "delivery-quality/delivery-evidence-contract.md"
+        ],
+        "optionalContextFiles": [
+          "visual-experience/visual-experience-guidelines.md"
+        ],
+        "passed": true
+      },
+      "pageSliceOnly": true,
+      "requiredFieldsPresent": true,
+      "missingFields": [],
+      "fillHtmlHeadCommandValid": true,
+      "mobileNavigation": {
+        "required": false,
+        "appliesToThisPage": false,
+        "canonicalHtmlIncluded": false,
+        "missingFields": []
+      },
+      "persistedToSummary": true,
+      "taskQueryAudited": false,
+      "proofSource": "summary-only",
+      "largeWorkflowFilesInTaskQuery": null
+    },
+    {
+      "recorded_at": "2026-09-14T12:08:01.147Z",
       "generatedBy": "build-page-dispatch-manifest.mjs",
       "packetType": "ExistingEditPagePacket",
       "laneContract": {
@@ -75,8 +397,8 @@
       "brandPrefix": "bai",
       "aestheticsMode": "free-explore",
       "toolDisciplineBlockPresent": true,
-      "fillHtmlHeadCommand": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\welcome-original-fit.html\" --title=\"欢迎页 · 原样回归版\" --lang=\"zh-CN\" --prefix=\"bai\"",
-      "headFillMode": "skeleton-first",
+      "fillHtmlHeadCommand": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\welcome-original-fit.html\" --title=\"欢迎页 · 原样回归版\" --lang=\"zh-CN\" --prefix=\"bai\" --replace-head",
+      "headFillMode": "replace-head-after-body",
       "viewportMode": "document-scroll",
       "completionSchemaExpected": "full",
       "restoreFields": null,
@@ -85,7 +407,7 @@
       "deterministicCommands": null,
       "sourceAuthorityLock": null,
       "preDispatchFileHashes": {
-        "bai-blog-concept.design": "b8588c0ae7632c240ebf6dfb0ad1a572cd411d0668031fa98dbeabcdddf7224c"
+        "bai-blog-concept.design": "2b25d79b1210aec2b893e4d28195a56fe8c44a70721b1e83108b9f5a267b4d30"
       },
       "contextPreflight": {
         "workflowPath": "intent-workflows/intent-project-mutation/INTENT_WORKFLOW.md",
@@ -118,7 +440,7 @@
       "largeWorkflowFilesInTaskQuery": null
     },
     {
-      "recorded_at": "2026-09-14T11:05:40.523Z",
+      "recorded_at": "2026-09-14T12:08:01.147Z",
       "generatedBy": "build-page-dispatch-manifest.mjs",
       "packetType": "ExistingEditPagePacket",
       "laneContract": {
@@ -182,114 +504,7 @@
       "brandPrefix": "bai",
       "aestheticsMode": "free-explore",
       "toolDisciplineBlockPresent": true,
-      "fillHtmlHeadCommand": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\home-original-fit.html\" --title=\"内容主页 · 去磨砂版\" --lang=\"zh-CN\" --prefix=\"bai\"",
-      "headFillMode": "skeleton-first",
-      "viewportMode": "document-scroll",
-      "completionSchemaExpected": "full",
-      "restoreFields": null,
-      "restoreContractStatus": null,
-      "restoreCompactPacket": null,
-      "deterministicCommands": null,
-      "sourceAuthorityLock": null,
-      "preDispatchFileHashes": {
-        "bai-blog-concept.design": "b8588c0ae7632c240ebf6dfb0ad1a572cd411d0668031fa98dbeabcdddf7224c"
-      },
-      "contextPreflight": {
-        "workflowPath": "intent-workflows/intent-project-mutation/INTENT_WORKFLOW.md",
-        "requiredContextFiles": [
-          "shared-runtime/runtime-boundaries/lane-runtime-contracts.md",
-          "shared-runtime/agent-dispatch-runtime/lane-dispatch-index.md",
-          "shared-runtime/agent-dispatch-runtime/shared-page-rendering-kernel.md",
-          "delivery-quality/page-rendering-quality-gate.md",
-          "delivery-quality/design-artifact-validation.md",
-          "delivery-quality/delivery-evidence-contract.md"
-        ],
-        "optionalContextFiles": [
-          "visual-experience/visual-experience-guidelines.md"
-        ],
-        "passed": true
-      },
-      "pageSliceOnly": true,
-      "requiredFieldsPresent": true,
-      "missingFields": [],
-      "fillHtmlHeadCommandValid": true,
-      "mobileNavigation": {
-        "required": false,
-        "appliesToThisPage": false,
-        "canonicalHtmlIncluded": false,
-        "missingFields": []
-      },
-      "persistedToSummary": true,
-      "taskQueryAudited": false,
-      "proofSource": "summary-only",
-      "largeWorkflowFilesInTaskQuery": null
-    },
-    {
-      "recorded_at": "2026-09-14T11:05:40.523Z",
-      "generatedBy": "build-page-dispatch-manifest.mjs",
-      "packetType": "ExistingEditPagePacket",
-      "laneContract": {
-        "resolvedLane": "existing_edit_add_comparison",
-        "packetType": "ExistingEditPagePacket",
-        "pageRuntimeGuide": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
-        "dispatchContract": "intent-workflows/intent-project-mutation/existing-edit-dispatch-contract.md"
-      },
-      "taskLinePresent": true,
-      "outputPathPresent": true,
-      "sharedTemplate": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
-      "nodeId": "page-welcome-continuity",
-      "htmlSrc": "pages/welcome-continuity.html",
-      "supplementaryReads": [],
-      "allowedWritePaths": [
-        "pages/welcome-continuity.html",
-        "assets/"
-      ],
-      "forbiddenWriteRoots": [
-        "*.design",
-        "runtime-orchestration-summary.json",
-        "validation-report.json",
-        "finish-readiness-report.json",
-        "restore-contract-report.json",
-        "page-generation-summary.json"
-      ],
-      "toolPolicy": {
-        "todoWriteAllowed": false,
-        "validationScriptsAllowed": false,
-        "previewAllowed": false,
-        "helperScriptsAllowed": false,
-        "designFileWriteAllowed": false,
-        "allowedWritePaths": [
-          "pages/welcome-continuity.html",
-          "assets/"
-        ]
-      },
-      "skillRuntime": {
-        "skillDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design",
-        "deterministicToolDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling",
-        "toolPaths": {
-          "applyHtmlHeadContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs",
-          "recordDispatchCompletion": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs",
-          "buildPageDispatchManifest": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\build-page-dispatch-manifest.mjs",
-          "validateDesignWorkspace": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-design-workspace.mjs",
-          "validateFinishReadiness": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs",
-          "validateRestoreContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-restore-contract.mjs"
-        },
-        "requiredForPageSubAgent": [
-          "applyHtmlHeadContract",
-          "recordDispatchCompletion"
-        ],
-        "pathInjection": "absolute",
-        "pathContract": "Do not use {SKILL_DIR} placeholders inside Page Sub-Agent packets; use toolPaths.* absolute paths.",
-        "commandTemplates": {
-          "recordDispatchCompletion": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\" --node-id=\"page-welcome-continuity\" --html-src=\"pages/welcome-continuity.html\" --status=completed --changed-files=<comma-separated-project-relative-files> --trace-digest=<main-agent-runtime-trace-digest> --tool-ledger-json=<tool-ledger-json-or-file>"
-        }
-      },
-      "cssFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css",
-      "htmlFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\welcome-continuity.html",
-      "brandPrefix": "bai",
-      "aestheticsMode": "free-explore",
-      "toolDisciplineBlockPresent": true,
-      "fillHtmlHeadCommand": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\welcome-continuity.html\" --title=\"欢迎页 · 原站延续版\" --lang=\"zh-CN\" --prefix=\"bai\" --replace-head",
+      "fillHtmlHeadCommand": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\home-original-fit.html\" --title=\"内容主页 · 去磨砂版\" --lang=\"zh-CN\" --prefix=\"bai\" --replace-head",
       "headFillMode": "replace-head-after-body",
       "viewportMode": "document-scroll",
       "completionSchemaExpected": "full",
@@ -299,114 +514,7 @@
       "deterministicCommands": null,
       "sourceAuthorityLock": null,
       "preDispatchFileHashes": {
-        "bai-blog-concept.design": "b8588c0ae7632c240ebf6dfb0ad1a572cd411d0668031fa98dbeabcdddf7224c"
-      },
-      "contextPreflight": {
-        "workflowPath": "intent-workflows/intent-project-mutation/INTENT_WORKFLOW.md",
-        "requiredContextFiles": [
-          "shared-runtime/runtime-boundaries/lane-runtime-contracts.md",
-          "shared-runtime/agent-dispatch-runtime/lane-dispatch-index.md",
-          "shared-runtime/agent-dispatch-runtime/shared-page-rendering-kernel.md",
-          "delivery-quality/page-rendering-quality-gate.md",
-          "delivery-quality/design-artifact-validation.md",
-          "delivery-quality/delivery-evidence-contract.md"
-        ],
-        "optionalContextFiles": [
-          "visual-experience/visual-experience-guidelines.md"
-        ],
-        "passed": true
-      },
-      "pageSliceOnly": true,
-      "requiredFieldsPresent": true,
-      "missingFields": [],
-      "fillHtmlHeadCommandValid": true,
-      "mobileNavigation": {
-        "required": false,
-        "appliesToThisPage": false,
-        "canonicalHtmlIncluded": false,
-        "missingFields": []
-      },
-      "persistedToSummary": true,
-      "taskQueryAudited": false,
-      "proofSource": "summary-only",
-      "largeWorkflowFilesInTaskQuery": null
-    },
-    {
-      "recorded_at": "2026-09-14T11:05:40.523Z",
-      "generatedBy": "build-page-dispatch-manifest.mjs",
-      "packetType": "ExistingEditPagePacket",
-      "laneContract": {
-        "resolvedLane": "existing_edit_add_comparison",
-        "packetType": "ExistingEditPagePacket",
-        "pageRuntimeGuide": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
-        "dispatchContract": "intent-workflows/intent-project-mutation/existing-edit-dispatch-contract.md"
-      },
-      "taskLinePresent": true,
-      "outputPathPresent": true,
-      "sharedTemplate": "intent-workflows/intent-project-mutation/existing-edit-page-runtime.md",
-      "nodeId": "page-home-continuity",
-      "htmlSrc": "pages/home-continuity.html",
-      "supplementaryReads": [],
-      "allowedWritePaths": [
-        "pages/home-continuity.html",
-        "assets/"
-      ],
-      "forbiddenWriteRoots": [
-        "*.design",
-        "runtime-orchestration-summary.json",
-        "validation-report.json",
-        "finish-readiness-report.json",
-        "restore-contract-report.json",
-        "page-generation-summary.json"
-      ],
-      "toolPolicy": {
-        "todoWriteAllowed": false,
-        "validationScriptsAllowed": false,
-        "previewAllowed": false,
-        "helperScriptsAllowed": false,
-        "designFileWriteAllowed": false,
-        "allowedWritePaths": [
-          "pages/home-continuity.html",
-          "assets/"
-        ]
-      },
-      "skillRuntime": {
-        "skillDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design",
-        "deterministicToolDir": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling",
-        "toolPaths": {
-          "applyHtmlHeadContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs",
-          "recordDispatchCompletion": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs",
-          "buildPageDispatchManifest": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\build-page-dispatch-manifest.mjs",
-          "validateDesignWorkspace": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-design-workspace.mjs",
-          "validateFinishReadiness": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs",
-          "validateRestoreContract": "C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-restore-contract.mjs"
-        },
-        "requiredForPageSubAgent": [
-          "applyHtmlHeadContract",
-          "recordDispatchCompletion"
-        ],
-        "pathInjection": "absolute",
-        "pathContract": "Do not use {SKILL_DIR} placeholders inside Page Sub-Agent packets; use toolPaths.* absolute paths.",
-        "commandTemplates": {
-          "recordDispatchCompletion": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\record-dispatch-completion.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\" --node-id=\"page-home-continuity\" --html-src=\"pages/home-continuity.html\" --status=completed --changed-files=<comma-separated-project-relative-files> --trace-digest=<main-agent-runtime-trace-digest> --tool-ledger-json=<tool-ledger-json-or-file>"
-        }
-      },
-      "cssFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css",
-      "htmlFilePath": "F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\home-continuity.html",
-      "brandPrefix": "bai",
-      "aestheticsMode": "free-explore",
-      "toolDisciplineBlockPresent": true,
-      "fillHtmlHeadCommand": "node \"C:\\Users\\User\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\apply-html-head-contract.mjs\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\colors_and_type.css\" \"F:\\wangye\\bxl-hugo\\bai-blog-concept.design\\pages\\home-continuity.html\" --title=\"内容主页 · 原站延续版\" --lang=\"zh-CN\" --prefix=\"bai\" --replace-head",
-      "headFillMode": "replace-head-after-body",
-      "viewportMode": "document-scroll",
-      "completionSchemaExpected": "full",
-      "restoreFields": null,
-      "restoreContractStatus": null,
-      "restoreCompactPacket": null,
-      "deterministicCommands": null,
-      "sourceAuthorityLock": null,
-      "preDispatchFileHashes": {
-        "bai-blog-concept.design": "b8588c0ae7632c240ebf6dfb0ad1a572cd411d0668031fa98dbeabcdddf7224c"
+        "bai-blog-concept.design": "2b25d79b1210aec2b893e4d28195a56fe8c44a70721b1e83108b9f5a267b4d30"
       },
       "contextPreflight": {
         "workflowPath": "intent-workflows/intent-project-mutation/INTENT_WORKFLOW.md",
@@ -440,9 +548,10 @@
     }
   ],
   "deterministicCommandsByPage": {
+    "pages/home-minimal.html": {},
+    "pages/home-minimal-dark.html": {},
+    "pages/post-minimal.html": {},
     "pages/welcome-original-fit.html": {},
-    "pages/home-original-fit.html": {},
-    "pages/welcome-continuity.html": {},
-    "pages/home-continuity.html": {}
+    "pages/home-original-fit.html": {}
   }
 }

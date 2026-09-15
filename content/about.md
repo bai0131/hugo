@@ -67,7 +67,7 @@ description: "记录从手搓 HTML 到 Hugo 架构，技术更迭与逻辑重构
 | **评论系统** | Twikoo (Vercel + MongoDB) |
 | **头像源** | Weavatar (JS Hijacking) |
 | **性能监测** | 自研前端监控模块 (FPS / MS / MEM) |
-| **协作工具** |Trae + Antigravity + Gemini 3.6 Flash / Claude/DeepSeek V4/ChatGpt 5.6 |
+| **协作工具** |Trae + Antigravity + Gemini 3.6 Flash / Claude 4.6/DeepSeek V4/ChatGpt 5.6 |
 | **加速网络** | Vercel Global Edge Network |
 | **网址域名** | Aliyun |
 

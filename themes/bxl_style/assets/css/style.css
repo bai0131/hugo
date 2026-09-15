@@ -3360,6 +3360,68 @@ body.page-internal .hp-progress-fill {
   background: #C8654B !important;
 }
 
+/* ---- Playlist Drawer Light Mode Styling ---- */
+body.page-internal:not(.dark-mode) .playlist-drawer {
+  background: #EDE9E1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid #D9D2C5 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 16px !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__head {
+  color: #555555 !important;
+  border-bottom: 1px solid #D9D2C5 !important;
+  font-weight: 600 !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__head svg {
+  color: #555555 !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__item {
+  color: #222222 !important;
+  border-bottom: 1px solid #E5E0D8 !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__item:hover {
+  background: rgba(200, 101, 75, 0.08) !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__item.active {
+  background: rgba(200, 101, 75, 0.15) !important;
+  color: #C8654B !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__item-num {
+  color: #888888 !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__item-title {
+  color: #111111 !important;
+  font-weight: 600 !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__item-artist {
+  color: #666666 !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__item.active .playlist-drawer__item-num,
+body.page-internal:not(.dark-mode) .playlist-drawer__item.active .playlist-drawer__item-title,
+body.page-internal:not(.dark-mode) .playlist-drawer__item.active .playlist-drawer__item-artist {
+  color: #C8654B !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__list::-webkit-scrollbar-track {
+  background: #EDE9E1 !important;
+}
+
+body.page-internal:not(.dark-mode) .playlist-drawer__list::-webkit-scrollbar-thumb {
+  background: #C5BCAC !important;
+  border-radius: 4px !important;
+}
+
 /* ---- 11. Cyber side panels — darken text so visible on light bg ---- */
 body.page-internal .cyber-left,
 body.page-internal .cyber-right {

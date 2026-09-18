@@ -1,0 +1,929 @@
+{{ define "main" }}
+{{ $t := .Params.tool }}
+<div id="tools-page" class="tools-page fade-in">
+
+  <!-- ============ 产品头图区 ============ -->
+  <section class="tool-hero">
+    <img class="tool-hero__icon" src="/img/baiwindowstools.ico" alt="{{ $t.name }} 应用图标" width="96" height="96">
+    <h1 class="tool-hero__name">{{ $t.name }}</h1>
+    <p class="tool-hero__cn">{{ $t.cnname }}</p>
+    <p class="tool-hero__tagline">{{ $t.tagline }}</p>
+    <div class="tool-hero__badges">
+      <span class="tool-badge tool-badge--accent js-version">v{{ $t.version }}</span>
+      <span class="tool-badge">{{ $t.platform }}</span>
+      <span class="tool-badge">开源免费</span>
+    </div>
+  </section>
+
+  <!-- ============ 下载区 ============ -->
+  <section class="tool-download">
+    <a class="tool-btn tool-btn--primary js-download" href="{{ $t.downloadurl }}">
+      <svg class="tool-btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span class="tool-btn__label">下载安装包</span>
+    </a>
+
+    {{ with $t.mirrors }}
+    <div class="tool-mirrors">
+      <p class="tool-mirrors__label">其他下载方式</p>
+      <div class="tool-mirrors__list">
+        {{ range . }}
+        <a class="tool-mirror" href="{{ .url }}" target="_blank" rel="noopener">
+          <span class="tool-mirror__name">{{ .name }}</span>
+          {{ with .note }}<span class="tool-mirror__note">{{ . }}</span>{{ end }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <div class="tool-download__alt">
+      <a class="tool-btn tool-btn--ghost" href="{{ $t.releasesurl }}" target="_blank" rel="noopener">查看全部版本</a>
+      <a class="tool-btn tool-btn--ghost" href="{{ $t.repourl }}" target="_blank" rel="noopener">浏览源码</a>
+    </div>
+
+    <dl class="tool-meta">
+      <div class="tool-meta__cell">
+        <dt>版本</dt>
+        <dd class="js-version">v{{ $t.version }}</dd>
+      </div>
+      <div class="tool-meta__cell">
+        <dt>发布日期</dt>
+        <dd><time id="tool-date" datetime="{{ $t.releasedate }}">{{ $t.releasedate }}</time></dd>
+      </div>
+      <div class="tool-meta__cell">
+        <dt>文件大小</dt>
+        <dd id="tool-size">{{ $t.filesize }}</dd>
+      </div>
+      <div class="tool-meta__cell">
+        <dt>支持系统</dt>
+        <dd>{{ $t.platform }}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ============ 未签名说明 ============ -->
+  <section class="tool-notice">
+    <div class="tool-notice__head">
+      <svg class="tool-notice__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <strong>安装包暂未做代码签名</strong>
+    </div>
+    <p>Windows SmartScreen 可能提示「Windows 已保护你的电脑」。这是因为本项目的安装包未购买代码签名证书（个人项目成本较高），并非文件本身有问题。</p>
+    <p>继续安装的方法：在拦截提示窗口中点击「更多信息」，再点击「仍要运行」。</p>
+    <p>如需自行核对文件完整性，可在安装前用 PowerShell 执行 <code>Get-FileHash .\{{ $t.filename }} -Algorithm SHA256</code>，与下方校验值比对。</p>
+    <details class="tool-hash">
+      <summary>查看 SHA256 校验值</summary>
+      <code class="js-hash">{{ if $t.sha256 }}{{ $t.sha256 }}{{ else }}尚未提供{{ end }}</code>
+      <p class="tool-notice__pending">该值由 GitHub 在接收安装包时计算。</p>
+    </details>
+  </section>
+
+  <!-- ============ 功能特性 ============ -->
+  <section class="tool-section">
+    <h2 class="posts-stream__title">功能特性</h2>
+    <div class="tool-grid">
+      <article class="tool-card">
+        <h3 class="tool-card__title">12 分类 · 99 模块 · 9 预设</h3>
+        <p class="tool-card__desc">按隐私、外观、游戏、系统功能等分类组织，模块定义使用 JSON 描述（<code>schemaVersion=2</code>），每个操作都有稳定的 <code>operationId</code>。</p>
+      </article>
+      <article class="tool-card">
+        <h3 class="tool-card__title">预设包一键应用</h3>
+        <p class="tool-card__desc">内置隐私保护、关闭 AI 相关功能、游戏优化等预设组合，另含资源管理器、任务栏、游戏与 GPU、系统功能等专项预设包。</p>
+      </article>
+      <article class="tool-card">
+        <h3 class="tool-card__title">界面与外观自定义</h3>
+        <p class="tool-card__desc">UI 分类下提供 24 项外观调整，可在应用内直接修改并随时还原。</p>
+      </article>
+      <article class="tool-card">
+        <h3 class="tool-card__title">电源方案导入</h3>
+        <p class="tool-card__desc">内置 AMD 与 Intel 平台的电源方案文件（<code>.pow</code>），一键导入对应平台的最优电源计划。</p>
+      </article>
+      <article class="tool-card">
+        <h3 class="tool-card__title">权限自检测与 UAC 提权</h3>
+        <p class="tool-card__desc">启动时自动检测管理员权限，需要写入系统设置时通过 UAC 自动提权，无需手动右键以管理员身份运行。</p>
+      </article>
+      <article class="tool-card">
+        <h3 class="tool-card__title">事务账本 v2</h3>
+        <p class="tool-card__desc">每次修改都写入回滚账本：原子写入、逐项 <code>.bak</code> 备份、命名 Mutex 防止并发冲突，账本损坏时采取 fail-closed 策略而非盲目继续。</p>
+      </article>
+      <article class="tool-card">
+        <h3 class="tool-card__title">批量执行前自动创建还原点</h3>
+        <p class="tool-card__desc">在批量应用修改前自动创建系统还原点，出现问题可以直接回退到操作前的状态。</p>
+      </article>
+      <article class="tool-card">
+        <h3 class="tool-card__title">高风险操作二次确认</h3>
+        <p class="tool-card__desc">高风险模块不会静默执行，需要手动输入 <code>yes</code> 确认后才会应用。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 架构与可信度 ============ -->
+  <section class="tool-section">
+    <h2 class="posts-stream__title">架构与可信度</h2>
+    <p class="tool-lead">项目分为两层：一套负责实际修改系统的 PowerShell 引擎，和一个只做界面与调度的桌面应用。敏感写入不经过应用本身，而是交给独立的特权执行服务完成。</p>
+    <div class="tool-split">
+      <div class="tool-split__item">
+        <h3 class="tool-split__title">PowerShell 引擎</h3>
+        <p class="tool-split__desc"><code>toolkit.ps1</code> 配合 <code>lib/</code> 与 <code>config/</code>，负责模块执行、回滚账本与还原点管理。也可以脱离界面单独运行，并支持只读预检。</p>
+      </div>
+      <div class="tool-split__item">
+        <h3 class="tool-split__title">WPF 桌面应用</h3>
+        <p class="tool-split__desc">以普通权限运行，通过命名管道与 session nonce 与特权执行服务通信，界面层不直接持有系统写入权限。</p>
+      </div>
+    </div>
+    <p class="tool-footnote">测试覆盖 238 个用例（契约 41 · 执行主机 31 · 桌面应用 166），可用 <code>dotnet test BaiWindowsTools.slnx -c Release</code> 复现。</p>
+  </section>
+
+  <!-- ============ 系统要求与安装 ============ -->
+  <section class="tool-section">
+    <h2 class="posts-stream__title">系统要求与安装</h2>
+    <dl class="tool-req">
+      <div class="tool-req__row">
+        <dt>操作系统</dt>
+        <dd>Windows 10 / 11（64 位）</dd>
+      </div>
+      <div class="tool-req__row">
+        <dt>系统架构</dt>
+        <dd>x64</dd>
+      </div>
+      <div class="tool-req__row">
+        <dt>所需权限</dt>
+        <dd>修改系统设置时需要管理员权限，安装完成后首次启动会触发 UAC 提权</dd>
+      </div>
+      <div class="tool-req__row">
+        <dt>依赖组件</dt>
+        <dd>引擎脚本、模块定义与配置文件随安装包一并部署，无需单独准备 Python 或 PowerShell 环境</dd>
+      </div>
+    </dl>
+    <ol class="tool-steps">
+      <li class="tool-steps__item">
+        <span class="tool-steps__num">1</span>
+        <div class="tool-steps__body">
+          <p class="tool-steps__title">下载安装包</p>
+          <p class="tool-steps__desc">点击上方按钮下载 <code>{{ $t.filename }}</code>。</p>
+        </div>
+      </li>
+      <li class="tool-steps__item">
+        <span class="tool-steps__num">2</span>
+        <div class="tool-steps__body">
+          <p class="tool-steps__title">运行安装向导</p>
+          <p class="tool-steps__desc">双击安装包，按向导提示完成安装；若出现 SmartScreen 拦截，按上方说明选择「仍要运行」。</p>
+        </div>
+      </li>
+      <li class="tool-steps__item">
+        <span class="tool-steps__num">3</span>
+        <div class="tool-steps__body">
+          <p class="tool-steps__title">启动并授权</p>
+          <p class="tool-steps__desc">首次启动会请求管理员权限，确认后即可进入主界面。不需要时可直接通过「应用和功能」卸载。</p>
+        </div>
+      </li>
+    </ol>
+    <p class="tool-footnote">进阶用法：引擎支持只读预检，可在不修改任何设置的前提下检查环境，命令为 <code>toolkit.ps1 -Validate</code>。</p>
+  </section>
+
+  {{ with .Params.screenshots }}
+  <!-- ============ 界面预览 ============ -->
+  <section class="tool-section">
+    <h2 class="posts-stream__title">界面预览</h2>
+    <div class="tool-shots">
+      {{ range . }}
+      <figure class="tool-shot">
+        <img class="tool-shot__img" src="{{ .src }}" alt="{{ .caption }}" loading="lazy">
+        {{ with .caption }}<figcaption class="tool-shot__cap">{{ . }}</figcaption>{{ end }}
+      </figure>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- ============ 开源与声明 ============ -->
+  <section class="tool-section tool-section--last">
+    <h2 class="posts-stream__title">开源与声明</h2>
+    <p class="tool-lead">项目代码托管在 GitHub，欢迎提交问题、建议或参与改进：<a class="tool-link" href="{{ $t.repourl }}" target="_blank" rel="noopener">github.com/bai0131/BaiWindowsTools</a></p>
+    <div class="tool-cta-final">
+      <a class="tool-btn tool-btn--primary js-download" href="{{ $t.downloadurl }}">
+        <svg class="tool-btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span class="tool-btn__label">下载安装包</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<style>
+/* ============================================================
+   工具箱页面（/tools/）样式
+   作用域：仅 #tools-page 内部，不修改 style.css，不影响其他页面
+   注意：style.css:2287 对 body/a/h1-h6/p/span/li/div 强制了
+   color、font-weight:600、letter-spacing:0.5px 的 !important 规则，
+   因此本页需要覆盖的属性同样带 !important，并用 #tools-page（id）
+   提高优先级，确保浅色/深色两种模式下都能稳定生效。
+   同时不使用 var(--paper-*)/var(--text-*)：这些变量只在已失效的
+   body.dark 块中重定义过，深色模式下会渲染出浅色值。
+   ============================================================ */
+
+/* ---- 双模式配色变量（子元素继承，避免每条规则写两遍） ---- */
+body.page-internal:not(.dark-mode) #tools-page {
+  --tp-text: #111111;
+  --tp-muted: #666666;
+  --tp-faint: #8A8175;
+  --tp-panel: #EDE9E1;
+  --tp-panel-2: #F4F1EA;
+  --tp-border: #D9D2C5;
+  --tp-divider: #E5E0D8;
+  --tp-accent: #C8654B;
+  --tp-accent-hover: #B0543B;
+  --tp-on-accent: #FFFFFF;
+  --tp-code-bg: #EDE8DE;
+  --tp-warn-bg: #FBF3E8;
+  --tp-warn-border: #E8D5B5;
+  --tp-warn-text: #8A6A3A;
+  --tp-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+body.page-internal.dark-mode #tools-page {
+  --tp-text: #E2E0D8;
+  --tp-muted: #AAAAAA;
+  --tp-faint: #888888;
+  --tp-panel: #24262B;
+  --tp-panel-2: #2D3036;
+  --tp-border: #33363D;
+  --tp-divider: #2D2F36;
+  --tp-accent: #E5866C;
+  --tp-accent-hover: #D2755C;
+  --tp-on-accent: #1A1A1A;
+  --tp-code-bg: #2D3036;
+  --tp-warn-bg: #2E2A24;
+  --tp-warn-border: #4A4034;
+  --tp-warn-text: #D8B98A;
+  --tp-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- 基础 ---- */
+#tools-page {
+  max-width: 820px;
+  margin: 0 auto;
+  font-family: 'Source Han Serif SC', 'Noto Serif SC', 'Songti SC', serif;
+}
+
+#tools-page h1,
+#tools-page h2,
+#tools-page h3,
+#tools-page p,
+#tools-page span,
+#tools-page div,
+#tools-page li,
+#tools-page dd,
+#tools-page dt,
+#tools-page a,
+#tools-page summary,
+#tools-page time {
+  letter-spacing: normal !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+#tools-page h1,
+#tools-page h2,
+#tools-page h3 {
+  color: var(--tp-text) !important;
+  font-weight: 700 !important;
+}
+
+#tools-page p,
+#tools-page li,
+#tools-page dd,
+#tools-page dt,
+#tools-page time,
+#tools-page summary {
+  color: var(--tp-text) !important;
+}
+
+#tools-page code {
+  font-family: "SF Mono", "Cascadia Code", Consolas, "Fira Code", monospace;
+  font-size: 0.86em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--tp-code-bg) !important;
+  color: var(--tp-text) !important;
+}
+
+#tools-page a.tool-link {
+  color: var(--tp-accent) !important;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+#tools-page a.tool-link:hover {
+  border-bottom-color: var(--tp-accent);
+}
+
+/* ---- 产品头图区 ---- */
+#tools-page .tool-hero {
+  text-align: center;
+  padding: 4px 0 30px;
+}
+
+#tools-page .tool-hero__icon {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 18px;
+  border-radius: 22px;
+  box-shadow: var(--tp-shadow);
+}
+
+#tools-page .tool-hero__name {
+  font-size: 2.15rem !important;
+  font-weight: 800 !important;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+
+#tools-page .tool-hero__cn {
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  color: var(--tp-muted) !important;
+  margin: 0 0 16px;
+}
+
+#tools-page .tool-hero__tagline {
+  max-width: 620px;
+  margin: 0 auto 22px;
+  font-size: 0.98rem !important;
+  font-weight: 400 !important;
+  line-height: 1.9;
+  color: var(--tp-muted) !important;
+}
+
+#tools-page .tool-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+#tools-page .tool-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border: 1px solid var(--tp-border);
+  border-radius: 100px;
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  color: var(--tp-muted) !important;
+  background: var(--tp-panel-2) !important;
+  line-height: 1.5;
+}
+
+#tools-page .tool-badge--accent {
+  background: var(--tp-accent) !important;
+  border-color: var(--tp-accent) !important;
+  color: var(--tp-on-accent) !important;
+  font-weight: 700 !important;
+}
+
+/* ---- 下载区 ---- */
+#tools-page .tool-download {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 30px 26px 22px;
+  text-align: center;
+  background: var(--tp-panel) !important;
+  border: 1px solid var(--tp-border) !important;
+  border-radius: 16px;
+  box-shadow: var(--tp-shadow);
+}
+
+#tools-page .tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+#tools-page .tool-btn__icon {
+  flex-shrink: 0;
+}
+
+#tools-page .tool-btn--primary {
+  width: 100%;
+  padding: 14px 28px;
+  border: 1px solid var(--tp-accent) !important;
+  border-radius: 10px;
+  background: var(--tp-accent) !important;
+  color: var(--tp-on-accent) !important;
+  font-size: 1.02rem !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(200, 101, 75, 0.24);
+}
+
+#tools-page .tool-btn--primary:hover {
+  background: var(--tp-accent-hover) !important;
+  border-color: var(--tp-accent-hover) !important;
+  transform: translateY(-1px);
+}
+
+#tools-page .tool-download__alt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+#tools-page .tool-btn--ghost {
+  padding: 9px 20px;
+  border: 1px solid var(--tp-border) !important;
+  border-radius: 10px;
+  background: transparent !important;
+  color: var(--tp-muted) !important;
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+}
+
+#tools-page .tool-btn--ghost:hover {
+  border-color: var(--tp-accent) !important;
+  color: var(--tp-accent) !important;
+}
+
+/* 其他下载方式（国内网盘） */
+#tools-page .tool-mirrors {
+  margin-top: 18px;
+}
+
+#tools-page .tool-mirrors__label {
+  margin: 0 0 10px;
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  color: var(--tp-faint) !important;
+}
+
+#tools-page .tool-mirrors__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+#tools-page .tool-mirror {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 11px 14px;
+  border: 1px solid var(--tp-border) !important;
+  border-radius: 10px;
+  background: var(--tp-panel-2) !important;
+  text-decoration: none !important;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+#tools-page .tool-mirror:hover {
+  border-color: var(--tp-accent) !important;
+  transform: translateY(-1px);
+}
+
+#tools-page .tool-mirror__name {
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  color: var(--tp-text) !important;
+}
+
+#tools-page .tool-mirror:hover .tool-mirror__name {
+  color: var(--tp-accent) !important;
+}
+
+#tools-page .tool-mirror__note {
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+  color: var(--tp-muted) !important;
+}
+
+/* 元信息行：2×2 网格，保证「Windows 10 / 11 x64」等值不折行 */
+#tools-page .tool-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+  margin: 24px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--tp-divider);
+}
+
+#tools-page .tool-meta__cell {
+  padding: 0 6px;
+}
+
+#tools-page .tool-meta__cell:nth-child(even) {
+  border-left: 1px solid var(--tp-divider);
+}
+
+#tools-page .tool-meta dt {
+  margin: 0 0 5px;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  color: var(--tp-faint) !important;
+}
+
+#tools-page .tool-meta dd {
+  margin: 0;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  color: var(--tp-text) !important;
+}
+
+/* ---- 未签名说明 ---- */
+#tools-page .tool-notice {
+  margin-top: 26px;
+  padding: 20px 22px;
+  background: var(--tp-warn-bg) !important;
+  border: 1px solid var(--tp-warn-border) !important;
+  border-left: 3px solid var(--tp-warn-text) !important;
+  border-radius: 12px;
+}
+
+#tools-page .tool-notice__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--tp-warn-text) !important;
+}
+
+#tools-page .tool-notice__head strong {
+  font-size: 0.97rem !important;
+  font-weight: 700 !important;
+  color: var(--tp-warn-text) !important;
+}
+
+#tools-page .tool-notice__icon {
+  flex-shrink: 0;
+}
+
+#tools-page .tool-notice p {
+  margin: 0 0 9px;
+  font-size: 0.89rem !important;
+  font-weight: 400 !important;
+  line-height: 1.85;
+  color: var(--tp-text) !important;
+}
+
+#tools-page .tool-notice p:last-child {
+  margin-bottom: 0;
+}
+
+#tools-page .tool-notice__pending {
+  color: var(--tp-faint) !important;
+  font-size: 0.85rem !important;
+}
+
+#tools-page .tool-hash {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--tp-panel-2) !important;
+  border: 1px solid var(--tp-border) !important;
+  border-radius: 8px;
+}
+
+#tools-page .tool-hash summary {
+  cursor: pointer;
+  font-size: 0.86rem !important;
+  font-weight: 600 !important;
+  color: var(--tp-muted) !important;
+}
+
+#tools-page .tool-hash code {
+  display: block;
+  margin-top: 10px;
+  padding: 9px 11px;
+  font-size: 0.78rem !important;
+  line-height: 1.7;
+  word-break: break-all;
+  border-radius: 6px;
+}
+
+#tools-page .tool-hash .tool-notice__pending {
+  margin: 8px 0 0;
+  font-size: 0.8rem !important;
+  color: var(--tp-faint) !important;
+}
+
+/* ---- 通用区块 ---- */
+#tools-page .tool-section {
+  margin-top: 46px;
+}
+
+#tools-page .tool-section--last {
+  padding-bottom: 8px;
+}
+
+#tools-page .tool-lead {
+  font-size: 0.94rem !important;
+  font-weight: 400 !important;
+  line-height: 1.95;
+  color: var(--tp-text) !important;
+  margin: 0 0 14px;
+}
+
+/* ---- 功能特性卡片 ---- */
+#tools-page .tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 6px;
+}
+
+#tools-page .tool-card {
+  padding: 18px 20px;
+  background: var(--tp-panel) !important;
+  border: 1px solid var(--tp-border) !important;
+  border-radius: 12px;
+}
+
+#tools-page .tool-card__title {
+  margin: 0 0 8px;
+  font-size: 0.99rem !important;
+  font-weight: 700 !important;
+  color: var(--tp-text) !important;
+  line-height: 1.5;
+}
+
+#tools-page .tool-card__desc {
+  margin: 0;
+  font-size: 0.87rem !important;
+  font-weight: 400 !important;
+  line-height: 1.85;
+  color: var(--tp-muted) !important;
+}
+
+/* ---- 架构区块 ---- */
+#tools-page .tool-split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 6px;
+}
+
+#tools-page .tool-split__item {
+  padding: 18px 20px;
+  background: var(--tp-panel-2) !important;
+  border: 1px solid var(--tp-divider) !important;
+  border-radius: 12px;
+}
+
+#tools-page .tool-split__title {
+  margin: 0 0 8px;
+  font-size: 0.97rem !important;
+  font-weight: 700 !important;
+  color: var(--tp-text) !important;
+}
+
+#tools-page .tool-split__desc {
+  margin: 0;
+  font-size: 0.87rem !important;
+  font-weight: 400 !important;
+  line-height: 1.85;
+  color: var(--tp-muted) !important;
+}
+
+#tools-page .tool-footnote {
+  margin: 16px 0 0;
+  font-size: 0.83rem !important;
+  font-weight: 400 !important;
+  line-height: 1.85;
+  color: var(--tp-faint) !important;
+}
+
+/* ---- 系统要求 ---- */
+#tools-page .tool-req {
+  margin: 6px 0 0;
+  border: 1px solid var(--tp-border) !important;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--tp-panel) !important;
+}
+
+#tools-page .tool-req__row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 18px;
+}
+
+#tools-page .tool-req__row + .tool-req__row {
+  border-top: 1px solid var(--tp-divider);
+}
+
+#tools-page .tool-req dt {
+  flex: 0 0 84px;
+  margin: 0;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  color: var(--tp-faint) !important;
+}
+
+#tools-page .tool-req dd {
+  margin: 0;
+  font-size: 0.88rem !important;
+  font-weight: 400 !important;
+  line-height: 1.8;
+  color: var(--tp-text) !important;
+}
+
+/* ---- 安装步骤 ---- */
+#tools-page .tool-steps {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+#tools-page .tool-steps__item {
+  display: flex;
+  gap: 14px;
+  padding: 0 0 18px;
+}
+
+#tools-page .tool-steps__num {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--tp-accent) !important;
+  color: var(--tp-on-accent) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  line-height: 26px;
+  text-align: center;
+}
+
+#tools-page .tool-steps__body {
+  flex: 1;
+}
+
+#tools-page .tool-steps__title {
+  margin: 2px 0 4px;
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  color: var(--tp-text) !important;
+}
+
+#tools-page .tool-steps__desc {
+  margin: 0;
+  font-size: 0.87rem !important;
+  font-weight: 400 !important;
+  line-height: 1.85;
+  color: var(--tp-muted) !important;
+}
+
+/* ---- 界面预览 ---- */
+#tools-page .tool-shots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 6px;
+}
+
+#tools-page .tool-shot {
+  margin: 0;
+  background: var(--tp-panel) !important;
+  border: 1px solid var(--tp-border) !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#tools-page .tool-shot__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#tools-page .tool-shot__cap {
+  padding: 9px 14px;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  color: var(--tp-muted) !important;
+  text-align: center;
+}
+
+/* ---- 末尾 CTA ---- */
+#tools-page .tool-cta-final {
+  margin-top: 26px;
+  text-align: center;
+}
+
+#tools-page .tool-cta-final .tool-btn--primary {
+  width: auto;
+  min-width: 220px;
+}
+
+/* ---- 响应式（对齐 style.css 的 860 / 768 / 640 断点） ---- */
+@media (max-width: 768px) {
+  #tools-page .tool-hero__name { font-size: 1.75rem !important; }
+  #tools-page .tool-hero__icon { width: 80px; height: 80px; border-radius: 18px; }
+  #tools-page .tool-download { padding: 24px 18px 18px; }
+  #tools-page .tool-grid,
+  #tools-page .tool-split,
+  #tools-page .tool-shots { grid-template-columns: 1fr; }
+  #tools-page .tool-req__row { flex-direction: column; gap: 4px; }
+  #tools-page .tool-req dt { flex: none; }
+  #tools-page .tool-cta-final .tool-btn--primary { width: 100%; min-width: 0; }
+}
+
+@media (max-width: 640px) {
+  #tools-page .tool-hero__tagline { font-size: 0.93rem !important; }
+  #tools-page .tool-btn--primary { font-size: 0.97rem !important; padding: 13px 20px; }
+  #tools-page .tool-notice { padding: 16px 16px; }
+  #tools-page .tool-section { margin-top: 38px; }
+  #tools-page .tool-mirrors__list { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+/* 版本信息自动更新：
+   读取 GitHub 最新 Release，刷新版本号／发布日期／文件大小，并把下载按钮
+   指向最新安装包。请求失败或未发布 Release 时保持服务端渲染内容不变。 */
+(function () {
+  var API = "https://api.github.com/repos/bai0131/BaiWindowsTools/releases/latest";
+  var RELEASES = "{{ $t.releasesurl }}";
+  var buttons = document.querySelectorAll("#tools-page .js-download");
+  var versionEls = document.querySelectorAll("#tools-page .js-version");
+  var dateEl = document.getElementById("tool-date");
+  var sizeEl = document.getElementById("tool-size");
+  var hashEl = document.querySelector("#tools-page .js-hash");
+
+  if (typeof fetch !== "function") return;
+
+  function degradeToReleases() {
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute("href", RELEASES);
+      buttons[i].setAttribute("target", "_blank");
+      buttons[i].setAttribute("rel", "noopener");
+      var label = buttons[i].querySelector(".tool-btn__label");
+      if (label) label.textContent = "前往发布页下载";
+    }
+  }
+
+  function formatSize(bytes) {
+    if (!bytes) return "";
+    var mb = bytes / 1048576;
+    return "约 " + (mb >= 10 ? Math.round(mb) : mb.toFixed(1)) + " MB";
+  }
+
+  fetch(API, { headers: { Accept: "application/vnd.github+json" } })
+    .then(function (res) {
+      /* 仓库尚未发布任何 Release：降级到发布页，避免按钮 404 */
+      if (res.status === 404) {
+        degradeToReleases();
+        return null;
+      }
+      /* 速率限制等其他异常：保留服务端渲染的直链 */
+      if (!res.ok) return null;
+      return res.json();
+    })
+    .then(function (rel) {
+      if (!rel) return;
+
+      var asset = null;
+      var assets = rel.assets || [];
+      for (var i = 0; i < assets.length; i++) {
+        if (/-x64-setup\.exe$/i.test(assets[i].name)) {
+          asset = assets[i];
+          break;
+        }
+      }
+
+      if (asset) {
+        for (var j = 0; j < buttons.length; j++) {
+          buttons[j].setAttribute("href", asset.browser_download_url);
+        }
+        if (sizeEl && asset.size) sizeEl.textContent = formatSize(asset.size);
+        /* GitHub 会为上传的资源计算 digest，可直接作为校验值 */
+        if (hashEl && asset.digest) {
+          hashEl.textContent = String(asset.digest).replace(/^sha256:/, "");
+        }
+      } else {
+        degradeToReleases();
+      }
+
+      var tag = String(rel.tag_name || "").replace(/^v/, "");
+      if (tag) {
+        for (var k = 0; k < versionEls.length; k++) {
+          versionEls[k].textContent = "v" + tag;
+        }
+      }
+
+      if (dateEl && rel.published_at) {
+        var d = new Date(rel.published_at);
+        if (!isNaN(d.getTime())) {
+          var iso = d.toISOString().slice(0, 10);
+          dateEl.textContent = iso;
+          dateEl.setAttribute("datetime", iso);
+        }
+      }
+    })
+    .catch(function () {
+      /* 网络不可用或请求被拦截：保持服务端渲染内容 */
+    });
+})();
+</script>
+{{ end }}

@@ -15,50 +15,85 @@
     </div>
   </section>
 
+  {{ with $t.gallery }}
+  <!-- ============ 产品预览（自动轮播） ============ -->
+  <section class="tool-section tool-section--preview">
+    <h2 class="posts-stream__title">产品预览</h2>
+    <div class="tool-carousel" id="tool-carousel">
+      <div class="tool-carousel__viewport">
+        <div class="tool-carousel__track" id="tool-carousel-track">
+          {{ range $i, $s := . }}
+          <div class="tool-carousel__slide" data-index="{{ $i }}" data-caption="{{ $s.caption }}"{{ if $i }} aria-hidden="true"{{ end }}>
+            <img class="tool-carousel__img" src="{{ $s.src }}" alt="{{ $s.alt }}"{{ if $i }} loading="lazy"{{ end }}>
+          </div>
+          {{ end }}
+        </div>
+        <button class="tool-carousel__nav tool-carousel__nav--prev" type="button" aria-label="上一张">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="tool-carousel__nav tool-carousel__nav--next" type="button" aria-label="下一张">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="tool-carousel__bar">
+        <p class="tool-carousel__cap" id="tool-carousel-cap">{{ (index . 0).caption }}</p>
+        <div class="tool-carousel__dots" id="tool-carousel-dots">
+          {{ range $i, $s := . }}
+          <button class="tool-carousel__dot{{ if not $i }} is-active{{ end }}" type="button" data-index="{{ $i }}" aria-label="查看第 {{ add $i 1 }} 张"></button>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
   <!-- ============ 下载区 ============ -->
-  <section class="tool-download">
-    <a class="tool-btn tool-btn--primary js-download" href="{{ $t.downloadurl }}">
-      <svg class="tool-btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      <span class="tool-btn__label">下载安装包</span>
-    </a>
+  <section class="tool-section">
+    <h2 class="posts-stream__title">软件下载</h2>
+    <div class="tool-download">
+      <a class="tool-btn tool-btn--primary js-download" href="{{ $t.downloadurl }}">
+        <svg class="tool-btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span class="tool-btn__label">下载安装包</span>
+      </a>
 
-    {{ with $t.mirrors }}
-    <div class="tool-mirrors">
-      <p class="tool-mirrors__label">其他下载方式</p>
-      <div class="tool-mirrors__list">
-        {{ range . }}
-        <a class="tool-mirror" href="{{ .url }}" target="_blank" rel="noopener">
-          <span class="tool-mirror__name">{{ .name }}</span>
-          {{ with .note }}<span class="tool-mirror__note">{{ . }}</span>{{ end }}
-        </a>
-        {{ end }}
+      {{ with $t.mirrors }}
+      <div class="tool-mirrors">
+        <p class="tool-mirrors__label">其他下载方式</p>
+        <div class="tool-mirrors__list">
+          {{ range . }}
+          <a class="tool-mirror" href="{{ .url }}" target="_blank" rel="noopener">
+            <span class="tool-mirror__name">{{ .name }}</span>
+            {{ with .note }}<span class="tool-mirror__note">{{ . }}</span>{{ end }}
+          </a>
+          {{ end }}
+        </div>
       </div>
+      {{ end }}
+
+      <div class="tool-download__alt">
+        <a class="tool-btn tool-btn--ghost" href="{{ $t.releasesurl }}" target="_blank" rel="noopener">查看全部版本</a>
+        <a class="tool-btn tool-btn--ghost" href="{{ $t.repourl }}" target="_blank" rel="noopener">浏览源码</a>
+      </div>
+
+      <dl class="tool-meta">
+        <div class="tool-meta__cell">
+          <dt>版本</dt>
+          <dd class="js-version">v{{ $t.version }}</dd>
+        </div>
+        <div class="tool-meta__cell">
+          <dt>发布日期</dt>
+          <dd><time id="tool-date" datetime="{{ $t.releasedate }}">{{ $t.releasedate }}</time></dd>
+        </div>
+        <div class="tool-meta__cell">
+          <dt>文件大小</dt>
+          <dd id="tool-size">{{ $t.filesize }}</dd>
+        </div>
+        <div class="tool-meta__cell">
+          <dt>支持系统</dt>
+          <dd>{{ $t.platform }}</dd>
+        </div>
+      </dl>
     </div>
-    {{ end }}
-
-    <div class="tool-download__alt">
-      <a class="tool-btn tool-btn--ghost" href="{{ $t.releasesurl }}" target="_blank" rel="noopener">查看全部版本</a>
-      <a class="tool-btn tool-btn--ghost" href="{{ $t.repourl }}" target="_blank" rel="noopener">浏览源码</a>
-    </div>
-
-    <dl class="tool-meta">
-      <div class="tool-meta__cell">
-        <dt>版本</dt>
-        <dd class="js-version">v{{ $t.version }}</dd>
-      </div>
-      <div class="tool-meta__cell">
-        <dt>发布日期</dt>
-        <dd><time id="tool-date" datetime="{{ $t.releasedate }}">{{ $t.releasedate }}</time></dd>
-      </div>
-      <div class="tool-meta__cell">
-        <dt>文件大小</dt>
-        <dd id="tool-size">{{ $t.filesize }}</dd>
-      </div>
-      <div class="tool-meta__cell">
-        <dt>支持系统</dt>
-        <dd>{{ $t.platform }}</dd>
-      </div>
-    </dl>
   </section>
 
   <!-- ============ 未签名说明 ============ -->
@@ -179,21 +214,6 @@
     </ol>
     <p class="tool-footnote">进阶用法：引擎支持只读预检，可在不修改任何设置的前提下检查环境，命令为 <code>toolkit.ps1 -Validate</code>。</p>
   </section>
-
-  {{ with .Params.screenshots }}
-  <!-- ============ 界面预览 ============ -->
-  <section class="tool-section">
-    <h2 class="posts-stream__title">界面预览</h2>
-    <div class="tool-shots">
-      {{ range . }}
-      <figure class="tool-shot">
-        <img class="tool-shot__img" src="{{ .src }}" alt="{{ .caption }}" loading="lazy">
-        {{ with .caption }}<figcaption class="tool-shot__cap">{{ . }}</figcaption>{{ end }}
-      </figure>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
 
   <!-- ============ 开源与声明 ============ -->
   <section class="tool-section tool-section--last">
@@ -383,9 +403,7 @@ body.page-internal.dark-mode #tools-page {
 
 /* ---- 下载区 ---- */
 #tools-page .tool-download {
-  max-width: 580px;
-  margin: 0 auto;
-  padding: 30px 26px 22px;
+  padding: 28px 30px 24px;
   text-align: center;
   background: var(--tp-panel) !important;
   border: 1px solid var(--tp-border) !important;
@@ -409,6 +427,7 @@ body.page-internal.dark-mode #tools-page {
 
 #tools-page .tool-btn--primary {
   width: 100%;
+  max-width: 460px;
   padding: 14px 28px;
   border: 1px solid var(--tp-accent) !important;
   border-radius: 10px;
@@ -613,6 +632,11 @@ body.page-internal.dark-mode #tools-page {
   margin-top: 46px;
 }
 
+/* 产品预览紧跟产品头图，间距收紧 */
+#tools-page .tool-section--preview {
+  margin-top: 20px;
+}
+
 #tools-page .tool-section--last {
   padding-bottom: 8px;
 }
@@ -775,34 +799,118 @@ body.page-internal.dark-mode #tools-page {
   color: var(--tp-muted) !important;
 }
 
-/* ---- 界面预览 ---- */
-#tools-page .tool-shots {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+/* ---- 产品预览轮播 ---- */
+#tools-page .tool-carousel {
   margin-top: 6px;
+  border: 1px solid var(--tp-border) !important;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--tp-panel) !important;
 }
 
-#tools-page .tool-shot {
-  margin: 0;
-  background: var(--tp-panel) !important;
-  border: 1px solid var(--tp-border) !important;
-  border-radius: 12px;
+#tools-page .tool-carousel__viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
-#tools-page .tool-shot__img {
-  display: block;
-  width: 100%;
-  height: auto;
+#tools-page .tool-carousel__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#tools-page .tool-shot__cap {
-  padding: 9px 14px;
-  font-size: 0.8rem !important;
-  font-weight: 500 !important;
+#tools-page .tool-carousel__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 宣传图 2:1、截图 1.64:1，统一用 contain 放进 16:9 画框，不裁切内容 */
+#tools-page .tool-carousel__img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+#tools-page .tool-carousel__nav {
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--tp-border) !important;
+  border-radius: 50%;
+  background: var(--tp-panel) !important;
+  color: var(--tp-text) !important;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  z-index: 2;
+}
+
+#tools-page .tool-carousel__nav:hover {
+  opacity: 1;
+  border-color: var(--tp-accent) !important;
+  color: var(--tp-accent) !important;
+}
+
+#tools-page .tool-carousel__nav--prev { left: 10px; }
+#tools-page .tool-carousel__nav--next { right: 10px; }
+
+#tools-page .tool-carousel__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 18px 14px;
+  border-top: 1px solid var(--tp-divider);
+}
+
+#tools-page .tool-carousel__cap {
+  flex: 1;
+  margin: 0;
+  font-size: 0.83rem !important;
+  font-weight: 400 !important;
+  line-height: 1.7;
   color: var(--tp-muted) !important;
-  text-align: center;
+}
+
+#tools-page .tool-carousel__dots {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 7px;
+}
+
+#tools-page .tool-carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none !important;
+  border-radius: 50%;
+  background: var(--tp-border) !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#tools-page .tool-carousel__dot.is-active {
+  background: var(--tp-accent) !important;
+  transform: scale(1.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #tools-page .tool-carousel__track { transition: none !important; }
 }
 
 /* ---- 末尾 CTA ---- */
@@ -822,8 +930,7 @@ body.page-internal.dark-mode #tools-page {
   #tools-page .tool-hero__icon { width: 80px; height: 80px; border-radius: 18px; }
   #tools-page .tool-download { padding: 24px 18px 18px; }
   #tools-page .tool-grid,
-  #tools-page .tool-split,
-  #tools-page .tool-shots { grid-template-columns: 1fr; }
+  #tools-page .tool-split { grid-template-columns: 1fr; }
   #tools-page .tool-req__row { flex-direction: column; gap: 4px; }
   #tools-page .tool-req dt { flex: none; }
   #tools-page .tool-cta-final .tool-btn--primary { width: 100%; min-width: 0; }
@@ -835,6 +942,16 @@ body.page-internal.dark-mode #tools-page {
   #tools-page .tool-notice { padding: 16px 16px; }
   #tools-page .tool-section { margin-top: 38px; }
   #tools-page .tool-mirrors__list { grid-template-columns: 1fr; }
+  #tools-page .tool-carousel__bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 11px 14px 13px;
+  }
+  #tools-page .tool-carousel__dots { align-self: center; }
+  #tools-page .tool-carousel__nav { width: 30px; height: 30px; margin-top: -15px; }
+  #tools-page .tool-carousel__nav--prev { left: 6px; }
+  #tools-page .tool-carousel__nav--next { right: 6px; }
 }
 </style>
 
@@ -924,6 +1041,106 @@ body.page-internal.dark-mode #tools-page {
     .catch(function () {
       /* 网络不可用或请求被拦截：保持服务端渲染内容 */
     });
+})();
+
+/* 产品预览轮播：
+   自动播放（5 秒），支持左右按钮、指示点与触屏滑动；
+   鼠标悬停、键盘聚焦、标签页切到后台时暂停；
+   系统开启「减少动态效果」时只保留手动切换，不自动播放。 */
+(function () {
+  var root = document.getElementById("tool-carousel");
+  if (!root) return;
+
+  var track = document.getElementById("tool-carousel-track");
+  var capEl = document.getElementById("tool-carousel-cap");
+  var slides = Array.prototype.slice.call(track.querySelectorAll(".tool-carousel__slide"));
+  var dots = Array.prototype.slice.call(root.querySelectorAll(".tool-carousel__dot"));
+  if (slides.length < 2) return;
+
+  var INTERVAL = 5000;
+  var index = 0;
+  var timer = null;
+  var reduceMotion =
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function render() {
+    track.style.transform = "translateX(" + -index * 100 + "%)";
+    for (var i = 0; i < slides.length; i++) {
+      if (i === index) slides[i].removeAttribute("aria-hidden");
+      else slides[i].setAttribute("aria-hidden", "true");
+    }
+    for (var j = 0; j < dots.length; j++) {
+      if (j === index) dots[j].classList.add("is-active");
+      else dots[j].classList.remove("is-active");
+    }
+    if (capEl) {
+      var text = slides[index].getAttribute("data-caption");
+      if (text) capEl.textContent = text;
+    }
+  }
+
+  function go(target) {
+    index = (target + slides.length) % slides.length;
+    render();
+  }
+
+  function start() {
+    if (reduceMotion || timer || slides.length < 2) return;
+    timer = window.setInterval(function () {
+      go(index + 1);
+    }, INTERVAL);
+  }
+
+  function stop() {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function restart() {
+    stop();
+    start();
+  }
+
+  var prev = root.querySelector(".tool-carousel__nav--prev");
+  var next = root.querySelector(".tool-carousel__nav--next");
+  if (prev) prev.addEventListener("click", function () { go(index - 1); restart(); });
+  if (next) next.addEventListener("click", function () { go(index + 1); restart(); });
+
+  dots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      go(parseInt(dot.getAttribute("data-index"), 10) || 0);
+      restart();
+    });
+  });
+
+  root.addEventListener("mouseenter", stop);
+  root.addEventListener("mouseleave", start);
+  root.addEventListener("focusin", stop);
+  root.addEventListener("focusout", start);
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) stop();
+    else start();
+  });
+
+  /* 触屏滑动 */
+  var startX = null;
+  root.addEventListener("touchstart", function (e) {
+    startX = e.touches && e.touches.length === 1 ? e.touches[0].clientX : null;
+  }, { passive: true });
+  root.addEventListener("touchend", function (e) {
+    if (startX === null || !e.changedTouches || e.changedTouches.length !== 1) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    startX = null;
+    if (Math.abs(dx) < 40) return;
+    go(dx < 0 ? index + 1 : index - 1);
+    restart();
+  }, { passive: true });
+
+  render();
+  start();
 })();
 </script>
 {{ end }}

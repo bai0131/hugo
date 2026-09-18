@@ -22,12 +22,18 @@ tool:
     - name: "夸克网盘"
       url: "https://pan.quark.cn/s/90d2362a780a?pwd=2SWC"
       note: "提取码 2SWC"
-# 界面截图：把 PNG 放进 static/img/ 后，按下面格式填写，页面会自动渲染截图区；
-# 留空则整个「界面预览」区块不显示。
-# screenshots:
-#   - src: "/img/tools-modules.png"
-#     caption: "模块列表"
-#   - src: "/img/tools-customize.png"
-#     caption: "外观自定义"
-screenshots: []
+  # 产品宣传图（页面内自动轮播）：增删条目即可，留空则整个区块不显示
+  gallery:
+    - src: "/img/tools/promo-light.png"
+      alt: "给 Windows 做优化，每改一处都记下原值"
+      caption: "概览 · 99 个优化模块、12 个功能分类、9 个配置预设，每一项改动都可回滚"
+    - src: "/img/tools/promo-customize.png"
+      alt: "外观、手感、系统功能，逐项开关"
+      caption: "系统自定义 · 外观、手感与系统功能逐项开关，可随时还原"
+    - src: "/img/tools/shot-modules.png"
+      alt: "优化模块界面截图，按分类浏览模块并显示风险等级"
+      caption: "优化模块 · 按分类浏览、按风险与状态筛选，批量应用前自动创建还原点"
+    - src: "/img/tools/shot-customize.png"
+      alt: "系统自定义界面截图，展示任务栏各项开关与状态"
+      caption: "任务栏与系统开关 · 每项都标注当前状态，并说明是否需要重启生效"
 ---
